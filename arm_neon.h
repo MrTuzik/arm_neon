@@ -44,17 +44,17 @@ extern "C" {
 // ARM Advanced SIMD 64bit type
 //
 
-typedef union __n64
+typedef __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) union __n64
 {
-    unsigned int64    n64_u64[1]  __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    unsigned int32    n64_u32[2]  __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    unsigned int16    n64_u16[4]  __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    unsigned int8     n64_u8[8]  __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    int64             n64_i64[1] __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    int32             n64_i32[2] __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    int16             n64_i16[4] __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    int8              n64_i8[8] __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
-    float               n64_f32[2] __attribute__((intrin_type)) _ADVSIMD_ALIGN(8);
+    unsigned int64    __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_u64[1];
+    unsigned int32    __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_u32[2];
+    unsigned int16    __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_u16[4];
+    unsigned int8     __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_u8[8];
+    int64             __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_i64[1];
+    int32             __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_i32[2];
+    int16             __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_i16[4];
+    int8              __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_i8[8];
+    float               __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n64_f32[2];
 } __n64;
 
 
@@ -64,15 +64,15 @@ typedef union __n64
 //
 typedef __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) union __n128
 {
-     unsigned int64   n128_u64[2];
-     unsigned int32   n128_u32[4];
-     unsigned int16   n128_u16[8];
-     unsigned int8    n128_u8[16];
-     int64            n128_i64[2];
-     int32            n128_i32[4];
-     int16            n128_i16[8];
-     int8             n128_i8[16];
-     float              n128_f32[4];
+     unsigned int64   __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_u64[2];
+     unsigned int32   __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_u32[4];
+     unsigned int16   __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_u16[8];
+     unsigned int8    __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_u8[16];
+     int64            __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_i64[2];
+     int32            __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_i32[4];
+     int16            __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_i16[8];
+     int8             __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_i8[16];
+     float              __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) n128_f32[4];
 
     struct
     {
