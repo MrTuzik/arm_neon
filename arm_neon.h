@@ -13,6 +13,8 @@
 #include <stdint.h>
 #include <sal.h>
 
+#define _M_ARM
+
 #if !defined (_M_ARM)
 #error This header is specific to ARM targets
 #endif  /* !defined (_M_ARM) */
@@ -29,7 +31,7 @@ extern "C" {
 #if defined (__midl)
 #define _ADVSIMD_ALIGN(x)
 #else  /* defined (__midl) */
-#define _ADVSIMD_ALIGN(x) __declspec(align(x))
+#define _ADVSIMD_ALIGN(x) __attribute__((align(x)))
 #endif  /* defined (__midl) */
 #endif  /* !defined (_ADVSIMD_ALIGN) */
 
@@ -41,16 +43,16 @@ extern "C" {
 //
 // ARM Advanced SIMD 64bit type
 //
-typedef union __declspec(intrin_type) _ADVSIMD_ALIGN(8) __n64
+typedef union __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) __n64
 {
-    unsigned __int64    n64_u64[1];
-    unsigned __int32    n64_u32[2];
-    unsigned __int16    n64_u16[4];
-    unsigned __int8     n64_u8[8];
-    __int64             n64_i64[1];
-    __int32             n64_i32[2];
-    __int16             n64_i16[4];
-    __int8              n64_i8[8];
+    unsigned int64    n64_u64[1];
+    unsigned int32    n64_u32[2];
+    unsigned int16    n64_u16[4];
+    unsigned int8     n64_u8[8];
+    int64             n64_i64[1];
+    int32             n64_i32[2];
+    int16             n64_i16[4];
+    int8              n64_i8[8];
     float               n64_f32[2];
 } __n64;
 
@@ -59,16 +61,16 @@ typedef union __declspec(intrin_type) _ADVSIMD_ALIGN(8) __n64
 //
 // ARM Advanced SIMD 128bit type
 //
-typedef union __declspec(intrin_type) _ADVSIMD_ALIGN(8) __n128
+typedef union __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) __n128
 {
-     unsigned __int64   n128_u64[2];
-     unsigned __int32   n128_u32[4];
-     unsigned __int16   n128_u16[8];
-     unsigned __int8    n128_u8[16];
-     __int64            n128_i64[2];
-     __int32            n128_i32[4];
-     __int16            n128_i16[8];
-     __int8             n128_i8[16];
+     unsigned int64   n128_u64[2];
+     unsigned int32   n128_u32[4];
+     unsigned int16   n128_u16[8];
+     unsigned int8    n128_u8[16];
+     int64            n128_i64[2];
+     int32            n128_i32[4];
+     int16            n128_i16[8];
+     int8             n128_i8[16];
      float              n128_f32[4];
 
     struct
@@ -111,8 +113,8 @@ typedef struct __n128x4
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-typedef unsigned __int8  poly8_t;
-typedef unsigned __int16 poly16_t;
+typedef unsigned int8  poly8_t;
+typedef unsigned int16 poly16_t;
 
 typedef float float32_t;
 
@@ -341,8 +343,8 @@ __n128 __neon_QdRt(unsigned int _Enc, int);
 __n128 __neon_QdRtRt2_acc(unsigned int _Enc, __n128, __int64);
 __n128 __neon_QdRtRt2_dup(unsigned int _Enc, __int64);
 __n128 __neon_QdRt_acc(unsigned int _Enc, __n128, int);
-__int64 __neon_RtRt2Dm(unsigned int _Enc, __n64);
-__int64 __neon_RtRt2Qm(unsigned int _Enc, __n128);
+int64 __neon_RtRt2Dm(unsigned int _Enc, __n64);
+int64 __neon_RtRt2Qm(unsigned int _Enc, __n128);
 int __neon_RtDn(unsigned int _Enc, __n64);
 int __neon_RtQn(unsigned int _Enc, __n128);
 void __neon_AdrD1(unsigned int _Enc, _Out_writes_bytes_(_Inexpressible_(_Enc)) __n64*, __n64);
