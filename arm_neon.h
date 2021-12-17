@@ -11,7 +11,6 @@
 #pragma once
 
 #include <stdint.h>
-#include <sal.h>
 
 #define _M_ARM
 
@@ -212,3 +211,7 @@ typedef __n128   uint64x2_t;
 typedef __n128x2 uint64x2x2_t;
 typedef __n128x3 uint64x2x3_t;
 typedef __n128x4 uint64x2x4_t;
+
+#if defined (__cplusplus)
+}
+#endif  /* defined (__cplusplus) */
