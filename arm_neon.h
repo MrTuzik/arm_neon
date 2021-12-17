@@ -11,7 +11,7 @@
 #pragma once
 
 #include <stdint.h>
-//#include <sal.h>
+#include <sal.h>
 
 #define _M_ARM
 #if !defined (_M_ARM)
@@ -26,13 +26,6 @@ extern "C" {
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-#if !defined (_ADVSIMD_ALIGN)
-#if defined (__midl)
-#define _ADVSIMD_ALIGN(x)
-#else  /* defined (__midl) */
-#define _ADVSIMD_ALIGN(x) __attribute__((align(x))
-#endif  /* defined (__midl) */
-#endif  /* !defined (_ADVSIMD_ALIGN) */
 
 #ifndef DUMMYNEONSTRUCT
 #define DUMMYNEONSTRUCT s
@@ -42,7 +35,7 @@ extern "C" {
 //
 // ARM Advanced SIMD 64bit type
 //
-typedef union __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) __n64
+typedef union __n64
 {
     uint64_t            n64_u64[1];
     uint32_t            n64_u32[2];
@@ -60,7 +53,7 @@ typedef union __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) __n64
 //
 // ARM Advanced SIMD 128bit type
 //
-typedef union __attribute__((intrin_type)) _ADVSIMD_ALIGN(8) __n128
+typedef union __n128
 {
      uint64_t           n128_u64[2];
      uint32_t           n128_u32[4];
