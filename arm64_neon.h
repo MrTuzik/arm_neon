@@ -288,18 +288,18 @@ typedef __n64x4 float16x4x4_t;
 // prototypes
 
 // DUP - register (core register to Neon register)
-__n64  neon_dupr8(int32_t) {}
-__n64  neon_dupr16(int32_t) {}
-__n64  neon_dupr32(int32_t) {}
-__n64  neon_duprf32(float) {}
-__n64  neon_dupr64(int64_t) {}
-__n64  neon_duprf64(double) {}
-__n128 neon_dupqr8(int32_t) {}
-__n128 neon_dupqr16(int32_t) {}
-__n128 neon_dupqr32(int32_t) {}
-__n128 neon_dupqr64(int64_t) {}
-__n128 neon_dupqrf32(float) {}
-__n128 neon_dupqrf64(double) {}
+__n64  neon_dupr8(int32_t);
+__n64  neon_dupr16(int32_t);
+__n64  neon_dupr32(int32_t);
+__n64  neon_duprf32(float);
+__n64  neon_dupr64(int64_t);
+__n64  neon_duprf64(double);
+__n128 neon_dupqr8(int32_t);
+__n128 neon_dupqr16(int32_t);
+__n128 neon_dupqr32(int32_t);
+__n128 neon_dupqr64(int64_t);
+__n128 neon_dupqrf32(float);
+__n128 neon_dupqrf64(double);
 #define vdup_n_f32(reg)       neon_duprf32(reg)
 #define vdup_n_p16(reg)       neon_dupr16(reg)
 #define vdup_n_p8(reg)        neon_dupr8(reg)
@@ -346,20 +346,20 @@ __n128 neon_dupqrf64(double) {}
 #define vmovq_n_u8(reg)       neon_dupqr8(reg)
 
 // DUP - element  (vector element into vector)
-__n64  neon_dupe8(__n64, const int32_t) {}
-__n64  neon_dupe16(__n64, const int32_t) {}
-__n64  neon_dupe32(__n64, const int32_t) {}
-__n64  neon_dupe8q(__n128, const int32_t) {}
-__n64  neon_dupe16q(__n128, const int32_t) {}
-__n64  neon_dupe32q(__n128, const int32_t) {}
-__n128  neon_dupqe8(__n64, const int32_t) {}
-__n128  neon_dupqe16(__n64, const int32_t) {}
-__n128  neon_dupqe32(__n64, const int32_t) {}
-__n128  neon_dupqe64(__n64, const int32_t) {}
-__n128  neon_dupqe8q(__n128, const int32_t) {}
-__n128  neon_dupqe16q(__n128, const int32_t) {}
-__n128  neon_dupqe32q(__n128, const int32_t) {}
-__n128  neon_dupqe64q(__n128, const int32_t) {}
+__n64  neon_dupe8(__n64, const int32_t);
+__n64  neon_dupe16(__n64, const int32_t);
+__n64  neon_dupe32(__n64, const int32_t);
+__n64  neon_dupe8q(__n128, const int32_t);
+__n64  neon_dupe16q(__n128, const int32_t);
+__n64  neon_dupe32q(__n128, const int32_t);
+__n128  neon_dupqe8(__n64, const int32_t);
+__n128  neon_dupqe16(__n64, const int32_t);
+__n128  neon_dupqe32(__n64, const int32_t);
+__n128  neon_dupqe64(__n64, const int32_t);
+__n128  neon_dupqe8q(__n128, const int32_t);
+__n128  neon_dupqe16q(__n128, const int32_t);
+__n128  neon_dupqe32q(__n128, const int32_t);
+__n128  neon_dupqe64q(__n128, const int32_t);
 #define vdup_lane_f32(reg, lane)       neon_dupe32(reg, lane)
 #define vdup_lane_p16(reg, lane)       neon_dupe16(reg, lane)
 #define vdup_lane_p8(reg, lane)        neon_dupe8(reg, lane)
@@ -384,14 +384,14 @@ __n128  neon_dupqe64q(__n128, const int32_t) {}
 #define vdupq_lane_u8(reg, lane)       neon_dupqe8(reg, lane)
 
 // DUP - scalar  (vector element into scalar)
-__n8   neon_dups8 (__n64, const int32_t) {}
-__n16  neon_dups16(__n64, const int32_t) {}
-float  neon_dups32(__n64, const int32_t) {}
-__n64  neon_dups64(__n64, const int32_t) {}
-__n8   neon_dups8q (__n128, const int32_t) {}
-__n16  neon_dups16q(__n128, const int32_t) {}
-float  neon_dups32q(__n128, const int32_t) {}
-__n64  neon_dups64q(__n128, const int32_t) {}
+__n8   neon_dups8 (__n64, const int32_t);
+__n16  neon_dups16(__n64, const int32_t);
+float  neon_dups32(__n64, const int32_t);
+__n64  neon_dups64(__n64, const int32_t);
+__n8   neon_dups8q (__n128, const int32_t);
+__n16  neon_dups16q(__n128, const int32_t);
+float  neon_dups32q(__n128, const int32_t);
+__n64  neon_dups64q(__n128, const int32_t);
 #define movs8(reg, lane)   neon_dups8(reg, lane)
 #define movs16(reg, lane)  neon_dups16(reg, lane)
 #define movs32(reg, lane)  neon_dups32(reg, lane)
@@ -409,59 +409,59 @@ __n64  neon_dups64q(__n128, const int32_t) {}
 // The only two forms are these:
 //  FMOV <Vd>.D[1], <Xn>
 //  FMOV <Xd>, <Vn>.D[1]
-__n128 fmov_top_half_core(__n128, int64_t) {}
-int64_t fmov_core_top_half(__n128) {}
+__n128 fmov_top_half_core(__n128, int64_t);
+int64_t fmov_core_top_half(__n128);
 
 // FMOV - immediate
-__n64  neon_fmovi2s(const float) {}
-__n128 neon_fmovi4s(const float) {}
-__n128 neon_fmovi2d(const float) {}
+__n64  neon_fmovi2s(const float);
+__n128 neon_fmovi4s(const float);
+__n128 neon_fmovi2d(const float);
 
 // MOVI, MVNI
-__n64 neon_movidw(const int64_t) {}          // bytemask one doubleword
-__n128 neon_moviqdw(const int64_t) {}        // bytemask per doubleword
-__n64 neon_movib(const int) {}               // per byte
-__n128 neon_moviqb(const int) {}             // per byte
-__n64 neon_movi_shift1w(const int, const int) {}   // shift ones per word
-__n128 neon_moviq_shift1w(const int, const int) {} // shift ones per word
-__n64 neon_movih(const int) {}               // per halfword
-__n128 neon_moviqh(const int) {}             // per halfword
-__n64 neon_movi_shift0h(const int, const int) {}   // shift zeroes per halfword
-__n128 neon_moviq_shift0h(const int, const int) {} // shift zeroes per halfword
-__n64 neon_moviw(const int) {}               // per word
-__n128 neon_moviqw(const int) {}             // per word
-__n64 neon_movi_shift0w(const int, const int) {}   // shift zeroes per word
-__n128 neon_moviq_shift0w(const int, const int) {} // shift zeroes per word
-__n64 neon_mvni_shift1w(const int, const int) {}   // shift ones per word
-__n128 neon_mvniq_shift1w(const int, const int) {} // shift ones per word
-__n64 neon_mvnih(const int) {}               // per halfword
-__n128 neon_mvniqh(const int) {}             // per halfword
-__n64 neon_mvni_shift0h(const int, const int) {}   // shift zeroes per halfword
-__n128 neon_mvniq_shift0h(const int, const int) {} // shift zeroes per halfword
-__n64 neon_mvniw(const int) {}               // per word
-__n128 neon_mvniqw(const int) {}             // per word
-__n64 neon_mvni_shift0w(const int, const int) {}   // shift zeroes per word
-__n128 neon_mvniq_shift0w(const int, const int) {} // shift zeroes per word
+__n64 neon_movidw(const int64_t);          // bytemask one doubleword
+__n128 neon_moviqdw(const int64_t);        // bytemask per doubleword
+__n64 neon_movib(const int);               // per byte
+__n128 neon_moviqb(const int);             // per byte
+__n64 neon_movi_shift1w(const int, const int);   // shift ones per word
+__n128 neon_moviq_shift1w(const int, const int); // shift ones per word
+__n64 neon_movih(const int);               // per halfword
+__n128 neon_moviqh(const int);             // per halfword
+__n64 neon_movi_shift0h(const int, const int);   // shift zeroes per halfword
+__n128 neon_moviq_shift0h(const int, const int); // shift zeroes per halfword
+__n64 neon_moviw(const int);               // per word
+__n128 neon_moviqw(const int);             // per word
+__n64 neon_movi_shift0w(const int, const int);   // shift zeroes per word
+__n128 neon_moviq_shift0w(const int, const int); // shift zeroes per word
+__n64 neon_mvni_shift1w(const int, const int);   // shift ones per word
+__n128 neon_mvniq_shift1w(const int, const int); // shift ones per word
+__n64 neon_mvnih(const int);               // per halfword
+__n128 neon_mvniqh(const int);             // per halfword
+__n64 neon_mvni_shift0h(const int, const int);   // shift zeroes per halfword
+__n128 neon_mvniq_shift0h(const int, const int); // shift zeroes per halfword
+__n64 neon_mvniw(const int);               // per word
+__n128 neon_mvniqw(const int);             // per word
+__n64 neon_mvni_shift0w(const int, const int);   // shift zeroes per word
+__n128 neon_mvniq_shift0w(const int, const int); // shift zeroes per word
 
 // SMOV/UMOV - (move scalar into core)
-int8_t  neon_smov8   (__n64, const int32_t) {}
-int8_t  neon_smovq8  (__n128, const int32_t) {}
-int64_t neon_smov64_8   (__n64, const int32_t) {}
-int64_t neon_smov64_q8  (__n128, const int32_t) {}
-int16_t neon_smov16  (__n64, const int32_t) {}
-int16_t neon_smovq16 (__n128, const int32_t) {}
-int64_t neon_smov64_16  (__n64, const int32_t) {}
-int64_t neon_smov64_q16 (__n128, const int32_t) {}
-int64_t neon_smov64_32  (__n64, const int32_t) {}
-int64_t neon_smov64_q32 (__n128, const int32_t) {}
-uint8_t  neon_umov8   (__n64, const int32_t) {}
-uint8_t  neon_umovq8  (__n128, const int32_t) {}
-uint16_t neon_umov16  (__n64, const int32_t) {}
-uint16_t neon_umovq16 (__n128, const int32_t) {}
-uint32_t neon_umov32  (__n64, const int32_t) {}
-uint32_t neon_umovq32 (__n128, const int32_t) {}
-uint64_t neon_umov64  (__n64, const int32_t) {}
-uint64_t neon_umovq64 (__n128, const int32_t) {}
+int8_t  neon_smov8   (__n64, const int32_t);
+int8_t  neon_smovq8  (__n128, const int32_t);
+int64_t neon_smov64_8   (__n64, const int32_t);
+int64_t neon_smov64_q8  (__n128, const int32_t);
+int16_t neon_smov16  (__n64, const int32_t);
+int16_t neon_smovq16 (__n128, const int32_t);
+int64_t neon_smov64_16  (__n64, const int32_t);
+int64_t neon_smov64_q16 (__n128, const int32_t);
+int64_t neon_smov64_32  (__n64, const int32_t);
+int64_t neon_smov64_q32 (__n128, const int32_t);
+uint8_t  neon_umov8   (__n64, const int32_t);
+uint8_t  neon_umovq8  (__n128, const int32_t);
+uint16_t neon_umov16  (__n64, const int32_t);
+uint16_t neon_umovq16 (__n128, const int32_t);
+uint32_t neon_umov32  (__n64, const int32_t);
+uint32_t neon_umovq32 (__n128, const int32_t);
+uint64_t neon_umov64  (__n64, const int32_t);
+uint64_t neon_umovq64 (__n128, const int32_t);
 #define vget_lane_p8(Dm, lane)   neon_smov8(Dm, lane)
 #define vget_lane_s8(Dm, lane)   neon_smov8(Dm, lane)
 #define vget_lane_u8(Dm, lane)   neon_umov8(Dm, lane)
@@ -486,18 +486,18 @@ uint64_t neon_umovq64 (__n128, const int32_t) {}
 #define vgetq_lane_u64(Dm, lane) neon_umovq64(Dm, lane)
 
 // INS register
-__n64  neon_insr8   (__n64, const int32_t, int32_t) {}
-__n64  neon_insr16  (__n64, const int32_t, int32_t) {}
-__n64  neon_insr32  (__n64, const int32_t, int32_t) {}
-__n64  neon_insr64  (__n64, const int32_t, int64_t) {}
-__n64  neon_insrf32 (__n64, const int32_t, float) {}
-__n64  neon_insrf64 (__n64, const int32_t, double) {}
-__n128 neon_insqr8  (__n128, const int32_t, int32_t) {}
-__n128 neon_insqr16 (__n128, const int32_t, int32_t) {}
-__n128 neon_insqr32 (__n128, const int32_t, int32_t) {}
-__n128 neon_insqr64 (__n128, const int32_t, int64_t) {}
-__n128 neon_insqrf32(__n128, const int32_t, float) {}
-__n128 neon_insqrf64(__n128, const int32_t, double) {}
+__n64  neon_insr8   (__n64, const int32_t, int32_t);
+__n64  neon_insr16  (__n64, const int32_t, int32_t);
+__n64  neon_insr32  (__n64, const int32_t, int32_t);
+__n64  neon_insr64  (__n64, const int32_t, int64_t);
+__n64  neon_insrf32 (__n64, const int32_t, float);
+__n64  neon_insrf64 (__n64, const int32_t, double);
+__n128 neon_insqr8  (__n128, const int32_t, int32_t);
+__n128 neon_insqr16 (__n128, const int32_t, int32_t);
+__n128 neon_insqr32 (__n128, const int32_t, int32_t);
+__n128 neon_insqr64 (__n128, const int32_t, int64_t);
+__n128 neon_insqrf32(__n128, const int32_t, float);
+__n128 neon_insqrf64(__n128, const int32_t, double);
 #define movr8(opeqneonreg, lane, corereg)    neon_insr8(opeqneonreg, lane, corereg)
 #define movr16(opeqneonreg, lane, corereg)   neon_insr16(opeqneonreg, lane, corereg)
 #define movr32(opeqneonreg, lane, corereg)   neon_insr32(opeqneonreg, lane, corereg)
@@ -536,14 +536,14 @@ __n128 neon_insqrf64(__n128, const int32_t, double) {}
 #define vsetq_lane_u8(corereg, opeqneonreg, lane)  neon_insqr8(opeqneonreg, lane, corereg)
 
 // INS element
-__n64  neon_inse8    (__n64, const int32_t, __n64, const int32_t) {}
-__n128 neon_insqe8q  (__n128, const int32_t, __n128, const int32_t) {}
-__n64  neon_inse16   (__n64, const int32_t, __n64, const int32_t) {}
-__n128 neon_insqe16q (__n128, const int32_t, __n128, const int32_t) {}
-__n64  neon_inse32   (__n64, const int32_t, __n64, const int32_t) {}
-__n128 neon_insqe32q (__n128, const int32_t, __n128, const int32_t) {}
-__n64  neon_inse64   (__n64, const int32_t, __n64, const int32_t) {}
-__n128 neon_insqe64q (__n128, const int32_t, __n128, const int32_t) {}
+__n64  neon_inse8    (__n64, const int32_t, __n64, const int32_t);
+__n128 neon_insqe8q  (__n128, const int32_t, __n128, const int32_t);
+__n64  neon_inse16   (__n64, const int32_t, __n64, const int32_t);
+__n128 neon_insqe16q (__n128, const int32_t, __n128, const int32_t);
+__n64  neon_inse32   (__n64, const int32_t, __n64, const int32_t);
+__n128 neon_insqe32q (__n128, const int32_t, __n128, const int32_t);
+__n64  neon_inse64   (__n64, const int32_t, __n64, const int32_t);
+__n128 neon_insqe64q (__n128, const int32_t, __n128, const int32_t);
 #define move8(opeqneonreg, laneDst, neonSrc, laneSrc)    neon_inse8(opeqneoneg, laneDst, neonSrc, laneSrc)
 #define movqe8(opeqneonreg, laneDst, neonSrc, laneSrc)   neon_insqe8(opeqneoneg, laneDst, neonSrc, laneSrc)
 #define move8q(opeqneonreg, laneDst, neonSrc, laneSrc)   neon_inse8q(opeqneoneg, laneDst, neonSrc, laneSrc)
@@ -562,8 +562,8 @@ __n128 neon_insqe64q (__n128, const int32_t, __n128, const int32_t) {}
 #define movqe64q(opeqneonreg, laneDst, neonSrc, laneSrc) neon_insqe64q(opeqneoneg, laneDst, neonSrc, laneSrc)
 
 // NOT, MVN
-__n64  neon_not  (__n64) {}
-__n128 neon_notq (__n128) {}
+__n64  neon_not  (__n64);
+__n128 neon_notq (__n128);
 #define mvn(src) neon_not(src)
 #define mvnq(src) neon_notq(src)
 #define vmvn_p16(reg)  neon_not(reg)
@@ -584,28 +584,28 @@ __n128 neon_notq (__n128) {}
 #define vmvnq_u8(reg)  neon_notq(reg)
 
 // FNEG/NEG/SQNEG
-__n64 neon_fneg32(__n64) {}
-__n128 neon_fnegq32(__n128) {}
-__n128 neon_fnegq64(__n128) {}
-__n64 neon_neg8(__n64) {}
-__n128 neon_negq8(__n128) {}
-__n64 neon_neg16(__n64) {}
-__n128 neon_negq16(__n128) {}
-__n64 neon_neg32(__n64) {}
-__n128 neon_negq32(__n128) {}
-__n128 neon_negq64(__n128) {}
-__n64 neon_sqneg8(__n64) {}
-__n128 neon_sqnegq8(__n128) {}
-__n64 neon_sqneg16(__n64) {}
-__n128 neon_sqnegq16(__n128) {}
-__n64 neon_sqneg32(__n64) {}
-__n128 neon_sqnegq32(__n128) {}
-__n128 neon_sqnegq64(__n128) {}
-__n8  neon_sqnegs8(__n8) {}
-__n16 neon_sqnegs16(__n16) {}
-float neon_sqnegs32(float) {}
-__n64 neon_sqnegs64(__n64) {}
-__n64 neon_negs64(__n64) {}
+__n64 neon_fneg32(__n64);
+__n128 neon_fnegq32(__n128);
+__n128 neon_fnegq64(__n128);
+__n64 neon_neg8(__n64);
+__n128 neon_negq8(__n128);
+__n64 neon_neg16(__n64);
+__n128 neon_negq16(__n128);
+__n64 neon_neg32(__n64);
+__n128 neon_negq32(__n128);
+__n128 neon_negq64(__n128);
+__n64 neon_sqneg8(__n64);
+__n128 neon_sqnegq8(__n128);
+__n64 neon_sqneg16(__n64);
+__n128 neon_sqnegq16(__n128);
+__n64 neon_sqneg32(__n64);
+__n128 neon_sqnegq32(__n128);
+__n128 neon_sqnegq64(__n128);
+__n8  neon_sqnegs8(__n8);
+__n16 neon_sqnegs16(__n16);
+float neon_sqnegs32(float);
+__n64 neon_sqnegs64(__n64);
+__n64 neon_negs64(__n64);
 #define vneg_f32(reg) neon_fneg32(reg)
 #define vnegq_f32(reg) neon_fnegq32(reg)
 #define vneg_s8(reg) neon_neg8(reg)
@@ -622,28 +622,28 @@ __n64 neon_negs64(__n64) {}
 #define vqnegq_s32(reg) neon_sqnegq32(reg)
 
 // FABS/ABS/SQABS
-__n64 neon_fabs32(__n64) {}
-__n128 neon_fabsq32(__n128) {}
-__n128 neon_fabsq64(__n128) {}
-__n64 neon_abs8(__n64) {}
-__n128 neon_absq8(__n128) {}
-__n64 neon_abs16(__n64) {}
-__n128 neon_absq16(__n128) {}
-__n64 neon_abs32(__n64) {}
-__n128 neon_absq32(__n128) {}
-__n128 neon_absq64(__n128) {}
-__n64 neon_sqabs8(__n64) {}
-__n128 neon_sqabsq8(__n128) {}
-__n64 neon_sqabs16(__n64) {}
-__n128 neon_sqabsq16(__n128) {}
-__n64 neon_sqabs32(__n64) {}
-__n128 neon_sqabsq32(__n128) {}
-__n128 neon_sqabsq64(__n128) {}
-__n8  neon_sqabss8(__n8) {}
-__n16 neon_sqabss16(__n16) {}
-float neon_sqabss32(float) {}
-__n64 neon_sqabss64(__n64) {}
-__n64 neon_abss64(__n64) {}
+__n64 neon_fabs32(__n64);
+__n128 neon_fabsq32(__n128);
+__n128 neon_fabsq64(__n128);
+__n64 neon_abs8(__n64);
+__n128 neon_absq8(__n128);
+__n64 neon_abs16(__n64);
+__n128 neon_absq16(__n128);
+__n64 neon_abs32(__n64);
+__n128 neon_absq32(__n128);
+__n128 neon_absq64(__n128);
+__n64 neon_sqabs8(__n64);
+__n128 neon_sqabsq8(__n128);
+__n64 neon_sqabs16(__n64);
+__n128 neon_sqabsq16(__n128);
+__n64 neon_sqabs32(__n64);
+__n128 neon_sqabsq32(__n128);
+__n128 neon_sqabsq64(__n128);
+__n8  neon_sqabss8(__n8);
+__n16 neon_sqabss16(__n16);
+float neon_sqabss32(float);
+__n64 neon_sqabss64(__n64);
+__n64 neon_abss64(__n64);
 #define vabs_f32(reg) neon_fabs32(reg)
 #define vabsq_f32(reg) neon_fabsq32(reg)
 #define vabs_s8(reg) neon_abs8(reg)
@@ -660,61 +660,61 @@ __n64 neon_abss64(__n64) {}
 #define vqabsq_s32(reg) neon_sqabsq32(reg)
 
 // ADD, FADD, SQADD, UQADD, SUQADD, USQADD
-__n64  neon_fadd32(__n64, __n64) {}
-__n128 neon_faddq32(__n128, __n128) {}
-__n128 neon_faddq64(__n128, __n128) {}
-__n64  neon_add8(__n64, __n64) {}
-__n128 neon_addq8(__n128, __n128) {}
-__n64  neon_add16(__n64, __n64) {}
-__n128 neon_addq16(__n128, __n128) {}
-__n64  neon_add32(__n64, __n64) {}
-__n128 neon_addq32(__n128, __n128) {}
-__n128 neon_addq64(__n128, __n128) {}
-__n64  neon_sqadd8(__n64, __n64) {}
-__n128 neon_sqaddq8(__n128, __n128) {}
-__n64  neon_sqadd16(__n64, __n64) {}
-__n128 neon_sqaddq16(__n128, __n128) {}
-__n64  neon_sqadd32(__n64, __n64) {}
-__n128 neon_sqaddq32(__n128, __n128) {}
-__n128 neon_sqaddq64(__n128, __n128) {}
-__n64  neon_uqadd8(__n64, __n64) {}
-__n128 neon_uqaddq8(__n128, __n128) {}
-__n64  neon_uqadd16(__n64, __n64) {}
-__n128 neon_uqaddq16(__n128, __n128) {}
-__n64  neon_uqadd32(__n64, __n64) {}
-__n128 neon_uqaddq32(__n128, __n128) {}
-__n128 neon_uqaddq64(__n128, __n128) {}
-__n64  neon_suqadd8(__n64, __n64) {}
-__n128 neon_suqaddq8(__n128, __n128) {}
-__n64  neon_suqadd16(__n64, __n64) {}
-__n128 neon_suqaddq16(__n128, __n128) {}
-__n64  neon_suqadd32(__n64, __n64) {}
-__n128 neon_suqaddq32(__n128, __n128) {}
-__n128 neon_suqaddq64(__n128, __n128) {}
-__n64  neon_usqadd8(__n64, __n64) {}
-__n128 neon_usqaddq8(__n128, __n128) {}
-__n64  neon_usqadd16(__n64, __n64) {}
-__n128 neon_usqaddq16(__n128, __n128) {}
-__n64  neon_usqadd32(__n64, __n64) {}
-__n128 neon_usqaddq32(__n128, __n128) {}
-__n128 neon_usqaddq64(__n128, __n128) {}
-__n64 neon_adds64(__n64, __n64) {}
-__n64 neon_sqadds64(__n64, __n64) {}
-float neon_sqadds32(float, float) {}
-__n16 neon_sqadds16(__n16, __n16) {}
-__n8  neon_sqadds8(__n8, __n8) {}
-__n64 neon_uqadds64(__n64, __n64) {}
-float neon_uqadds32(float, float) {}
-__n16 neon_uqadds16(__n16, __n16) {}
-__n8  neon_uqadds8(__n8, __n8) {}
-__n8  neon_suqadds8(__n8, __n8) {}
-__n16 neon_suqadds16(__n16, __n16) {}
-float neon_suqadds32(float, float) {}
-__n64 neon_suqadds64(__n64, __n64) {}
-__n8  neon_usqadds8(__n8, __n8) {}
-__n16 neon_usqadds16(__n16, __n16) {}
-float neon_usqadds32(float, float) {}
-__n64 neon_usqadds64(__n64, __n64) {}
+__n64  neon_fadd32(__n64, __n64);
+__n128 neon_faddq32(__n128, __n128);
+__n128 neon_faddq64(__n128, __n128);
+__n64  neon_add8(__n64, __n64);
+__n128 neon_addq8(__n128, __n128);
+__n64  neon_add16(__n64, __n64);
+__n128 neon_addq16(__n128, __n128);
+__n64  neon_add32(__n64, __n64);
+__n128 neon_addq32(__n128, __n128);
+__n128 neon_addq64(__n128, __n128);
+__n64  neon_sqadd8(__n64, __n64);
+__n128 neon_sqaddq8(__n128, __n128);
+__n64  neon_sqadd16(__n64, __n64);
+__n128 neon_sqaddq16(__n128, __n128);
+__n64  neon_sqadd32(__n64, __n64);
+__n128 neon_sqaddq32(__n128, __n128);
+__n128 neon_sqaddq64(__n128, __n128);
+__n64  neon_uqadd8(__n64, __n64);
+__n128 neon_uqaddq8(__n128, __n128);
+__n64  neon_uqadd16(__n64, __n64);
+__n128 neon_uqaddq16(__n128, __n128);
+__n64  neon_uqadd32(__n64, __n64);
+__n128 neon_uqaddq32(__n128, __n128);
+__n128 neon_uqaddq64(__n128, __n128);
+__n64  neon_suqadd8(__n64, __n64);
+__n128 neon_suqaddq8(__n128, __n128);
+__n64  neon_suqadd16(__n64, __n64);
+__n128 neon_suqaddq16(__n128, __n128);
+__n64  neon_suqadd32(__n64, __n64);
+__n128 neon_suqaddq32(__n128, __n128);
+__n128 neon_suqaddq64(__n128, __n128);
+__n64  neon_usqadd8(__n64, __n64);
+__n128 neon_usqaddq8(__n128, __n128);
+__n64  neon_usqadd16(__n64, __n64);
+__n128 neon_usqaddq16(__n128, __n128);
+__n64  neon_usqadd32(__n64, __n64);
+__n128 neon_usqaddq32(__n128, __n128);
+__n128 neon_usqaddq64(__n128, __n128);
+__n64 neon_adds64(__n64, __n64);
+__n64 neon_sqadds64(__n64, __n64);
+float neon_sqadds32(float, float);
+__n16 neon_sqadds16(__n16, __n16);
+__n8  neon_sqadds8(__n8, __n8);
+__n64 neon_uqadds64(__n64, __n64);
+float neon_uqadds32(float, float);
+__n16 neon_uqadds16(__n16, __n16);
+__n8  neon_uqadds8(__n8, __n8);
+__n8  neon_suqadds8(__n8, __n8);
+__n16 neon_suqadds16(__n16, __n16);
+float neon_suqadds32(float, float);
+__n64 neon_suqadds64(__n64, __n64);
+__n8  neon_usqadds8(__n8, __n8);
+__n16 neon_usqadds16(__n16, __n16);
+float neon_usqadds32(float, float);
+__n64 neon_usqadds64(__n64, __n64);
 #define vadd_s8(src1, src2)    neon_add8(src1, src2)
 #define vadd_u8(src1, src2)    neon_add8(src1, src2)
 #define vadd_s16(src1, src2)   neon_add16(src1, src2)
@@ -752,39 +752,39 @@ __n64 neon_usqadds64(__n64, __n64) {}
 #define vqaddq_u64(src1, src2) neon_uqaddq64(src1, src2)
 
 // SUB, FSUB, SQSUB, UQSUB
-__n64  neon_fsub32(__n64, __n64) {}
-__n128 neon_fsubq32(__n128, __n128) {}
-__n128 neon_fsubq64(__n128, __n128) {}
-__n64  neon_sub8(__n64, __n64) {}
-__n128 neon_subq8(__n128, __n128) {}
-__n64  neon_sub16(__n64, __n64) {}
-__n128 neon_subq16(__n128, __n128) {}
-__n64  neon_sub32(__n64, __n64) {}
-__n128 neon_subq32(__n128, __n128) {}
-__n128 neon_subq64(__n128, __n128) {}
-__n64  neon_sqsub8(__n64, __n64) {}
-__n128 neon_sqsubq8(__n128, __n128) {}
-__n64  neon_sqsub16(__n64, __n64) {}
-__n128 neon_sqsubq16(__n128, __n128) {}
-__n64  neon_sqsub32(__n64, __n64) {}
-__n128 neon_sqsubq32(__n128, __n128) {}
-__n128 neon_sqsubq64(__n128, __n128) {}
-__n64  neon_uqsub8(__n64, __n64) {}
-__n128 neon_uqsubq8(__n128, __n128) {}
-__n64  neon_uqsub16(__n64, __n64) {}
-__n128 neon_uqsubq16(__n128, __n128) {}
-__n64  neon_uqsub32(__n64, __n64) {}
-__n128 neon_uqsubq32(__n128, __n128) {}
-__n128 neon_uqsubq64(__n128, __n128) {}
-__n64 neon_subs64(__n64, __n64) {}
-__n64 neon_sqsubs64(__n64, __n64) {}
-float neon_sqsubs32(float, float) {}
-__n16 neon_sqsubs16(__n16, __n16) {}
-__n8  neon_sqsubs8(__n8, __n8) {}
-__n64 neon_uqsubs64(__n64, __n64) {}
-float neon_uqsubs32(float, float) {}
-__n16 neon_uqsubs16(__n16, __n16) {}
-__n8  neon_uqsubs8(__n8, __n8) {}
+__n64  neon_fsub32(__n64, __n64);
+__n128 neon_fsubq32(__n128, __n128);
+__n128 neon_fsubq64(__n128, __n128);
+__n64  neon_sub8(__n64, __n64);
+__n128 neon_subq8(__n128, __n128);
+__n64  neon_sub16(__n64, __n64);
+__n128 neon_subq16(__n128, __n128);
+__n64  neon_sub32(__n64, __n64);
+__n128 neon_subq32(__n128, __n128);
+__n128 neon_subq64(__n128, __n128);
+__n64  neon_sqsub8(__n64, __n64);
+__n128 neon_sqsubq8(__n128, __n128);
+__n64  neon_sqsub16(__n64, __n64);
+__n128 neon_sqsubq16(__n128, __n128);
+__n64  neon_sqsub32(__n64, __n64);
+__n128 neon_sqsubq32(__n128, __n128);
+__n128 neon_sqsubq64(__n128, __n128);
+__n64  neon_uqsub8(__n64, __n64);
+__n128 neon_uqsubq8(__n128, __n128);
+__n64  neon_uqsub16(__n64, __n64);
+__n128 neon_uqsubq16(__n128, __n128);
+__n64  neon_uqsub32(__n64, __n64);
+__n128 neon_uqsubq32(__n128, __n128);
+__n128 neon_uqsubq64(__n128, __n128);
+__n64 neon_subs64(__n64, __n64);
+__n64 neon_sqsubs64(__n64, __n64);
+float neon_sqsubs32(float, float);
+__n16 neon_sqsubs16(__n16, __n16);
+__n8  neon_sqsubs8(__n8, __n8);
+__n64 neon_uqsubs64(__n64, __n64);
+float neon_uqsubs32(float, float);
+__n16 neon_uqsubs16(__n16, __n16);
+__n8  neon_uqsubs8(__n8, __n8);
 #define vsub_s8(src1, src2)    neon_sub8(src1, src2)
 #define vsub_u8(src1, src2)    neon_sub8(src1, src2)
 #define vsub_s16(src1, src2)   neon_sub16(src1, src2)
@@ -821,42 +821,42 @@ __n8  neon_uqsubs8(__n8, __n8) {}
 #define vqsubq_u64(src1, src2) neon_uqsubq64(src1, src2)
 
 // SH(R)ADD, UH(R)ADD and SUB
-__n64  neon_shadd8(__n64, __n64) {}
-__n64  neon_shadd16(__n64, __n64) {}
-__n64  neon_shadd32(__n64, __n64) {}
-__n128 neon_shaddq8(__n128, __n128) {}
-__n128 neon_shaddq16(__n128, __n128) {}
-__n128 neon_shaddq32(__n128, __n128) {}
-__n64  neon_srhadd8(__n64, __n64) {}
-__n64  neon_srhadd16(__n64, __n64) {}
-__n64  neon_srhadd32(__n64, __n64) {}
-__n128 neon_srhaddq8(__n128, __n128) {}
-__n128 neon_srhaddq16(__n128, __n128) {}
-__n128 neon_srhaddq32(__n128, __n128) {}
-__n64  neon_uhadd8(__n64, __n64) {}
-__n64  neon_uhadd16(__n64, __n64) {}
-__n64  neon_uhadd32(__n64, __n64) {}
-__n128 neon_uhaddq8(__n128, __n128) {}
-__n128 neon_uhaddq16(__n128, __n128) {}
-__n128 neon_uhaddq32(__n128, __n128) {}
-__n64  neon_urhadd8(__n64, __n64) {}
-__n64  neon_urhadd16(__n64, __n64) {}
-__n64  neon_urhadd32(__n64, __n64) {}
-__n128 neon_urhaddq8(__n128, __n128) {}
-__n128 neon_urhaddq16(__n128, __n128) {}
-__n128 neon_urhaddq32(__n128, __n128) {}
-__n64  neon_shsub8(__n64, __n64) {}
-__n64  neon_shsub16(__n64, __n64) {}
-__n64  neon_shsub32(__n64, __n64) {}
-__n128 neon_shsubq8(__n128, __n128) {}
-__n128 neon_shsubq16(__n128, __n128) {}
-__n128 neon_shsubq32(__n128, __n128) {}
-__n64  neon_uhsub8(__n64, __n64) {}
-__n64  neon_uhsub16(__n64, __n64) {}
-__n64  neon_uhsub32(__n64, __n64) {}
-__n128 neon_uhsubq8(__n128, __n128) {}
-__n128 neon_uhsubq16(__n128, __n128) {}
-__n128 neon_uhsubq32(__n128, __n128) {}
+__n64  neon_shadd8(__n64, __n64);
+__n64  neon_shadd16(__n64, __n64);
+__n64  neon_shadd32(__n64, __n64);
+__n128 neon_shaddq8(__n128, __n128);
+__n128 neon_shaddq16(__n128, __n128);
+__n128 neon_shaddq32(__n128, __n128);
+__n64  neon_srhadd8(__n64, __n64);
+__n64  neon_srhadd16(__n64, __n64);
+__n64  neon_srhadd32(__n64, __n64);
+__n128 neon_srhaddq8(__n128, __n128);
+__n128 neon_srhaddq16(__n128, __n128);
+__n128 neon_srhaddq32(__n128, __n128);
+__n64  neon_uhadd8(__n64, __n64);
+__n64  neon_uhadd16(__n64, __n64);
+__n64  neon_uhadd32(__n64, __n64);
+__n128 neon_uhaddq8(__n128, __n128);
+__n128 neon_uhaddq16(__n128, __n128);
+__n128 neon_uhaddq32(__n128, __n128);
+__n64  neon_urhadd8(__n64, __n64);
+__n64  neon_urhadd16(__n64, __n64);
+__n64  neon_urhadd32(__n64, __n64);
+__n128 neon_urhaddq8(__n128, __n128);
+__n128 neon_urhaddq16(__n128, __n128);
+__n128 neon_urhaddq32(__n128, __n128);
+__n64  neon_shsub8(__n64, __n64);
+__n64  neon_shsub16(__n64, __n64);
+__n64  neon_shsub32(__n64, __n64);
+__n128 neon_shsubq8(__n128, __n128);
+__n128 neon_shsubq16(__n128, __n128);
+__n128 neon_shsubq32(__n128, __n128);
+__n64  neon_uhsub8(__n64, __n64);
+__n64  neon_uhsub16(__n64, __n64);
+__n64  neon_uhsub32(__n64, __n64);
+__n128 neon_uhsubq8(__n128, __n128);
+__n128 neon_uhsubq16(__n128, __n128);
+__n128 neon_uhsubq32(__n128, __n128);
 #define vhadd_s8(src1, src2)    neon_shadd8(src1, src2)
 #define vhadd_s16(src1, src2)   neon_shadd16(src1, src2)
 #define vhadd_s32(src1, src2)   neon_shadd32(src1, src2)
@@ -895,19 +895,19 @@ __n128 neon_uhsubq32(__n128, __n128) {}
 #define vhsubq_u32(src1, src2)  neon_uhsubq32(src1, src2)
 
 // ADDP/FADDP
-__n64  neon_addp8  (__n64, __n64) {}
-__n64  neon_addp16 (__n64, __n64) {}
-__n64  neon_addp32 (__n64, __n64) {}
-__n64  neon_addps64(__n64) {}
-__n128 neon_addpq8 (__n128, __n128) {}
-__n128 neon_addpq16(__n128, __n128) {}
-__n128 neon_addpq32(__n128, __n128) {}
-__n128 neon_addpq64(__n128, __n128) {}
-__n64  neon_faddp32(__n64, __n64) {}
-float  neon_faddps32(__n64) {}
-__n128 neon_faddpq32 (__n128, __n128) {}
-__n128 neon_faddpq64 (__n128, __n128) {}
-__n64 neon_faddpsq64(__n128) {}
+__n64  neon_addp8  (__n64, __n64);
+__n64  neon_addp16 (__n64, __n64);
+__n64  neon_addp32 (__n64, __n64);
+__n64  neon_addps64(__n64);
+__n128 neon_addpq8 (__n128, __n128);
+__n128 neon_addpq16(__n128, __n128);
+__n128 neon_addpq32(__n128, __n128);
+__n128 neon_addpq64(__n128, __n128);
+__n64  neon_faddp32(__n64, __n64);
+float  neon_faddps32(__n64);
+__n128 neon_faddpq32 (__n128, __n128);
+__n128 neon_faddpq64 (__n128, __n128);
+__n64 neon_faddpsq64(__n128);
 #define vpadd_s8(src1, src2)  neon_addp8(src1, src2)
 #define vpadd_u8(src1, src2)  neon_addp8(src1, src2)
 #define vpadd_s16(src1, src2) neon_addp16(src1, src2)
@@ -927,47 +927,47 @@ __n64 neon_faddpsq64(__n128) {}
 #define vpaddq_f64(src1, src2) neon_faddpq64(src1, src2)
 
 // ADDV/SADDLV/UADDLV
-__n8  neon_addv8(__n64) {}
-__n8  neon_addvq8(__n128) {}
-__n16 neon_addv16(__n64) {}
-__n16 neon_addvq16(__n128) {}
-float neon_addvq32(__n128) {}
-__n16 neon_saddlv8(__n64) {}
-__n16 neon_saddlvq8(__n128) {}
-float neon_saddlv16(__n64) {}
-float neon_saddlvq16(__n128) {}
-__n64 neon_saddlvq32(__n128) {}
-__n16 neon_uaddlv8(__n64) {}
-__n16 neon_uaddlvq8(__n128) {}
-float neon_uaddlv16(__n64) {}
-float neon_uaddlvq16(__n128) {}
-__n64 neon_uaddlvq32(__n128) {}
+__n8  neon_addv8(__n64);
+__n8  neon_addvq8(__n128);
+__n16 neon_addv16(__n64);
+__n16 neon_addvq16(__n128);
+float neon_addvq32(__n128);
+__n16 neon_saddlv8(__n64);
+__n16 neon_saddlvq8(__n128);
+float neon_saddlv16(__n64);
+float neon_saddlvq16(__n128);
+__n64 neon_saddlvq32(__n128);
+__n16 neon_uaddlv8(__n64);
+__n16 neon_uaddlvq8(__n128);
+float neon_uaddlv16(__n64);
+float neon_uaddlvq16(__n128);
+__n64 neon_uaddlvq32(__n128);
 
 // SADALP/UADALP/SADDLP/UADDLP
-__n64 neon_saddlp8(__n64) {}
-__n128 neon_saddlpq8(__n128) {}
-__n64 neon_saddlp16(__n64) {}
-__n128 neon_saddlpq16(__n128) {}
-__n64 neon_saddlp32(__n64) {}
-__n128 neon_saddlpq32(__n128) {}
-__n64 neon_uaddlp8(__n64) {}
-__n128 neon_uaddlpq8(__n128) {}
-__n64 neon_uaddlp16(__n64) {}
-__n128 neon_uaddlpq16(__n128) {}
-__n64 neon_uaddlp32(__n64) {}
-__n128 neon_uaddlpq32(__n128) {}
-__n64 neon_sadalp8(__n64, __n64) {}
-__n128 neon_sadalpq8(__n128, __n128) {}
-__n64 neon_sadalp16(__n64, __n64) {}
-__n128 neon_sadalpq16(__n128, __n128) {}
-__n64 neon_sadalp32(__n64, __n64) {}
-__n128 neon_sadalpq32(__n128, __n128) {}
-__n64 neon_uadalp8(__n64, __n64) {}
-__n128 neon_uadalpq8(__n128, __n128) {}
-__n64 neon_uadalp16(__n64, __n64) {}
-__n128 neon_uadalpq16(__n128, __n128) {}
-__n64 neon_uadalp32(__n64, __n64) {}
-__n128 neon_uadalpq32(__n128, __n128) {}
+__n64 neon_saddlp8(__n64);
+__n128 neon_saddlpq8(__n128);
+__n64 neon_saddlp16(__n64);
+__n128 neon_saddlpq16(__n128);
+__n64 neon_saddlp32(__n64);
+__n128 neon_saddlpq32(__n128);
+__n64 neon_uaddlp8(__n64);
+__n128 neon_uaddlpq8(__n128);
+__n64 neon_uaddlp16(__n64);
+__n128 neon_uaddlpq16(__n128);
+__n64 neon_uaddlp32(__n64);
+__n128 neon_uaddlpq32(__n128);
+__n64 neon_sadalp8(__n64, __n64);
+__n128 neon_sadalpq8(__n128, __n128);
+__n64 neon_sadalp16(__n64, __n64);
+__n128 neon_sadalpq16(__n128, __n128);
+__n64 neon_sadalp32(__n64, __n64);
+__n128 neon_sadalpq32(__n128, __n128);
+__n64 neon_uadalp8(__n64, __n64);
+__n128 neon_uadalpq8(__n128, __n128);
+__n64 neon_uadalp16(__n64, __n64);
+__n128 neon_uadalpq16(__n128, __n128);
+__n64 neon_uadalp32(__n64, __n64);
+__n128 neon_uadalpq32(__n128, __n128);
 #define vpaddl_s8(src)          neon_saddlp8(src)
 #define vpaddlq_s8(src)         neon_saddlpq8(src)
 #define vpaddl_s16(src)         neon_saddlp16(src)
@@ -994,10 +994,10 @@ __n128 neon_uadalpq32(__n128, __n128) {}
 #define vpadalq_u32(src1, src2) neon_uadalpq32(src1, src2)
 
 // AESE/AESD/AESMC/AESIMC
-__n128 neon_aese(__n128, __n128) {}
-__n128 neon_aesd(__n128, __n128) {}
-__n128 neon_aesmc(__n128) {}
-__n128 neon_aesimc(__n128) {}
+__n128 neon_aese(__n128, __n128);
+__n128 neon_aesd(__n128, __n128);
+__n128 neon_aesmc(__n128);
+__n128 neon_aesimc(__n128);
 #define aese_p8(src1, src2)   neon_aese(src1, src2)
 #define aese_s8(src1, src2)   neon_aese(src1, src2)
 #define aese_u8(src1, src2)   neon_aese(src1, src2)
@@ -1016,22 +1016,22 @@ __n128 neon_aesimc(__n128) {}
 #define vaesimcq_u8(src) neon_aesimc(src)
 
 // AND/BIC/BIF/BIT/BSL/EOR/ORN/ORR
-__n64  neon_and(__n64, __n64) {}
-__n128 neon_andq(__n128, __n128) {}
-__n64  neon_eor(__n64, __n64) {}
-__n128 neon_eorq(__n128, __n128) {}
-__n64  neon_orn(__n64, __n64) {}
-__n128 neon_ornq(__n128, __n128) {}
-__n64  neon_orr(__n64, __n64) {}
-__n128 neon_orrq(__n128, __n128) {}
-__n64  neon_bic(__n64, __n64) {}
-__n128 neon_bicq(__n128, __n128) {}
-__n64  neon_bif(__n64, __n64, __n64) {}
-__n128 neon_bifq(__n128, __n128, __n128) {}
-__n64  neon_bit(__n64, __n64, __n64) {}
-__n128 neon_bitq(__n128, __n128, __n128) {}
-__n64  neon_bsl(__n64, __n64, __n64) {}
-__n128 neon_bslq(__n128, __n128, __n128) {}
+__n64  neon_and(__n64, __n64);
+__n128 neon_andq(__n128, __n128);
+__n64  neon_eor(__n64, __n64);
+__n128 neon_eorq(__n128, __n128);
+__n64  neon_orn(__n64, __n64);
+__n128 neon_ornq(__n128, __n128);
+__n64  neon_orr(__n64, __n64);
+__n128 neon_orrq(__n128, __n128);
+__n64  neon_bic(__n64, __n64);
+__n128 neon_bicq(__n128, __n128);
+__n64  neon_bif(__n64, __n64, __n64);
+__n128 neon_bifq(__n128, __n128, __n128);
+__n64  neon_bit(__n64, __n64, __n64);
+__n128 neon_bitq(__n128, __n128, __n128);
+__n64  neon_bsl(__n64, __n64, __n64);
+__n128 neon_bslq(__n128, __n128, __n128);
 #define vand_s8(src1, src2)   neon_and(src1, src2)
 #define vand_u8(src1, src2)   neon_and(src1, src2)
 #define vand_s16(src1, src2)  neon_and(src1, src2)
@@ -1166,38 +1166,38 @@ __n128 neon_bslq(__n128, __n128, __n128) {}
 #define vbslq_f64(src1, src2, src3) neon_bslq(src1, src2, src3)
 
 // BIC/ORR immediate
-__n64  neon_bich(__n64, const int) {}
-__n64  neon_bicw(__n64, const int) {}
-__n64  neon_bic_shifth(__n64, const int, const int) {}
-__n64  neon_bic_shiftw(__n64, const int, const int) {}
-__n128 neon_bicqh(__n128, const int) {}
-__n128 neon_bicqw(__n128, const int) {}
-__n128 neon_bicq_shifth(__n128, const int, const int) {}
-__n128 neon_bicq_shiftw(__n128, const int, const int) {}
-__n64  neon_orrh(__n64, const int) {}
-__n64  neon_orrw(__n64, const int) {}
-__n64  neon_orr_shifth(__n64, const int, const int) {}
-__n64  neon_orr_shiftw(__n64, const int, const int) {}
-__n128 neon_orrqh(__n128, const int) {}
-__n128 neon_orrqw(__n128, const int) {}
-__n128 neon_orrq_shifth(__n128, const int, const int) {}
-__n128 neon_orrq_shiftw(__n128, const int, const int) {}
+__n64  neon_bich(__n64, const int);
+__n64  neon_bicw(__n64, const int);
+__n64  neon_bic_shifth(__n64, const int, const int);
+__n64  neon_bic_shiftw(__n64, const int, const int);
+__n128 neon_bicqh(__n128, const int);
+__n128 neon_bicqw(__n128, const int);
+__n128 neon_bicq_shifth(__n128, const int, const int);
+__n128 neon_bicq_shiftw(__n128, const int, const int);
+__n64  neon_orrh(__n64, const int);
+__n64  neon_orrw(__n64, const int);
+__n64  neon_orr_shifth(__n64, const int, const int);
+__n64  neon_orr_shiftw(__n64, const int, const int);
+__n128 neon_orrqh(__n128, const int);
+__n128 neon_orrqw(__n128, const int);
+__n128 neon_orrq_shifth(__n128, const int, const int);
+__n128 neon_orrq_shiftw(__n128, const int, const int);
 
 // RBIT/REV16/REV32/REV64
-__n64 neon_rbit(__n64) {}
-__n128 neon_rbitq(__n128) {}
-__n64 neon_rev16(__n64) {}
-__n128 neon_rev16q(__n128) {}
-__n64 neon_rev32_8(__n64) {}
-__n128 neon_rev32q_8(__n128) {}
-__n64 neon_rev32_16(__n64) {}
-__n128 neon_rev32q_16(__n128) {}
-__n64 neon_rev64_8(__n64) {}
-__n128 neon_rev64q_8(__n128) {}
-__n64 neon_rev64_16(__n64) {}
-__n128 neon_rev64q_16(__n128) {}
-__n64 neon_rev64_32(__n64) {}
-__n128 neon_rev64q_32(__n128) {}
+__n64 neon_rbit(__n64);
+__n128 neon_rbitq(__n128);
+__n64 neon_rev16(__n64);
+__n128 neon_rev16q(__n128);
+__n64 neon_rev32_8(__n64);
+__n128 neon_rev32q_8(__n128);
+__n64 neon_rev32_16(__n64);
+__n128 neon_rev32q_16(__n128);
+__n64 neon_rev64_8(__n64);
+__n128 neon_rev64q_8(__n128);
+__n64 neon_rev64_16(__n64);
+__n128 neon_rev64q_16(__n128);
+__n64 neon_rev64_32(__n64);
+__n128 neon_rev64q_32(__n128);
 #define vrev16_p8(src)  neon_rev16(src)
 #define vrev16_s8(src)  neon_rev16(src)
 #define vrev16_u8(src)  neon_rev16(src)
@@ -1236,20 +1236,20 @@ __n128 neon_rev64q_32(__n128) {}
 #define vrev64q_f32(src) neon_rev64q_32(src)
 
 // CNT/CLS/CLZ
-__n64  neon_cnt(__n64) {}
-__n128 neon_cntq(__n128) {}
-__n64  neon_cls8(__n64) {}
-__n128 neon_clsq8(__n128) {}
-__n64  neon_cls16(__n64) {}
-__n128 neon_clsq16(__n128) {}
-__n64  neon_cls32(__n64) {}
-__n128 neon_clsq32(__n128) {}
-__n64  neon_clz8(__n64) {}
-__n128 neon_clzq8(__n128) {}
-__n64  neon_clz16(__n64) {}
-__n128 neon_clzq16(__n128) {}
-__n64  neon_clz32(__n64) {}
-__n128 neon_clzq32(__n128) {}
+__n64  neon_cnt(__n64);
+__n128 neon_cntq(__n128);
+__n64  neon_cls8(__n64);
+__n128 neon_clsq8(__n128);
+__n64  neon_cls16(__n64);
+__n128 neon_clsq16(__n128);
+__n64  neon_cls32(__n64);
+__n128 neon_clsq32(__n128);
+__n64  neon_clz8(__n64);
+__n128 neon_clzq8(__n128);
+__n64  neon_clz16(__n64);
+__n128 neon_clzq16(__n128);
+__n64  neon_clz32(__n64);
+__n128 neon_clzq32(__n128);
 #define vcnt_p8(src) neon_cnt(src)
 #define vcnt_s8(src) neon_cnt(src)
 #define vcnt_u8(src) neon_cnt(src)
@@ -1276,58 +1276,58 @@ __n128 neon_clzq32(__n128) {}
 #define vclzq_u32(src) neon_clzq32(src)
 
 // FMAX/FMAXNM/FMAXNMP/FMAXNMV/FMAXP/FMAXV/SMAX/SMAXP/SMAXV/UMAX/UMAXP/UMAXV
-__n64 neon_fmax32(__n64, __n64) {}
-__n128 neon_fmaxq32(__n128, __n128) {}
-__n128 neon_fmaxq64(__n128, __n128) {}
-__n64 neon_fmaxnm32(__n64, __n64) {}
-__n128 neon_fmaxnmq32(__n128, __n128) {}
-__n128 neon_fmaxnmq64(__n128, __n128) {}
-__n64 neon_fmaxnmp32(__n64, __n64) {}
-__n128 neon_fmaxnmpq32(__n128, __n128) {}
-__n128 neon_fmaxnmpq64(__n128, __n128) {}
-float neon_fmaxnmps32(__n128) {}
-double neon_fmaxnmps64(__n128) {}
-float neon_fmaxnmv(__n128) {}
-__n64 neon_fmaxp32(__n64, __n64) {}
-__n128 neon_fmaxpq32(__n128, __n128) {}
-__n128 neon_fmaxpq64(__n128, __n128) {}
-float neon_fmaxps32(__n128) {}
-double neon_fmaxps64(__n128) {}
-float neon_fmaxv(__n128) {}
-__n64 neon_smax8(__n64, __n64) {}
-__n64 neon_smax16(__n64, __n64) {}
-__n64 neon_smax32(__n64, __n64) {}
-__n128 neon_smaxq8(__n128, __n128) {}
-__n128 neon_smaxq16(__n128, __n128) {}
-__n128 neon_smaxq32(__n128, __n128) {}
-__n64 neon_smaxp8(__n64, __n64) {}
-__n64 neon_smaxp16(__n64, __n64) {}
-__n64 neon_smaxp32(__n64, __n64) {}
-__n128 neon_smaxpq8(__n128, __n128) {}
-__n128 neon_smaxpq16(__n128, __n128) {}
-__n128 neon_smaxpq32(__n128, __n128) {}
-__n8 neon_smaxv8(__n64) {}
-__n8 neon_smaxvq8(__n128) {}
-__n16 neon_smaxv16(__n64) {}
-__n16 neon_smaxvq16(__n128) {}
-float neon_smaxvq32(__n128) {}
-__n64 neon_umax8(__n64, __n64) {}
-__n64 neon_umax16(__n64, __n64) {}
-__n64 neon_umax32(__n64, __n64) {}
-__n128 neon_umaxq8(__n128, __n128) {}
-__n128 neon_umaxq16(__n128, __n128) {}
-__n128 neon_umaxq32(__n128, __n128) {}
-__n64 neon_umaxp8(__n64, __n64) {}
-__n64 neon_umaxp16(__n64, __n64) {}
-__n64 neon_umaxp32(__n64, __n64) {}
-__n128 neon_umaxpq8(__n128, __n128) {}
-__n128 neon_umaxpq16(__n128, __n128) {}
-__n128 neon_umaxpq32(__n128, __n128) {}
-__n8 neon_umaxv8(__n64) {}
-__n8 neon_umaxvq8(__n128) {}
-__n16 neon_umaxv16(__n64) {}
-__n16 neon_umaxvq16(__n128) {}
-float neon_umaxvq32(__n128) {}
+__n64 neon_fmax32(__n64, __n64);
+__n128 neon_fmaxq32(__n128, __n128);
+__n128 neon_fmaxq64(__n128, __n128);
+__n64 neon_fmaxnm32(__n64, __n64);
+__n128 neon_fmaxnmq32(__n128, __n128);
+__n128 neon_fmaxnmq64(__n128, __n128);
+__n64 neon_fmaxnmp32(__n64, __n64);
+__n128 neon_fmaxnmpq32(__n128, __n128);
+__n128 neon_fmaxnmpq64(__n128, __n128);
+float neon_fmaxnmps32(__n128);
+double neon_fmaxnmps64(__n128);
+float neon_fmaxnmv(__n128);
+__n64 neon_fmaxp32(__n64, __n64);
+__n128 neon_fmaxpq32(__n128, __n128);
+__n128 neon_fmaxpq64(__n128, __n128);
+float neon_fmaxps32(__n128);
+double neon_fmaxps64(__n128);
+float neon_fmaxv(__n128);
+__n64 neon_smax8(__n64, __n64);
+__n64 neon_smax16(__n64, __n64);
+__n64 neon_smax32(__n64, __n64);
+__n128 neon_smaxq8(__n128, __n128);
+__n128 neon_smaxq16(__n128, __n128);
+__n128 neon_smaxq32(__n128, __n128);
+__n64 neon_smaxp8(__n64, __n64);
+__n64 neon_smaxp16(__n64, __n64);
+__n64 neon_smaxp32(__n64, __n64);
+__n128 neon_smaxpq8(__n128, __n128);
+__n128 neon_smaxpq16(__n128, __n128);
+__n128 neon_smaxpq32(__n128, __n128);
+__n8 neon_smaxv8(__n64);
+__n8 neon_smaxvq8(__n128);
+__n16 neon_smaxv16(__n64);
+__n16 neon_smaxvq16(__n128);
+float neon_smaxvq32(__n128);
+__n64 neon_umax8(__n64, __n64);
+__n64 neon_umax16(__n64, __n64);
+__n64 neon_umax32(__n64, __n64);
+__n128 neon_umaxq8(__n128, __n128);
+__n128 neon_umaxq16(__n128, __n128);
+__n128 neon_umaxq32(__n128, __n128);
+__n64 neon_umaxp8(__n64, __n64);
+__n64 neon_umaxp16(__n64, __n64);
+__n64 neon_umaxp32(__n64, __n64);
+__n128 neon_umaxpq8(__n128, __n128);
+__n128 neon_umaxpq16(__n128, __n128);
+__n128 neon_umaxpq32(__n128, __n128);
+__n8 neon_umaxv8(__n64);
+__n8 neon_umaxvq8(__n128);
+__n16 neon_umaxv16(__n64);
+__n16 neon_umaxvq16(__n128);
+float neon_umaxvq32(__n128);
 #define vmax_f32(src1, src2)    neon_fmax32(src1, src2)
 #define vmaxnm_f32(src1, src2)  neon_fmaxnm32(src1, src2)
 #define vmaxq_f32(src1, src2)   neon_fmaxq32(src1, src2)
@@ -1353,58 +1353,58 @@ float neon_umaxvq32(__n128) {}
 #define vpmax_u32(src1, src2) neon_umaxp32(src1, src2)
 
 // FMIN/FMINNM/FMINNMP/FMINNMV/FMINP/FMINV/SMIN/SMINP/SMINV/UMIN/UMINP/UMINV
-__n64 neon_fmin32(__n64, __n64) {}
-__n128 neon_fminq32(__n128, __n128) {}
-__n128 neon_fminq64(__n128, __n128) {}
-__n64 neon_fminnm32(__n64, __n64) {}
-__n128 neon_fminnmq32(__n128, __n128) {}
-__n128 neon_fminnmq64(__n128, __n128) {}
-__n64 neon_fminnmp32(__n64, __n64) {}
-__n128 neon_fminnmpq32(__n128, __n128) {}
-__n128 neon_fminnmpq64(__n128, __n128) {}
-float neon_fminnmps32(__n128) {}
-double neon_fminnmps64(__n128) {}
-float neon_fminnmv(__n128) {}
-__n64 neon_fminp32(__n64, __n64) {}
-__n128 neon_fminpq32(__n128, __n128) {}
-__n128 neon_fminpq64(__n128, __n128) {}
-float neon_fminps32(__n128) {}
-double neon_fminps64(__n128) {}
-float neon_fminv(__n128) {}
-__n64 neon_smin8(__n64, __n64) {}
-__n64 neon_smin16(__n64, __n64) {}
-__n64 neon_smin32(__n64, __n64) {}
-__n128 neon_sminq8(__n128, __n128) {}
-__n128 neon_sminq16(__n128, __n128) {}
-__n128 neon_sminq32(__n128, __n128) {}
-__n64 neon_sminp8(__n64, __n64) {}
-__n64 neon_sminp16(__n64, __n64) {}
-__n64 neon_sminp32(__n64, __n64) {}
-__n128 neon_sminpq8(__n128, __n128) {}
-__n128 neon_sminpq16(__n128, __n128) {}
-__n128 neon_sminpq32(__n128, __n128) {}
-__n8 neon_sminv8(__n64) {}
-__n8 neon_sminvq8(__n128) {}
-__n16 neon_sminv16(__n64) {}
-__n16 neon_sminvq16(__n128) {}
-float neon_sminvq32(__n128) {}
-__n64 neon_umin8(__n64, __n64) {}
-__n64 neon_umin16(__n64, __n64) {}
-__n64 neon_umin32(__n64, __n64) {}
-__n128 neon_uminq8(__n128, __n128) {}
-__n128 neon_uminq16(__n128, __n128) {}
-__n128 neon_uminq32(__n128, __n128) {}
-__n64 neon_uminp8(__n64, __n64) {}
-__n64 neon_uminp16(__n64, __n64) {}
-__n64 neon_uminp32(__n64, __n64) {}
-__n128 neon_uminpq8(__n128, __n128) {}
-__n128 neon_uminpq16(__n128, __n128) {}
-__n128 neon_uminpq32(__n128, __n128) {}
-__n8 neon_uminv8(__n64) {}
-__n8 neon_uminvq8(__n128) {}
-__n16 neon_uminv16(__n64) {}
-__n16 neon_uminvq16(__n128) {}
-float neon_uminvq32(__n128) {}
+__n64 neon_fmin32(__n64, __n64);
+__n128 neon_fminq32(__n128, __n128);
+__n128 neon_fminq64(__n128, __n128);
+__n64 neon_fminnm32(__n64, __n64);
+__n128 neon_fminnmq32(__n128, __n128);
+__n128 neon_fminnmq64(__n128, __n128);
+__n64 neon_fminnmp32(__n64, __n64);
+__n128 neon_fminnmpq32(__n128, __n128);
+__n128 neon_fminnmpq64(__n128, __n128);
+float neon_fminnmps32(__n128);
+double neon_fminnmps64(__n128);
+float neon_fminnmv(__n128);
+__n64 neon_fminp32(__n64, __n64);
+__n128 neon_fminpq32(__n128, __n128);
+__n128 neon_fminpq64(__n128, __n128);
+float neon_fminps32(__n128);
+double neon_fminps64(__n128);
+float neon_fminv(__n128);
+__n64 neon_smin8(__n64, __n64);
+__n64 neon_smin16(__n64, __n64);
+__n64 neon_smin32(__n64, __n64);
+__n128 neon_sminq8(__n128, __n128);
+__n128 neon_sminq16(__n128, __n128);
+__n128 neon_sminq32(__n128, __n128);
+__n64 neon_sminp8(__n64, __n64);
+__n64 neon_sminp16(__n64, __n64);
+__n64 neon_sminp32(__n64, __n64);
+__n128 neon_sminpq8(__n128, __n128);
+__n128 neon_sminpq16(__n128, __n128);
+__n128 neon_sminpq32(__n128, __n128);
+__n8 neon_sminv8(__n64);
+__n8 neon_sminvq8(__n128);
+__n16 neon_sminv16(__n64);
+__n16 neon_sminvq16(__n128);
+float neon_sminvq32(__n128);
+__n64 neon_umin8(__n64, __n64);
+__n64 neon_umin16(__n64, __n64);
+__n64 neon_umin32(__n64, __n64);
+__n128 neon_uminq8(__n128, __n128);
+__n128 neon_uminq16(__n128, __n128);
+__n128 neon_uminq32(__n128, __n128);
+__n64 neon_uminp8(__n64, __n64);
+__n64 neon_uminp16(__n64, __n64);
+__n64 neon_uminp32(__n64, __n64);
+__n128 neon_uminpq8(__n128, __n128);
+__n128 neon_uminpq16(__n128, __n128);
+__n128 neon_uminpq32(__n128, __n128);
+__n8 neon_uminv8(__n64);
+__n8 neon_uminvq8(__n128);
+__n16 neon_uminv16(__n64);
+__n16 neon_uminvq16(__n128);
+float neon_uminvq32(__n128);
 #define vmin_f32(src1, src2) neon_fmin32(src1, src2)
 #define vminnm_f32(src1, src2) neon_fminnm32(src1, src2)
 #define vminq_f32(src1, src2) neon_fminq32(src1, src2)
@@ -1430,14 +1430,14 @@ float neon_uminvq32(__n128) {}
 #define vpmin_u32(src1, src2) neon_uminp32(src1, src2)
 
 // EXT
-__n64  neon_ext8(__n64, __n64, const int) {}
-__n64  neon_ext16(__n64, __n64, const int) {}
-__n64  neon_ext32(__n64, __n64, const int) {}
-__n64  neon_ext64(__n64, __n64, const int) {}
-__n128 neon_extq8(__n128, __n128, const int) {}
-__n128 neon_extq16(__n128, __n128, const int) {}
-__n128 neon_extq32(__n128, __n128, const int) {}
-__n128 neon_extq64(__n128, __n128, const int) {}
+__n64  neon_ext8(__n64, __n64, const int);
+__n64  neon_ext16(__n64, __n64, const int);
+__n64  neon_ext32(__n64, __n64, const int);
+__n64  neon_ext64(__n64, __n64, const int);
+__n128 neon_extq8(__n128, __n128, const int);
+__n128 neon_extq16(__n128, __n128, const int);
+__n128 neon_extq32(__n128, __n128, const int);
+__n128 neon_extq64(__n128, __n128, const int);
 #define vext_s8(src1, src2, pos)  neon_ext8(src1, src2, pos)
 #define vext_u8(src1, src2, pos)  neon_ext8(src1, src2, pos)
 #define vext_s16(src1, src2, pos)  neon_ext16(src1, src2, pos)
@@ -1466,35 +1466,35 @@ __n128 neon_extq64(__n128, __n128, const int) {}
 #define vextq_f64(src1, src2, pos)  neon_extq64(src1, src2, pos)
 
 // FABD/SABD/SABA/UABD/UABA
-__n64  neon_fabd32(__n64, __n64) {}
-__n128 neon_fabdq32(__n128, __n128) {}
-__n128 neon_fabdq64(__n128, __n128) {}
-float  neon_fabds32(float, float) {}
-double neon_fabds64(double, double) {}
-__n64  neon_sabd8(__n64, __n64) {}
-__n64  neon_sabd16(__n64, __n64) {}
-__n64  neon_sabd32(__n64, __n64) {}
-__n128 neon_sabdq8(__n128, __n128) {}
-__n128 neon_sabdq16(__n128, __n128) {}
-__n128 neon_sabdq32(__n128, __n128) {}
-__n64  neon_saba8(__n64, __n64, __n64) {}
-__n64  neon_saba16(__n64, __n64, __n64) {}
-__n64  neon_saba32(__n64, __n64, __n64) {}
-__n128 neon_sabaq8(__n128, __n128, __n128) {}
-__n128 neon_sabaq16(__n128, __n128, __n128) {}
-__n128 neon_sabaq32(__n128, __n128, __n128) {}
-__n64  neon_uabd8(__n64, __n64) {}
-__n64  neon_uabd16(__n64, __n64) {}
-__n64  neon_uabd32(__n64, __n64) {}
-__n128 neon_uabdq8(__n128, __n128) {}
-__n128 neon_uabdq16(__n128, __n128) {}
-__n128 neon_uabdq32(__n128, __n128) {}
-__n64  neon_uaba8(__n64, __n64, __n64) {}
-__n64  neon_uaba16(__n64, __n64, __n64) {}
-__n64  neon_uaba32(__n64, __n64, __n64) {}
-__n128 neon_uabaq8(__n128, __n128, __n128) {}
-__n128 neon_uabaq16(__n128, __n128, __n128) {}
-__n128 neon_uabaq32(__n128, __n128, __n128) {}
+__n64  neon_fabd32(__n64, __n64);
+__n128 neon_fabdq32(__n128, __n128);
+__n128 neon_fabdq64(__n128, __n128);
+float  neon_fabds32(float, float);
+double neon_fabds64(double, double);
+__n64  neon_sabd8(__n64, __n64);
+__n64  neon_sabd16(__n64, __n64);
+__n64  neon_sabd32(__n64, __n64);
+__n128 neon_sabdq8(__n128, __n128);
+__n128 neon_sabdq16(__n128, __n128);
+__n128 neon_sabdq32(__n128, __n128);
+__n64  neon_saba8(__n64, __n64, __n64);
+__n64  neon_saba16(__n64, __n64, __n64);
+__n64  neon_saba32(__n64, __n64, __n64);
+__n128 neon_sabaq8(__n128, __n128, __n128);
+__n128 neon_sabaq16(__n128, __n128, __n128);
+__n128 neon_sabaq32(__n128, __n128, __n128);
+__n64  neon_uabd8(__n64, __n64);
+__n64  neon_uabd16(__n64, __n64);
+__n64  neon_uabd32(__n64, __n64);
+__n128 neon_uabdq8(__n128, __n128);
+__n128 neon_uabdq16(__n128, __n128);
+__n128 neon_uabdq32(__n128, __n128);
+__n64  neon_uaba8(__n64, __n64, __n64);
+__n64  neon_uaba16(__n64, __n64, __n64);
+__n64  neon_uaba32(__n64, __n64, __n64);
+__n128 neon_uabaq8(__n128, __n128, __n128);
+__n128 neon_uabaq16(__n128, __n128, __n128);
+__n128 neon_uabaq32(__n128, __n128, __n128);
 #define vabd_f32(src1, src2) neon_fabd32(src1, src2)
 #define vabds_f32(src1, src2) neon_fabds32(src1, src2)
 #define vabd_f64(src1, src2) neon_fabds64(src1, src2)
@@ -1526,29 +1526,29 @@ __n128 neon_uabaq32(__n128, __n128, __n128) {}
 #define vabaq_u32(src1, src2, src3) neon_uabaq32(src1, src2, src3)
 
 // FDIV
-__n64  neon_fdiv32(__n64, __n64) {}
-__n128 neon_fdivq32(__n128, __n128) {}
-__n128 neon_fdivq64(__n128, __n128) {}
+__n64  neon_fdiv32(__n64, __n64);
+__n128 neon_fdivq32(__n128, __n128);
+__n128 neon_fdivq64(__n128, __n128);
 #define vdiv_f32(src1, src2) neon_fdiv32(src1, src2)
 #define vdivq_f32(src1, src2) neon_fdivq32(src1, src2)
 #define vdivq_f64(src1, src2) neon_fdivq64(src1, src2)
 
 // FSQRT/FRSQRTE/URSQRTE/FRSQRTS
-__n64  neon_fsqrt32(__n64) {}
-__n128 neon_fsqrtq32(__n128) {}
-__n128 neon_fsqrtq64(__n128) {}
-__n64  neon_frsqrte32(__n64) {}
-__n128 neon_frsqrteq32(__n128) {}
-__n128 neon_frsqrteq64(__n128) {}
-float  neon_frsqrtes32(float) {}
-double neon_frsqrtes64(double) {}
-__n64  neon_ursqrte32(__n64) {}
-__n128 neon_ursqrteq32(__n128) {}
-__n64  neon_frsqrts32(__n64, __n64) {}
-__n128 neon_frsqrtsq32(__n128, __n128) {}
-__n128 neon_frsqrtsq64(__n128, __n128) {}
-float  neon_frsqrtss32(float, float) {}
-double neon_frsqrtss64(double, double) {}
+__n64  neon_fsqrt32(__n64);
+__n128 neon_fsqrtq32(__n128);
+__n128 neon_fsqrtq64(__n128);
+__n64  neon_frsqrte32(__n64);
+__n128 neon_frsqrteq32(__n128);
+__n128 neon_frsqrteq64(__n128);
+float  neon_frsqrtes32(float);
+double neon_frsqrtes64(double);
+__n64  neon_ursqrte32(__n64);
+__n128 neon_ursqrteq32(__n128);
+__n64  neon_frsqrts32(__n64, __n64);
+__n128 neon_frsqrtsq32(__n128, __n128);
+__n128 neon_frsqrtsq64(__n128, __n128);
+float  neon_frsqrtss32(float, float);
+double neon_frsqrtss64(double, double);
 #define vrsqrte_f32(src)         neon_frsqrte32(src)
 #define vrsqrte_u32(src)         neon_ursqrte32(src)
 #define vrsqrteq_f32(src)        neon_frsqrteq32(src)
@@ -1557,116 +1557,116 @@ double neon_frsqrtss64(double, double) {}
 #define vrsqrtsq_f32(src1, src2) neon_frsqrtsq32(src1, src2)
 
 // PMUL/MUL/MLA/MLS/SQDMULH/SQRDMULH/FMUL/FMLA/FMLS/FMULX
-__n64  neon_pmul(__n64, __n64) {}
-__n128 neon_pmulq(__n128, __n128) {}
-__n128 neon_pmull_8(__n64, __n64) {}
-__n128 neon_pmull_q8(__n128, __n128) {}
-__n128 neon_pmull2_8(__n128, __n128) {}
-__n128 neon_pmull_64(__n64, __n64) {}
-__n128 neon_pmull_q64(__n128, __n128) {}
-__n128 neon_pmull2_64(__n128, __n128) {}
-__n64  neon_fmulvind32 (__n64,  __n64,  const int) {}
-__n128 neon_fmulqvind32(__n128, __n64, const int) {}
-__n128 neon_fmulqvind32q(__n128, __n128, const int) {}
-__n128 neon_fmulqvind64(__n128, __n128, const int) {}
-__n64  neon_fmul32 (__n64,  __n64) {}
-__n128 neon_fmulq32(__n128, __n128) {}
-__n128 neon_fmulq64(__n128, __n128) {}
-float  neon_fmulsind32(float, __n128, const int) {}
-double neon_fmulsind64(double, __n128, const int) {}
-__n64  neon_fmlavind32 (__n64, __n64,  __n64,  const int) {}
-__n128 neon_fmlaqvind32(__n128, __n128, __n64, const int) {}
-__n128 neon_fmlaqvind32q(__n128, __n128, __n128, const int) {}
-__n128 neon_fmlaqvind64(__n128, __n128, __n128, const int) {}
-__n64  neon_fmla32 (__n64, __n64,  __n64) {}
-__n128 neon_fmlaq32(__n128, __n128, __n128) {}
-__n128 neon_fmlaq64(__n128, __n128, __n128) {}
-float  neon_fmlasind32(float,  float, __n128, const int) {}
-double neon_fmlasind64(double, double, __n128, const int) {}
-__n64  neon_fmlsvind32 (__n64,  __n64,  __n64,  const int) {}
-__n128 neon_fmlsqvind32(__n128, __n128, __n64, const int) {}
-__n128 neon_fmlsqvind32q(__n128, __n128, __n128, const int) {}
-__n128 neon_fmlsqvind64(__n128, __n128, __n128, const int) {}
-__n64  neon_fmls32 (__n64,  __n64,  __n64) {}
-__n128 neon_fmlsq32(__n128, __n128, __n128) {}
-__n128 neon_fmlsq64(__n128, __n128, __n128) {}
-float  neon_fmlssind32(float,  float, __n128, const int) {}
-double neon_fmlssind64(double, double, __n128, const int) {}
-__n64  neon_fmulxvind32 (__n64,  __n64,  const int) {}
-__n128 neon_fmulxqvind32(__n128, __n64, const int) {}
-__n128 neon_fmulxqvind32q(__n128, __n128, const int) {}
-__n128 neon_fmulxqvind64(__n128, __n128, const int) {}
-__n64  neon_fmulx32 (__n64,  __n64) {}
-__n128 neon_fmulxq32(__n128, __n128) {}
-__n128 neon_fmulxq64(__n128, __n128) {}
-float  neon_fmulxsind32(float, __n128, const int) {}
-double neon_fmulxsind64(double, __n128, const int) {}
-float  neon_fmulxs32(float,  float) {}
-double neon_fmulxs64(double, double) {}
-__n64  neon_mulvind16 (__n64,  __n64,  const int) {}
-__n64  neon_mulvind32 (__n64,  __n64,  const int) {}
-__n128 neon_mulqvind16(__n128, __n64, const int) {}
-__n128 neon_mulqvind32(__n128, __n64, const int) {}
-__n128 neon_mulqvind16q(__n128, __n128, const int) {}
-__n128 neon_mulqvind32q(__n128, __n128, const int) {}
-__n64  neon_mul8  (__n64,  __n64) {}
-__n64  neon_mul16 (__n64,  __n64) {}
-__n64  neon_mul32 (__n64,  __n64) {}
-__n128 neon_mulq8 (__n128, __n128) {}
-__n128 neon_mulq16(__n128, __n128) {}
-__n128 neon_mulq32(__n128, __n128) {}
-__n64  neon_mlsvind16 (__n64,  __n64,  __n64,  const int) {}
-__n64  neon_mlsvind32 (__n64,  __n64,  __n64,  const int) {}
-__n128 neon_mlsqvind16(__n128, __n128, __n64, const int) {}
-__n128 neon_mlsqvind32(__n128, __n128, __n64, const int) {}
-__n128 neon_mlsqvind16q(__n128, __n128, __n128, const int) {}
-__n128 neon_mlsqvind32q(__n128, __n128, __n128, const int) {}
-__n64  neon_mls8  (__n64,  __n64,  __n64) {}
-__n64  neon_mls16 (__n64,  __n64,  __n64) {}
-__n64  neon_mls32 (__n64,  __n64,  __n64) {}
-__n128 neon_mlsq8 (__n128, __n128, __n128) {}
-__n128 neon_mlsq16(__n128, __n128, __n128) {}
-__n128 neon_mlsq32(__n128, __n128, __n128) {}
-__n64  neon_mlavind16 (__n64,  __n64,  __n64,  const int) {}
-__n64  neon_mlavind32 (__n64,  __n64,  __n64,  const int) {}
-__n128 neon_mlaqvind16(__n128, __n128, __n64, const int) {}
-__n128 neon_mlaqvind32(__n128, __n128, __n64, const int) {}
-__n128 neon_mlaqvind16q(__n128, __n128, __n128, const int) {}
-__n128 neon_mlaqvind32q(__n128, __n128, __n128, const int) {}
-__n64  neon_mla8  (__n64,  __n64,  __n64) {}
-__n64  neon_mla16 (__n64,  __n64,  __n64) {}
-__n64  neon_mla32 (__n64,  __n64,  __n64) {}
-__n128 neon_mlaq8 (__n128, __n128, __n128) {}
-__n128 neon_mlaq16(__n128, __n128, __n128) {}
-__n128 neon_mlaq32(__n128, __n128, __n128) {}
-__n64  neon_sqdmulhvind16 (__n64,  __n64,  const int) {}
-__n64  neon_sqdmulhvind32 (__n64,  __n64,  const int) {}
-__n128 neon_sqdmulhqvind16(__n128, __n64, const int) {}
-__n128 neon_sqdmulhqvind32(__n128, __n64, const int) {}
-__n128 neon_sqdmulhqvind16q(__n128, __n128, const int) {}
-__n128 neon_sqdmulhqvind32q(__n128, __n128, const int) {}
-__n64  neon_sqdmulh16 (__n64,  __n64) {}
-__n64  neon_sqdmulh32 (__n64,  __n64) {}
-__n128 neon_sqdmulhq16(__n128, __n128) {}
-__n128 neon_sqdmulhq32(__n128, __n128) {}
-__n16  neon_sqdmulhsind16(__n16, __n128, const int) {}
-float  neon_sqdmulhsind32(float, __n128, const int) {}
-__n16  neon_sqdmulhs16 (__n16,  __n16) {}
-float  neon_sqdmulhs32 (float,  float) {}
-__n64  neon_sqrdmulhvind16 (__n64,  __n64,  const int) {}
-__n64  neon_sqrdmulhvind32 (__n64,  __n64,  const int) {}
-__n128 neon_sqrdmulhqvind16(__n128, __n64, const int) {}
-__n128 neon_sqrdmulhqvind32(__n128, __n64, const int) {}
-__n128 neon_sqrdmulhqvind16q(__n128, __n128, const int) {}
-__n128 neon_sqrdmulhqvind32q(__n128, __n128, const int) {}
-__n64  neon_sqrdmulh16 (__n64,  __n64) {}
-__n64  neon_sqrdmulh32 (__n64,  __n64) {}
-__n128 neon_sqrdmulhq16(__n128, __n128) {}
-__n128 neon_sqrdmulhq32(__n128, __n128) {}
-__n16  neon_sqrdmulhsind16(__n16, __n128, const int) {}
-float  neon_sqrdmulhsind32(float, __n128, const int) {}
-__n16  neon_sqrdmulhs16 (__n16,  __n16) {}
-float  neon_sqrdmulhs32 (float,  float) {}
+__n64  neon_pmul(__n64, __n64);
+__n128 neon_pmulq(__n128, __n128);
+__n128 neon_pmull_8(__n64, __n64);
+__n128 neon_pmull_q8(__n128, __n128);
+__n128 neon_pmull2_8(__n128, __n128);
+__n128 neon_pmull_64(__n64, __n64);
+__n128 neon_pmull_q64(__n128, __n128);
+__n128 neon_pmull2_64(__n128, __n128);
+__n64  neon_fmulvind32 (__n64,  __n64,  const int);
+__n128 neon_fmulqvind32(__n128, __n64, const int);
+__n128 neon_fmulqvind32q(__n128, __n128, const int);
+__n128 neon_fmulqvind64(__n128, __n128, const int);
+__n64  neon_fmul32 (__n64,  __n64);
+__n128 neon_fmulq32(__n128, __n128);
+__n128 neon_fmulq64(__n128, __n128);
+float  neon_fmulsind32(float, __n128, const int);
+double neon_fmulsind64(double, __n128, const int);
+__n64  neon_fmlavind32 (__n64, __n64,  __n64,  const int);
+__n128 neon_fmlaqvind32(__n128, __n128, __n64, const int);
+__n128 neon_fmlaqvind32q(__n128, __n128, __n128, const int);
+__n128 neon_fmlaqvind64(__n128, __n128, __n128, const int);
+__n64  neon_fmla32 (__n64, __n64,  __n64);
+__n128 neon_fmlaq32(__n128, __n128, __n128);
+__n128 neon_fmlaq64(__n128, __n128, __n128);
+float  neon_fmlasind32(float,  float, __n128, const int);
+double neon_fmlasind64(double, double, __n128, const int);
+__n64  neon_fmlsvind32 (__n64,  __n64,  __n64,  const int);
+__n128 neon_fmlsqvind32(__n128, __n128, __n64, const int);
+__n128 neon_fmlsqvind32q(__n128, __n128, __n128, const int);
+__n128 neon_fmlsqvind64(__n128, __n128, __n128, const int);
+__n64  neon_fmls32 (__n64,  __n64,  __n64);
+__n128 neon_fmlsq32(__n128, __n128, __n128);
+__n128 neon_fmlsq64(__n128, __n128, __n128);
+float  neon_fmlssind32(float,  float, __n128, const int);
+double neon_fmlssind64(double, double, __n128, const int);
+__n64  neon_fmulxvind32 (__n64,  __n64,  const int);
+__n128 neon_fmulxqvind32(__n128, __n64, const int);
+__n128 neon_fmulxqvind32q(__n128, __n128, const int);
+__n128 neon_fmulxqvind64(__n128, __n128, const int);
+__n64  neon_fmulx32 (__n64,  __n64);
+__n128 neon_fmulxq32(__n128, __n128);
+__n128 neon_fmulxq64(__n128, __n128);
+float  neon_fmulxsind32(float, __n128, const int);
+double neon_fmulxsind64(double, __n128, const int);
+float  neon_fmulxs32(float,  float);
+double neon_fmulxs64(double, double);
+__n64  neon_mulvind16 (__n64,  __n64,  const int);
+__n64  neon_mulvind32 (__n64,  __n64,  const int);
+__n128 neon_mulqvind16(__n128, __n64, const int);
+__n128 neon_mulqvind32(__n128, __n64, const int);
+__n128 neon_mulqvind16q(__n128, __n128, const int);
+__n128 neon_mulqvind32q(__n128, __n128, const int);
+__n64  neon_mul8  (__n64,  __n64);
+__n64  neon_mul16 (__n64,  __n64);
+__n64  neon_mul32 (__n64,  __n64);
+__n128 neon_mulq8 (__n128, __n128);
+__n128 neon_mulq16(__n128, __n128);
+__n128 neon_mulq32(__n128, __n128);
+__n64  neon_mlsvind16 (__n64,  __n64,  __n64,  const int);
+__n64  neon_mlsvind32 (__n64,  __n64,  __n64,  const int);
+__n128 neon_mlsqvind16(__n128, __n128, __n64, const int);
+__n128 neon_mlsqvind32(__n128, __n128, __n64, const int);
+__n128 neon_mlsqvind16q(__n128, __n128, __n128, const int);
+__n128 neon_mlsqvind32q(__n128, __n128, __n128, const int);
+__n64  neon_mls8  (__n64,  __n64,  __n64);
+__n64  neon_mls16 (__n64,  __n64,  __n64);
+__n64  neon_mls32 (__n64,  __n64,  __n64);
+__n128 neon_mlsq8 (__n128, __n128, __n128);
+__n128 neon_mlsq16(__n128, __n128, __n128);
+__n128 neon_mlsq32(__n128, __n128, __n128);
+__n64  neon_mlavind16 (__n64,  __n64,  __n64,  const int);
+__n64  neon_mlavind32 (__n64,  __n64,  __n64,  const int);
+__n128 neon_mlaqvind16(__n128, __n128, __n64, const int);
+__n128 neon_mlaqvind32(__n128, __n128, __n64, const int);
+__n128 neon_mlaqvind16q(__n128, __n128, __n128, const int);
+__n128 neon_mlaqvind32q(__n128, __n128, __n128, const int);
+__n64  neon_mla8  (__n64,  __n64,  __n64);
+__n64  neon_mla16 (__n64,  __n64,  __n64);
+__n64  neon_mla32 (__n64,  __n64,  __n64);
+__n128 neon_mlaq8 (__n128, __n128, __n128);
+__n128 neon_mlaq16(__n128, __n128, __n128);
+__n128 neon_mlaq32(__n128, __n128, __n128);
+__n64  neon_sqdmulhvind16 (__n64,  __n64,  const int);
+__n64  neon_sqdmulhvind32 (__n64,  __n64,  const int);
+__n128 neon_sqdmulhqvind16(__n128, __n64, const int);
+__n128 neon_sqdmulhqvind32(__n128, __n64, const int);
+__n128 neon_sqdmulhqvind16q(__n128, __n128, const int);
+__n128 neon_sqdmulhqvind32q(__n128, __n128, const int);
+__n64  neon_sqdmulh16 (__n64,  __n64);
+__n64  neon_sqdmulh32 (__n64,  __n64);
+__n128 neon_sqdmulhq16(__n128, __n128);
+__n128 neon_sqdmulhq32(__n128, __n128);
+__n16  neon_sqdmulhsind16(__n16, __n128, const int);
+float  neon_sqdmulhsind32(float, __n128, const int);
+__n16  neon_sqdmulhs16 (__n16,  __n16);
+float  neon_sqdmulhs32 (float,  float);
+__n64  neon_sqrdmulhvind16 (__n64,  __n64,  const int);
+__n64  neon_sqrdmulhvind32 (__n64,  __n64,  const int);
+__n128 neon_sqrdmulhqvind16(__n128, __n64, const int);
+__n128 neon_sqrdmulhqvind32(__n128, __n64, const int);
+__n128 neon_sqrdmulhqvind16q(__n128, __n128, const int);
+__n128 neon_sqrdmulhqvind32q(__n128, __n128, const int);
+__n64  neon_sqrdmulh16 (__n64,  __n64);
+__n64  neon_sqrdmulh32 (__n64,  __n64);
+__n128 neon_sqrdmulhq16(__n128, __n128);
+__n128 neon_sqrdmulhq32(__n128, __n128);
+__n16  neon_sqrdmulhsind16(__n16, __n128, const int);
+float  neon_sqrdmulhsind32(float, __n128, const int);
+__n16  neon_sqrdmulhs16 (__n16,  __n16);
+float  neon_sqrdmulhs32 (float,  float);
 #define vmul_p8(src1, src2) neon_pmul(src1, src2)
 #define vmull_p8(src1, src2) neon_pmull_8(src1, src2)
 #define vmullq_p8(src1, src2) neon_pmull_q8(src1, src2)
@@ -1879,34 +1879,34 @@ float  neon_sqrdmulhs32 (float,  float) {}
 #define vfmsq_n_f32(Vd, Vn, Rt)        vmlsq_lane_f32((Vd), (Vn), vmov_n_f32(Rt), 0)
 
 // SMULL(2)/UMULL(2)/SMLAL(2)/UMLAL(2)/SMLSL(2)/UMLSL(2)/SQDMULL(2)/SQDMLAL(2)/SQDMLSL(2)
-__n128 neon_smull_8(__n64, __n64) {}
-__n128 neon_smull_16(__n64, __n64) {}
-__n128 neon_smull_32(__n64, __n64) {}
-__n128 neon_smull2_8(__n128, __n128) {}
-__n128 neon_smull2_16(__n128, __n128) {}
-__n128 neon_smull2_32(__n128, __n128) {}
-__n128 neon_smull_i16(__n64, __n64, const int) {}
-__n128 neon_smull_i32(__n64, __n64, const int) {}
-__n128 neon_smull2_i16(__n128, __n64, const int) {}
-__n128 neon_smull2_i32(__n128, __n64, const int) {}
-__n128 neon_smull_qi16(__n64, __n128, const int) {}
-__n128 neon_smull_qi32(__n64, __n128, const int) {}
-__n128 neon_smull2_qi16(__n128, __n128, const int) {}
-__n128 neon_smull2_qi32(__n128, __n128, const int) {}
-__n128 neon_umull_8(__n64, __n64) {}
-__n128 neon_umull_16(__n64, __n64) {}
-__n128 neon_umull_32(__n64, __n64) {}
-__n128 neon_umull2_8(__n128, __n128) {}
-__n128 neon_umull2_16(__n128, __n128) {}
-__n128 neon_umull2_32(__n128, __n128) {}
-__n128 neon_umull_i16(__n64, __n64, const int) {}
-__n128 neon_umull_i32(__n64, __n64, const int) {}
-__n128 neon_umull2_i16(__n128, __n64, const int) {}
-__n128 neon_umull2_i32(__n128, __n64, const int) {}
-__n128 neon_umull_qi16(__n64, __n128, const int) {}
-__n128 neon_umull_qi32(__n64, __n128, const int) {}
-__n128 neon_umull2_qi16(__n128, __n128, const int) {}
-__n128 neon_umull2_qi32(__n128, __n128, const int) {}
+__n128 neon_smull_8(__n64, __n64);
+__n128 neon_smull_16(__n64, __n64);
+__n128 neon_smull_32(__n64, __n64);
+__n128 neon_smull2_8(__n128, __n128);
+__n128 neon_smull2_16(__n128, __n128);
+__n128 neon_smull2_32(__n128, __n128);
+__n128 neon_smull_i16(__n64, __n64, const int);
+__n128 neon_smull_i32(__n64, __n64, const int);
+__n128 neon_smull2_i16(__n128, __n64, const int);
+__n128 neon_smull2_i32(__n128, __n64, const int);
+__n128 neon_smull_qi16(__n64, __n128, const int);
+__n128 neon_smull_qi32(__n64, __n128, const int);
+__n128 neon_smull2_qi16(__n128, __n128, const int);
+__n128 neon_smull2_qi32(__n128, __n128, const int);
+__n128 neon_umull_8(__n64, __n64);
+__n128 neon_umull_16(__n64, __n64);
+__n128 neon_umull_32(__n64, __n64);
+__n128 neon_umull2_8(__n128, __n128);
+__n128 neon_umull2_16(__n128, __n128);
+__n128 neon_umull2_32(__n128, __n128);
+__n128 neon_umull_i16(__n64, __n64, const int);
+__n128 neon_umull_i32(__n64, __n64, const int);
+__n128 neon_umull2_i16(__n128, __n64, const int);
+__n128 neon_umull2_i32(__n128, __n64, const int);
+__n128 neon_umull_qi16(__n64, __n128, const int);
+__n128 neon_umull_qi32(__n64, __n128, const int);
+__n128 neon_umull2_qi16(__n128, __n128, const int);
+__n128 neon_umull2_qi32(__n128, __n128, const int);
 #define vmull_s8(src1, src2) neon_smull_8(src1, src2)
 #define vmull_s16(src1, src2) neon_smull_16(src1, src2)
 #define vmull_s32(src1, src2) neon_smull_32(src1, src2)
@@ -1943,34 +1943,34 @@ __n128 neon_umull2_qi32(__n128, __n128, const int) {}
 #define vmull_n_u32(src1, src2) vmull_lane_u32(src1, vmov_n_u32(src2), 0)
 #define vmull_high_n_u16(src1, src2) vmull_high_lane_u16(src1, vmov_n_u16(src2), 0)
 #define vmull_high_n_u32(src1, src2) vmull_high_lane_u32(src1, vmov_n_u32(src2), 0)
-__n128 neon_smlal_8(__n128, __n64, __n64) {}
-__n128 neon_smlal_16(__n128, __n64, __n64) {}
-__n128 neon_smlal_32(__n128, __n64, __n64) {}
-__n128 neon_smlal2_8(__n128, __n64, __n128) {}
-__n128 neon_smlal2_16(__n128, __n128, __n128) {}
-__n128 neon_smlal2_32(__n128, __n128, __n128) {}
-__n128 neon_smlal_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_smlal_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_smlal2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_smlal2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_smlal_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_smlal_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_smlal2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_smlal2_qi32(__n128, __n128, __n128, const int) {}
-__n128 neon_umlal_8(__n128, __n64, __n64) {}
-__n128 neon_umlal_16(__n128, __n64, __n64) {}
-__n128 neon_umlal_32(__n128, __n64, __n64) {}
-__n128 neon_umlal2_8(__n128, __n128, __n128) {}
-__n128 neon_umlal2_16(__n128, __n128, __n128) {}
-__n128 neon_umlal2_32(__n128, __n128, __n128) {}
-__n128 neon_umlal_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_umlal_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_umlal2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_umlal2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_umlal_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_umlal_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_umlal2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_umlal2_qi32(__n128, __n128, __n128, const int) {}
+__n128 neon_smlal_8(__n128, __n64, __n64);
+__n128 neon_smlal_16(__n128, __n64, __n64);
+__n128 neon_smlal_32(__n128, __n64, __n64);
+__n128 neon_smlal2_8(__n128, __n64, __n128);
+__n128 neon_smlal2_16(__n128, __n128, __n128);
+__n128 neon_smlal2_32(__n128, __n128, __n128);
+__n128 neon_smlal_i16(__n128, __n64, __n64, const int);
+__n128 neon_smlal_i32(__n128, __n64, __n64, const int);
+__n128 neon_smlal2_i16(__n128, __n128, __n64, const int);
+__n128 neon_smlal2_i32(__n128, __n128, __n64, const int);
+__n128 neon_smlal_qi16(__n128, __n64, __n128, const int);
+__n128 neon_smlal_qi32(__n128, __n64, __n128, const int);
+__n128 neon_smlal2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_smlal2_qi32(__n128, __n128, __n128, const int);
+__n128 neon_umlal_8(__n128, __n64, __n64);
+__n128 neon_umlal_16(__n128, __n64, __n64);
+__n128 neon_umlal_32(__n128, __n64, __n64);
+__n128 neon_umlal2_8(__n128, __n128, __n128);
+__n128 neon_umlal2_16(__n128, __n128, __n128);
+__n128 neon_umlal2_32(__n128, __n128, __n128);
+__n128 neon_umlal_i16(__n128, __n64, __n64, const int);
+__n128 neon_umlal_i32(__n128, __n64, __n64, const int);
+__n128 neon_umlal2_i16(__n128, __n128, __n64, const int);
+__n128 neon_umlal2_i32(__n128, __n128, __n64, const int);
+__n128 neon_umlal_qi16(__n128, __n64, __n128, const int);
+__n128 neon_umlal_qi32(__n128, __n64, __n128, const int);
+__n128 neon_umlal2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_umlal2_qi32(__n128, __n128, __n128, const int);
 #define vmlal_s8(src1, src2, src3) neon_smlal_8(src1, src2, src3)
 #define vmlal_s16(src1, src2, src3) neon_smlal_16(src1, src2, src3)
 #define vmlal_s32(src1, src2, src3) neon_smlal_32(src1, src2, src3)
@@ -2007,34 +2007,34 @@ __n128 neon_umlal2_qi32(__n128, __n128, __n128, const int) {}
 #define vmlal_n_u32(src1, src2, src3) vmlal_lane_u32(src1, src2, vmov_n_u32(src3), 0)
 #define vmlal_high_n_u16(src1, src2, src3) vmlal_high_lane_u16(src1, src2, vmov_n_u16(src3), 0)
 #define vmlal_high_n_u32(src1, src2, src3) vmlal_high_lane_u32(src1, src2, vmov_n_u32(src3), 0)
-__n128 neon_smlsl_8(__n128, __n64, __n64) {}
-__n128 neon_smlsl_16(__n128, __n64, __n64) {}
-__n128 neon_smlsl_32(__n128, __n64, __n64) {}
-__n128 neon_smlsl2_8(__n128, __n128, __n128) {}
-__n128 neon_smlsl2_16(__n128, __n128, __n128) {}
-__n128 neon_smlsl2_32(__n128, __n128, __n128) {}
-__n128 neon_smlsl_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_smlsl_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_smlsl2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_smlsl2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_smlsl_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_smlsl_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_smlsl2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_smlsl2_qi32(__n128, __n128, __n128, const int) {}
-__n128 neon_umlsl_8(__n128, __n64, __n64) {}
-__n128 neon_umlsl_16(__n128, __n64, __n64) {}
-__n128 neon_umlsl_32(__n128, __n64, __n64) {}
-__n128 neon_umlsl2_8(__n128, __n128, __n128) {}
-__n128 neon_umlsl2_16(__n128, __n128, __n128) {}
-__n128 neon_umlsl2_32(__n128, __n128, __n128) {}
-__n128 neon_umlsl_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_umlsl_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_umlsl2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_umlsl2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_umlsl_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_umlsl_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_umlsl2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_umlsl2_qi32(__n128, __n128, __n128, const int) {}
+__n128 neon_smlsl_8(__n128, __n64, __n64);
+__n128 neon_smlsl_16(__n128, __n64, __n64);
+__n128 neon_smlsl_32(__n128, __n64, __n64);
+__n128 neon_smlsl2_8(__n128, __n128, __n128);
+__n128 neon_smlsl2_16(__n128, __n128, __n128);
+__n128 neon_smlsl2_32(__n128, __n128, __n128);
+__n128 neon_smlsl_i16(__n128, __n64, __n64, const int);
+__n128 neon_smlsl_i32(__n128, __n64, __n64, const int);
+__n128 neon_smlsl2_i16(__n128, __n128, __n64, const int);
+__n128 neon_smlsl2_i32(__n128, __n128, __n64, const int);
+__n128 neon_smlsl_qi16(__n128, __n64, __n128, const int);
+__n128 neon_smlsl_qi32(__n128, __n64, __n128, const int);
+__n128 neon_smlsl2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_smlsl2_qi32(__n128, __n128, __n128, const int);
+__n128 neon_umlsl_8(__n128, __n64, __n64);
+__n128 neon_umlsl_16(__n128, __n64, __n64);
+__n128 neon_umlsl_32(__n128, __n64, __n64);
+__n128 neon_umlsl2_8(__n128, __n128, __n128);
+__n128 neon_umlsl2_16(__n128, __n128, __n128);
+__n128 neon_umlsl2_32(__n128, __n128, __n128);
+__n128 neon_umlsl_i16(__n128, __n64, __n64, const int);
+__n128 neon_umlsl_i32(__n128, __n64, __n64, const int);
+__n128 neon_umlsl2_i16(__n128, __n128, __n64, const int);
+__n128 neon_umlsl2_i32(__n128, __n128, __n64, const int);
+__n128 neon_umlsl_qi16(__n128, __n64, __n128, const int);
+__n128 neon_umlsl_qi32(__n128, __n64, __n128, const int);
+__n128 neon_umlsl2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_umlsl2_qi32(__n128, __n128, __n128, const int);
 #define vmlsl_s8(src1, src2, src3) neon_smlsl_8(src1, src2, src3)
 #define vmlsl_s16(src1, src2, src3) neon_smlsl_16(src1, src2, src3)
 #define vmlsl_s32(src1, src2, src3) neon_smlsl_32(src1, src2, src3)
@@ -2071,18 +2071,18 @@ __n128 neon_umlsl2_qi32(__n128, __n128, __n128, const int) {}
 #define vmlsl_n_u32(src1, src2, src3) vmlsl_lane_u32(src1, src2, vmov_n_u32(src3), 0)
 #define vmlsl_high_n_u16(src1, src2, src3) vmlsl_high_lane_u16(src1, src2, vmov_n_u16(src3), 0)
 #define vmlsl_high_n_u32(src1, src2, src3) vmlsl_high_lane_u32(src1, src2, vmov_n_u32(src3), 0)
-__n128 neon_sqdmull_16(__n64, __n64) {}
-__n128 neon_sqdmull_32(__n64, __n64) {}
-__n128 neon_sqdmull2_16(__n128, __n128) {}
-__n128 neon_sqdmull2_32(__n128, __n128) {}
-__n128 neon_sqdmull_i16(__n64, __n64, const int) {}
-__n128 neon_sqdmull_i32(__n64, __n64, const int) {}
-__n128 neon_sqdmull2_i16(__n128, __n64, const int) {}
-__n128 neon_sqdmull2_i32(__n128, __n64, const int) {}
-__n128 neon_sqdmull_qi16(__n64, __n128, const int) {}
-__n128 neon_sqdmull_qi32(__n64, __n128, const int) {}
-__n128 neon_sqdmull2_qi16(__n128, __n128, const int) {}
-__n128 neon_sqdmull2_qi32(__n128, __n128, const int) {}
+__n128 neon_sqdmull_16(__n64, __n64);
+__n128 neon_sqdmull_32(__n64, __n64);
+__n128 neon_sqdmull2_16(__n128, __n128);
+__n128 neon_sqdmull2_32(__n128, __n128);
+__n128 neon_sqdmull_i16(__n64, __n64, const int);
+__n128 neon_sqdmull_i32(__n64, __n64, const int);
+__n128 neon_sqdmull2_i16(__n128, __n64, const int);
+__n128 neon_sqdmull2_i32(__n128, __n64, const int);
+__n128 neon_sqdmull_qi16(__n64, __n128, const int);
+__n128 neon_sqdmull_qi32(__n64, __n128, const int);
+__n128 neon_sqdmull2_qi16(__n128, __n128, const int);
+__n128 neon_sqdmull2_qi32(__n128, __n128, const int);
 #define vqdmull_s16(src1, src2) neon_sqdmull_16(src1, src2)
 #define vqdmull_s32(src1, src2) neon_sqdmull_32(src1, src2)
 #define vqdmull_high_s16(src1, src2) neon_sqdmull2_16(src1, src2)
@@ -2099,24 +2099,24 @@ __n128 neon_sqdmull2_qi32(__n128, __n128, const int) {}
 #define vqdmull_n_s32(src1, src2) vqdmull_lane_s32(src1, vmov_n_s32(src2), 0)
 #define vqdmull_high_n_s16(src1, src2) vqdmull_high_lane_s16(src1, vmov_n_s16(src2), 0)
 #define vqdmull_high_n_s32(src1, src2) vqdmull_high_lane_s32(src1, vmov_n_s32(src2), 0)
-float neon_sqdmullh_16(__n16, __n16) {}
-__n64 neon_sqdmulls_32(float, float) {}
-float neon_sqdmullh_i16(__n16, __n64, const int) {}
-__n64 neon_sqdmulls_i32(float, __n64, const int) {}
-float neon_sqdmullh_qi16(__n16, __n128, const int) {}
-__n64 neon_sqdmulls_qi32(float, __n128, const int) {}
-__n128 neon_sqdmlal_16(__n128, __n64, __n64) {}
-__n128 neon_sqdmlal_32(__n128, __n64, __n64) {}
-__n128 neon_sqdmlal2_16(__n128, __n128, __n128) {}
-__n128 neon_sqdmlal2_32(__n128, __n128, __n128) {}
-__n128 neon_sqdmlal_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_sqdmlal_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_sqdmlal2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_sqdmlal2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_sqdmlal_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_sqdmlal_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_sqdmlal2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_sqdmlal2_qi32(__n128, __n128, __n128, const int) {}
+float neon_sqdmullh_16(__n16, __n16);
+__n64 neon_sqdmulls_32(float, float);
+float neon_sqdmullh_i16(__n16, __n64, const int);
+__n64 neon_sqdmulls_i32(float, __n64, const int);
+float neon_sqdmullh_qi16(__n16, __n128, const int);
+__n64 neon_sqdmulls_qi32(float, __n128, const int);
+__n128 neon_sqdmlal_16(__n128, __n64, __n64);
+__n128 neon_sqdmlal_32(__n128, __n64, __n64);
+__n128 neon_sqdmlal2_16(__n128, __n128, __n128);
+__n128 neon_sqdmlal2_32(__n128, __n128, __n128);
+__n128 neon_sqdmlal_i16(__n128, __n64, __n64, const int);
+__n128 neon_sqdmlal_i32(__n128, __n64, __n64, const int);
+__n128 neon_sqdmlal2_i16(__n128, __n128, __n64, const int);
+__n128 neon_sqdmlal2_i32(__n128, __n128, __n64, const int);
+__n128 neon_sqdmlal_qi16(__n128, __n64, __n128, const int);
+__n128 neon_sqdmlal_qi32(__n128, __n64, __n128, const int);
+__n128 neon_sqdmlal2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_sqdmlal2_qi32(__n128, __n128, __n128, const int);
 #define vqdmullh_s16(src1, src2) neon_sqdmullh_16(src1, src2)
 #define vqdmulls_s32(src1, src2) neon_sqdmulls_32(src1, src2)
 #define vqdmullh_lane_s16(src1, src2, src3) neon_sqdmullh_i16(src1, src2, src3)
@@ -2139,24 +2139,24 @@ __n128 neon_sqdmlal2_qi32(__n128, __n128, __n128, const int) {}
 #define vqdmlal_n_s32(src1, src2, src3) vqdmlal_lane_s32(src1, src2, vmov_n_s32(src3), 0)
 #define vqdmlal_high_n_s16(src1, src2, src3) vqdmlal_high_lane_s16(src1, src2, vmov_n_s16(src3), 0)
 #define vqdmlal_high_n_s32(src1, src2, src3) vqdmlal_high_lane_s32(src1, src2, vmov_n_s32(src3), 0)
-float  neon_sqdmlalh_16(float, __n16, __n16) {}
-__n64  neon_sqdmlals_32(__n64, float, float) {}
-float  neon_sqdmlalh_i16(float, __n16, __n64, const int) {}
-__n64  neon_sqdmlals_i32(__n64, float, __n64, const int) {}
-float  neon_sqdmlalh_qi16(float, __n16, __n128, const int) {}
-__n64  neon_sqdmlals_qi32(__n64, float, __n128, const int) {}
-__n128 neon_sqdmlsl_16(__n128, __n64, __n64) {}
-__n128 neon_sqdmlsl_32(__n128, __n64, __n64) {}
-__n128 neon_sqdmlsl2_16(__n128, __n128, __n128) {}
-__n128 neon_sqdmlsl2_32(__n128, __n128, __n128) {}
-__n128 neon_sqdmlsl_i16(__n128, __n64, __n64, const int) {}
-__n128 neon_sqdmlsl_i32(__n128, __n64, __n64, const int) {}
-__n128 neon_sqdmlsl2_i16(__n128, __n128, __n64, const int) {}
-__n128 neon_sqdmlsl2_i32(__n128, __n128, __n64, const int) {}
-__n128 neon_sqdmlsl_qi16(__n128, __n64, __n128, const int) {}
-__n128 neon_sqdmlsl_qi32(__n128, __n64, __n128, const int) {}
-__n128 neon_sqdmlsl2_qi16(__n128, __n128, __n128, const int) {}
-__n128 neon_sqdmlsl2_qi32(__n128, __n128, __n128, const int) {}
+float  neon_sqdmlalh_16(float, __n16, __n16);
+__n64  neon_sqdmlals_32(__n64, float, float);
+float  neon_sqdmlalh_i16(float, __n16, __n64, const int);
+__n64  neon_sqdmlals_i32(__n64, float, __n64, const int);
+float  neon_sqdmlalh_qi16(float, __n16, __n128, const int);
+__n64  neon_sqdmlals_qi32(__n64, float, __n128, const int);
+__n128 neon_sqdmlsl_16(__n128, __n64, __n64);
+__n128 neon_sqdmlsl_32(__n128, __n64, __n64);
+__n128 neon_sqdmlsl2_16(__n128, __n128, __n128);
+__n128 neon_sqdmlsl2_32(__n128, __n128, __n128);
+__n128 neon_sqdmlsl_i16(__n128, __n64, __n64, const int);
+__n128 neon_sqdmlsl_i32(__n128, __n64, __n64, const int);
+__n128 neon_sqdmlsl2_i16(__n128, __n128, __n64, const int);
+__n128 neon_sqdmlsl2_i32(__n128, __n128, __n64, const int);
+__n128 neon_sqdmlsl_qi16(__n128, __n64, __n128, const int);
+__n128 neon_sqdmlsl_qi32(__n128, __n64, __n128, const int);
+__n128 neon_sqdmlsl2_qi16(__n128, __n128, __n128, const int);
+__n128 neon_sqdmlsl2_qi32(__n128, __n128, __n128, const int);
 #define vqdmlalh_s16(src1, src2, src3) neon_sqdmlalh_16(src1, src2, src3)
 #define vqdmlals_s32(src1, src2, src3) neon_sqdmlals_32(src1, src2, src3)
 #define vqdmlalh_lane_s16(src1, src2, src3, src4) neon_sqdmlalh_i16(src1, src2, src3, src4)
@@ -2179,12 +2179,12 @@ __n128 neon_sqdmlsl2_qi32(__n128, __n128, __n128, const int) {}
 #define vqdmlsl_n_s32(src1, src2, src3) vqdmlsl_lane_s32(src1, src2, vmov_n_s32(src3), 0)
 #define vqdmlsl_high_n_s16(src1, src2, src3) vqdmlsl_high_lane_s16(src1, src2, vmov_n_s16(src3), 0)
 #define vqdmlsl_high_n_s32(src1, src2, src3) vqdmlsl_high_lane_s32(src1, src2, vmov_n_s32(src3), 0)
-float neon_sqdmlslh_16(float, __n16, __n16) {}
-__n64 neon_sqdmlsls_32(__n64, float, float) {}
-float neon_sqdmlslh_i16(float, __n16, __n64, const int) {}
-__n64 neon_sqdmlsls_i32(__n64, float, __n64, const int) {}
-float neon_sqdmlslh_qi16(float, __n16, __n128, const int) {}
-__n64 neon_sqdmlsls_qi32(__n64, float, __n128, const int) {}
+float neon_sqdmlslh_16(float, __n16, __n16);
+__n64 neon_sqdmlsls_32(__n64, float, float);
+float neon_sqdmlslh_i16(float, __n16, __n64, const int);
+__n64 neon_sqdmlsls_i32(__n64, float, __n64, const int);
+float neon_sqdmlslh_qi16(float, __n16, __n128, const int);
+__n64 neon_sqdmlsls_qi32(__n64, float, __n128, const int);
 #define vqdmlslh_s16(src1, src2, src3) neon_sqdmlslh_16(src1, src2, src3)
 #define vqdmlsls_s32(src1, src2, src3) neon_sqdmlsls_32(src1, src2, src3)
 #define vqdmlslh_lane_s16(src1, src2, src3, src) neon_sqdmlslh_i16(src1, src2, src3, src)
@@ -2193,144 +2193,144 @@ __n64 neon_sqdmlsls_qi32(__n64, float, __n128, const int) {}
 #define vqdmlsls_laneq_s32(src1, src2, src3, src) neon_sqdmlsls_qi32(src1, src2, src3, src)
 
 // CMEQ/CMGE/CMGT/CMHI/CMHS/CMLE/CMLT/CMTST/FACGE/FACGT/FCMEQ/FCMGE/FCMGT/FCMLE/FCMLT/
-__n64 neon_facge32(__n64, __n64) {}
-__n128 neon_facgeq32(__n128, __n128) {}
-__n128 neon_facgeq64(__n128, __n128) {}
-float neon_facges32(float, float) {}
-double neon_facges64(double, double) {}
-__n64 neon_facgt32(__n64, __n64) {}
-__n128 neon_facgtq32(__n128, __n128) {}
-__n128 neon_facgtq64(__n128, __n128) {}
-float neon_facgts32(float, float) {}
-double neon_facgts64(double, double) {}
-__n64 neon_fcmeq32(__n64, __n64) {}
-__n128 neon_fcmeqq32(__n128, __n128) {}
-__n128 neon_fcmeqq64(__n128, __n128) {}
-__n64 neon_fcmeqz32(__n64) {}
-__n128 neon_fcmeqzq32(__n128) {}
-__n128 neon_fcmeqzq64(__n128) {}
-float neon_fcmeqs32(float, float) {}
-double neon_fcmeqs64(double, double) {}
-float neon_fcmeqzs32(float) {}
-double neon_fcmeqzs64(double) {}
-__n64 neon_fcmge32(__n64, __n64) {}
-__n128 neon_fcmgeq32(__n128, __n128) {}
-__n128 neon_fcmgeq64(__n128, __n128) {}
-__n64 neon_fcmgez32(__n64) {}
-__n128 neon_fcmgezq32(__n128) {}
-__n128 neon_fcmgezq64(__n128) {}
-float neon_fcmges32(float, float) {}
-double neon_fcmges64(double, double) {}
-float neon_fcmgezs32(float) {}
-double neon_fcmgezs64(double) {}
-__n64 neon_fcmgt32(__n64, __n64) {}
-__n128 neon_fcmgtq32(__n128, __n128) {}
-__n128 neon_fcmgtq64(__n128, __n128) {}
-__n64 neon_fcmgtz32(__n64) {}
-__n128 neon_fcmgtzq32(__n128) {}
-__n128 neon_fcmgtzq64(__n128) {}
-float neon_fcmgts32(float, float) {}
-double neon_fcmgts64(double, double) {}
-float neon_fcmgtzs32(float) {}
-double neon_fcmgtzs64(double) {}
-__n64 neon_fcmlez32(__n64) {}
-__n128 neon_fcmlezq32(__n128) {}
-__n128 neon_fcmlezq64(__n128) {}
-float neon_fcmlezs32(float) {}
-double neon_fcmlezs64(double) {}
-__n64 neon_fcmltz32(__n64) {}
-__n128 neon_fcmltzq32(__n128) {}
-__n128 neon_fcmltzq64(__n128) {}
-float neon_fcmltzs32(float) {}
-double neon_fcmltzs64(double) {}
-__n64 neon_cmeq8(__n64, __n64) {}
-__n128 neon_cmeqq8(__n128, __n128) {}
-__n64 neon_cmeq16(__n64, __n64) {}
-__n128 neon_cmeqq16(__n128, __n128) {}
-__n64 neon_cmeq32(__n64, __n64) {}
-__n128 neon_cmeqq32(__n128, __n128) {}
-__n128 neon_cmeqq64(__n128, __n128) {}
-__n64 neon_cmeqz8(__n64) {}
-__n128 neon_cmeqzq8(__n128) {}
-__n64 neon_cmeqz16(__n64) {}
-__n128 neon_cmeqzq16(__n128) {}
-__n64 neon_cmeqz32(__n64) {}
-__n128 neon_cmeqzq32(__n128) {}
-__n128 neon_cmeqzq64(__n128) {}
-double neon_cmeqs64(double, double) {}
-double neon_cmeqzs64(double) {}
-__n64 neon_cmge8(__n64, __n64) {}
-__n128 neon_cmgeq8(__n128, __n128) {}
-__n64 neon_cmge16(__n64, __n64) {}
-__n128 neon_cmgeq16(__n128, __n128) {}
-__n64 neon_cmge32(__n64, __n64) {}
-__n128 neon_cmgeq32(__n128, __n128) {}
-__n128 neon_cmgeq64(__n128, __n128) {}
-__n64 neon_cmgez8(__n64) {}
-__n128 neon_cmgezq8(__n128) {}
-__n64 neon_cmgez16(__n64) {}
-__n128 neon_cmgezq16(__n128) {}
-__n64 neon_cmgez32(__n64) {}
-__n128 neon_cmgezq32(__n128) {}
-__n128 neon_cmgezq64(__n128) {}
-double neon_cmges64(double, double) {}
-double neon_cmgezs64(double) {}
-__n64 neon_cmgt8(__n64, __n64) {}
-__n128 neon_cmgtq8(__n128, __n128) {}
-__n64 neon_cmgt16(__n64, __n64) {}
-__n128 neon_cmgtq16(__n128, __n128) {}
-__n64 neon_cmgt32(__n64, __n64) {}
-__n128 neon_cmgtq32(__n128, __n128) {}
-__n128 neon_cmgtq64(__n128, __n128) {}
-__n64 neon_cmgtz8(__n64) {}
-__n128 neon_cmgtzq8(__n128) {}
-__n64 neon_cmgtz16(__n64) {}
-__n128 neon_cmgtzq16(__n128) {}
-__n64 neon_cmgtz32(__n64) {}
-__n128 neon_cmgtzq32(__n128) {}
-__n128 neon_cmgtzq64(__n128) {}
-double neon_cmgts64(double, double) {}
-double neon_cmgtzs64(double) {}
-__n64 neon_cmhi8(__n64, __n64) {}
-__n128 neon_cmhiq8(__n128, __n128) {}
-__n64 neon_cmhi16(__n64, __n64) {}
-__n128 neon_cmhiq16(__n128, __n128) {}
-__n64 neon_cmhi32(__n64, __n64) {}
-__n128 neon_cmhiq32(__n128, __n128) {}
-__n128 neon_cmhiq64(__n128, __n128) {}
-double neon_cmhis64(double, double) {}
-__n64 neon_cmhs8(__n64, __n64) {}
-__n128 neon_cmhsq8(__n128, __n128) {}
-__n64 neon_cmhs16(__n64, __n64) {}
-__n128 neon_cmhsq16(__n128, __n128) {}
-__n64 neon_cmhs32(__n64, __n64) {}
-__n128 neon_cmhsq32(__n128, __n128) {}
-__n128 neon_cmhsq64(__n128, __n128) {}
-double neon_cmhss64(double, double) {}
-__n64 neon_cmlez8(__n64) {}
-__n128 neon_cmlezq8(__n128) {}
-__n64 neon_cmlez16(__n64) {}
-__n128 neon_cmlezq16(__n128) {}
-__n64 neon_cmlez32(__n64) {}
-__n128 neon_cmlezq32(__n128) {}
-__n128 neon_cmlezq64(__n128) {}
-double neon_cmlezs64(double) {}
-__n64 neon_cmltz8(__n64) {}
-__n128 neon_cmltzq8(__n128) {}
-__n64 neon_cmltz16(__n64) {}
-__n128 neon_cmltzq16(__n128) {}
-__n64 neon_cmltz32(__n64) {}
-__n128 neon_cmltzq32(__n128) {}
-__n128 neon_cmltzq64(__n128) {}
-double neon_cmltzs64(double) {}
-__n64 neon_cmtst8(__n64, __n64) {}
-__n128 neon_cmtstq8(__n128, __n128) {}
-__n64 neon_cmtst16(__n64, __n64) {}
-__n128 neon_cmtstq16(__n128, __n128) {}
-__n64 neon_cmtst32(__n64, __n64) {}
-__n128 neon_cmtstq32(__n128, __n128) {}
-__n128 neon_cmtstq64(__n128, __n128) {}
-double neon_cmtsts64(double, double) {}
+__n64 neon_facge32(__n64, __n64);
+__n128 neon_facgeq32(__n128, __n128);
+__n128 neon_facgeq64(__n128, __n128);
+float neon_facges32(float, float);
+double neon_facges64(double, double);
+__n64 neon_facgt32(__n64, __n64);
+__n128 neon_facgtq32(__n128, __n128);
+__n128 neon_facgtq64(__n128, __n128);
+float neon_facgts32(float, float);
+double neon_facgts64(double, double);
+__n64 neon_fcmeq32(__n64, __n64);
+__n128 neon_fcmeqq32(__n128, __n128);
+__n128 neon_fcmeqq64(__n128, __n128);
+__n64 neon_fcmeqz32(__n64);
+__n128 neon_fcmeqzq32(__n128);
+__n128 neon_fcmeqzq64(__n128);
+float neon_fcmeqs32(float, float);
+double neon_fcmeqs64(double, double);
+float neon_fcmeqzs32(float);
+double neon_fcmeqzs64(double);
+__n64 neon_fcmge32(__n64, __n64);
+__n128 neon_fcmgeq32(__n128, __n128);
+__n128 neon_fcmgeq64(__n128, __n128);
+__n64 neon_fcmgez32(__n64);
+__n128 neon_fcmgezq32(__n128);
+__n128 neon_fcmgezq64(__n128);
+float neon_fcmges32(float, float);
+double neon_fcmges64(double, double);
+float neon_fcmgezs32(float);
+double neon_fcmgezs64(double);
+__n64 neon_fcmgt32(__n64, __n64);
+__n128 neon_fcmgtq32(__n128, __n128);
+__n128 neon_fcmgtq64(__n128, __n128);
+__n64 neon_fcmgtz32(__n64);
+__n128 neon_fcmgtzq32(__n128);
+__n128 neon_fcmgtzq64(__n128);
+float neon_fcmgts32(float, float);
+double neon_fcmgts64(double, double);
+float neon_fcmgtzs32(float);
+double neon_fcmgtzs64(double);
+__n64 neon_fcmlez32(__n64);
+__n128 neon_fcmlezq32(__n128);
+__n128 neon_fcmlezq64(__n128);
+float neon_fcmlezs32(float);
+double neon_fcmlezs64(double);
+__n64 neon_fcmltz32(__n64);
+__n128 neon_fcmltzq32(__n128);
+__n128 neon_fcmltzq64(__n128);
+float neon_fcmltzs32(float);
+double neon_fcmltzs64(double);
+__n64 neon_cmeq8(__n64, __n64);
+__n128 neon_cmeqq8(__n128, __n128);
+__n64 neon_cmeq16(__n64, __n64);
+__n128 neon_cmeqq16(__n128, __n128);
+__n64 neon_cmeq32(__n64, __n64);
+__n128 neon_cmeqq32(__n128, __n128);
+__n128 neon_cmeqq64(__n128, __n128);
+__n64 neon_cmeqz8(__n64);
+__n128 neon_cmeqzq8(__n128);
+__n64 neon_cmeqz16(__n64);
+__n128 neon_cmeqzq16(__n128);
+__n64 neon_cmeqz32(__n64);
+__n128 neon_cmeqzq32(__n128);
+__n128 neon_cmeqzq64(__n128);
+double neon_cmeqs64(double, double);
+double neon_cmeqzs64(double);
+__n64 neon_cmge8(__n64, __n64);
+__n128 neon_cmgeq8(__n128, __n128);
+__n64 neon_cmge16(__n64, __n64);
+__n128 neon_cmgeq16(__n128, __n128);
+__n64 neon_cmge32(__n64, __n64);
+__n128 neon_cmgeq32(__n128, __n128);
+__n128 neon_cmgeq64(__n128, __n128);
+__n64 neon_cmgez8(__n64);
+__n128 neon_cmgezq8(__n128);
+__n64 neon_cmgez16(__n64);
+__n128 neon_cmgezq16(__n128);
+__n64 neon_cmgez32(__n64);
+__n128 neon_cmgezq32(__n128);
+__n128 neon_cmgezq64(__n128);
+double neon_cmges64(double, double);
+double neon_cmgezs64(double);
+__n64 neon_cmgt8(__n64, __n64);
+__n128 neon_cmgtq8(__n128, __n128);
+__n64 neon_cmgt16(__n64, __n64);
+__n128 neon_cmgtq16(__n128, __n128);
+__n64 neon_cmgt32(__n64, __n64);
+__n128 neon_cmgtq32(__n128, __n128);
+__n128 neon_cmgtq64(__n128, __n128);
+__n64 neon_cmgtz8(__n64);
+__n128 neon_cmgtzq8(__n128);
+__n64 neon_cmgtz16(__n64);
+__n128 neon_cmgtzq16(__n128);
+__n64 neon_cmgtz32(__n64);
+__n128 neon_cmgtzq32(__n128);
+__n128 neon_cmgtzq64(__n128);
+double neon_cmgts64(double, double);
+double neon_cmgtzs64(double);
+__n64 neon_cmhi8(__n64, __n64);
+__n128 neon_cmhiq8(__n128, __n128);
+__n64 neon_cmhi16(__n64, __n64);
+__n128 neon_cmhiq16(__n128, __n128);
+__n64 neon_cmhi32(__n64, __n64);
+__n128 neon_cmhiq32(__n128, __n128);
+__n128 neon_cmhiq64(__n128, __n128);
+double neon_cmhis64(double, double);
+__n64 neon_cmhs8(__n64, __n64);
+__n128 neon_cmhsq8(__n128, __n128);
+__n64 neon_cmhs16(__n64, __n64);
+__n128 neon_cmhsq16(__n128, __n128);
+__n64 neon_cmhs32(__n64, __n64);
+__n128 neon_cmhsq32(__n128, __n128);
+__n128 neon_cmhsq64(__n128, __n128);
+double neon_cmhss64(double, double);
+__n64 neon_cmlez8(__n64);
+__n128 neon_cmlezq8(__n128);
+__n64 neon_cmlez16(__n64);
+__n128 neon_cmlezq16(__n128);
+__n64 neon_cmlez32(__n64);
+__n128 neon_cmlezq32(__n128);
+__n128 neon_cmlezq64(__n128);
+double neon_cmlezs64(double);
+__n64 neon_cmltz8(__n64);
+__n128 neon_cmltzq8(__n128);
+__n64 neon_cmltz16(__n64);
+__n128 neon_cmltzq16(__n128);
+__n64 neon_cmltz32(__n64);
+__n128 neon_cmltzq32(__n128);
+__n128 neon_cmltzq64(__n128);
+double neon_cmltzs64(double);
+__n64 neon_cmtst8(__n64, __n64);
+__n128 neon_cmtstq8(__n128, __n128);
+__n64 neon_cmtst16(__n64, __n64);
+__n128 neon_cmtstq16(__n128, __n128);
+__n64 neon_cmtst32(__n64, __n64);
+__n128 neon_cmtstq32(__n128, __n128);
+__n128 neon_cmtstq64(__n128, __n128);
+double neon_cmtsts64(double, double);
 #define vceq_z_f32_ex(src) neon_fcmeqz32(src)
 #define vceq_z_s16_ex(src) neon_cmeqz16(src)
 #define vceq_z_s32_ex(src) neon_cmeqz32(src)
@@ -2552,86 +2552,86 @@ double neon_cmtsts64(double, double) {}
 #define vtstd_u64(src1, src2) neon_cmtsts64(src1, src2)
 
 // FCVTAS/FCVTAU/FCVTMS/FCVTMU/FCVTNS/FCVTPS/FCVTPU/FCVTZS/FCVTZU/SCVTF/UCVTF
-__n64  neon_fcvtas32(__n64) {}
-__n128 neon_fcvtasq32(__n128) {}
-__n128 neon_fcvtasq64(__n128) {}
-float  neon_fcvtass32(float) {}
-double neon_fcvtass64(double) {}
-__n64  neon_fcvtau32(__n64) {}
-__n128 neon_fcvtauq32(__n128) {}
-__n128 neon_fcvtauq64(__n128) {}
-float  neon_fcvtaus32(float) {}
-double neon_fcvtaus64(double) {}
-__n64  neon_fcvtms32(__n64) {}
-__n128 neon_fcvtmsq32(__n128) {}
-__n128 neon_fcvtmsq64(__n128) {}
-float  neon_fcvtmss32(float) {}
-double neon_fcvtmss64(double) {}
-__n64  neon_fcvtmu32(__n64) {}
-__n128 neon_fcvtmuq32(__n128) {}
-__n128 neon_fcvtmuq64(__n128) {}
-float  neon_fcvtmus32(float) {}
-double neon_fcvtmus64(double) {}
-__n64  neon_fcvtns32(__n64) {}
-__n128 neon_fcvtnsq32(__n128) {}
-__n128 neon_fcvtnsq64(__n128) {}
-float  neon_fcvtnss32(float) {}
-double neon_fcvtnss64(double) {}
-__n64  neon_fcvtnu32(__n64) {}
-__n128 neon_fcvtnuq32(__n128) {}
-__n128 neon_fcvtnuq64(__n128) {}
-float  neon_fcvtnus32(float) {}
-double neon_fcvtnus64(double) {}
-__n64  neon_fcvtps32(__n64) {}
-__n128 neon_fcvtpsq32(__n128) {}
-__n128 neon_fcvtpsq64(__n128) {}
-float  neon_fcvtpss32(float) {}
-double neon_fcvtpss64(double) {}
-__n64  neon_fcvtpu32(__n64) {}
-__n128 neon_fcvtpuq32(__n128) {}
-__n128 neon_fcvtpuq64(__n128) {}
-float  neon_fcvtpus32(float) {}
-double neon_fcvtpus64(double) {}
-__n64  neon_fcvtzs32(__n64) {}
-__n128 neon_fcvtzsq32(__n128) {}
-__n128 neon_fcvtzsq64(__n128) {}
-float  neon_fcvtzss32(float) {}
-double neon_fcvtzss64(double) {}
-__n64  neon_fcvtzu32(__n64) {}
-__n128 neon_fcvtzuq32(__n128) {}
-__n128 neon_fcvtzuq64(__n128) {}
-float  neon_fcvtzus32(float) {}
-double neon_fcvtzus64(double) {}
-__n64  neon_scvtf32(__n64) {}
-__n128 neon_scvtfq32(__n128) {}
-__n128 neon_scvtfq64(__n128) {}
-float  neon_scvtfs32(float) {}
-double neon_scvtfs64(double) {}
-__n64  neon_ucvtf32(__n64) {}
-__n128 neon_ucvtfq32(__n128) {}
-__n128 neon_ucvtfq64(__n128) {}
-float  neon_ucvtfs32(float) {}
-double neon_ucvtfs64(double) {}
-__n64  neon_fcvtzsfp32(__n64, const int) {}
-__n128 neon_fcvtzsfpq32(__n128, const int) {}
-__n128 neon_fcvtzsfpq64(__n128, const int) {}
-float  neon_fcvtzsfps32(float, const int) {}
-double neon_fcvtzsfps64(double, const int) {}
-__n64  neon_fcvtzufp32(__n64, const int) {}
-__n128 neon_fcvtzufpq32(__n128, const int) {}
-__n128 neon_fcvtzufpq64(__n128, const int) {}
-float  neon_fcvtzufps32(float, const int) {}
-double neon_fcvtzufps64(double, const int) {}
-__n64  neon_scvtffp32(__n64, const int) {}
-__n128 neon_scvtffpq32(__n128, const int) {}
-__n128 neon_scvtffpq64(__n128, const int) {}
-float  neon_scvtffps32(float, const int) {}
-double neon_scvtffps64(double, const int) {}
-__n64  neon_ucvtffp32(__n64, const int) {}
-__n128 neon_ucvtffpq32(__n128, const int) {}
-__n128 neon_ucvtffpq64(__n128, const int) {}
-float  neon_ucvtffps32(float, const int) {}
-double neon_ucvtffps64(double, const int) {}
+__n64  neon_fcvtas32(__n64);
+__n128 neon_fcvtasq32(__n128);
+__n128 neon_fcvtasq64(__n128);
+float  neon_fcvtass32(float);
+double neon_fcvtass64(double);
+__n64  neon_fcvtau32(__n64);
+__n128 neon_fcvtauq32(__n128);
+__n128 neon_fcvtauq64(__n128);
+float  neon_fcvtaus32(float);
+double neon_fcvtaus64(double);
+__n64  neon_fcvtms32(__n64);
+__n128 neon_fcvtmsq32(__n128);
+__n128 neon_fcvtmsq64(__n128);
+float  neon_fcvtmss32(float);
+double neon_fcvtmss64(double);
+__n64  neon_fcvtmu32(__n64);
+__n128 neon_fcvtmuq32(__n128);
+__n128 neon_fcvtmuq64(__n128);
+float  neon_fcvtmus32(float);
+double neon_fcvtmus64(double);
+__n64  neon_fcvtns32(__n64);
+__n128 neon_fcvtnsq32(__n128);
+__n128 neon_fcvtnsq64(__n128);
+float  neon_fcvtnss32(float);
+double neon_fcvtnss64(double);
+__n64  neon_fcvtnu32(__n64);
+__n128 neon_fcvtnuq32(__n128);
+__n128 neon_fcvtnuq64(__n128);
+float  neon_fcvtnus32(float);
+double neon_fcvtnus64(double);
+__n64  neon_fcvtps32(__n64);
+__n128 neon_fcvtpsq32(__n128);
+__n128 neon_fcvtpsq64(__n128);
+float  neon_fcvtpss32(float);
+double neon_fcvtpss64(double);
+__n64  neon_fcvtpu32(__n64);
+__n128 neon_fcvtpuq32(__n128);
+__n128 neon_fcvtpuq64(__n128);
+float  neon_fcvtpus32(float);
+double neon_fcvtpus64(double);
+__n64  neon_fcvtzs32(__n64);
+__n128 neon_fcvtzsq32(__n128);
+__n128 neon_fcvtzsq64(__n128);
+float  neon_fcvtzss32(float);
+double neon_fcvtzss64(double);
+__n64  neon_fcvtzu32(__n64);
+__n128 neon_fcvtzuq32(__n128);
+__n128 neon_fcvtzuq64(__n128);
+float  neon_fcvtzus32(float);
+double neon_fcvtzus64(double);
+__n64  neon_scvtf32(__n64);
+__n128 neon_scvtfq32(__n128);
+__n128 neon_scvtfq64(__n128);
+float  neon_scvtfs32(float);
+double neon_scvtfs64(double);
+__n64  neon_ucvtf32(__n64);
+__n128 neon_ucvtfq32(__n128);
+__n128 neon_ucvtfq64(__n128);
+float  neon_ucvtfs32(float);
+double neon_ucvtfs64(double);
+__n64  neon_fcvtzsfp32(__n64, const int);
+__n128 neon_fcvtzsfpq32(__n128, const int);
+__n128 neon_fcvtzsfpq64(__n128, const int);
+float  neon_fcvtzsfps32(float, const int);
+double neon_fcvtzsfps64(double, const int);
+__n64  neon_fcvtzufp32(__n64, const int);
+__n128 neon_fcvtzufpq32(__n128, const int);
+__n128 neon_fcvtzufpq64(__n128, const int);
+float  neon_fcvtzufps32(float, const int);
+double neon_fcvtzufps64(double, const int);
+__n64  neon_scvtffp32(__n64, const int);
+__n128 neon_scvtffpq32(__n128, const int);
+__n128 neon_scvtffpq64(__n128, const int);
+float  neon_scvtffps32(float, const int);
+double neon_scvtffps64(double, const int);
+__n64  neon_ucvtffp32(__n64, const int);
+__n128 neon_ucvtffpq32(__n128, const int);
+__n128 neon_ucvtffpq64(__n128, const int);
+float  neon_ucvtffps32(float, const int);
+double neon_ucvtffps64(double, const int);
 #define vcvt_n_f32_s32(src1, src2)  neon_scvtffp32(src1, src2)
 #define vcvt_n_f32_u32(src1, src2)  neon_ucvtffp32(src1, src2)
 #define vcvt_n_s32_f32(src1, src2)  neon_fcvtzsfp32(src1, src2)
@@ -2676,20 +2676,20 @@ double neon_ucvtffps64(double, const int) {}
 #define vcvtq_u64_f64(src) neon_fcvtzuq64(src)
 
 // FRECPE/FRECPS/FRECPX/URECPE
-__n64  neon_frecpe32 (__n64) {}
-__n128 neon_frecpeq32(__n128) {}
-__n128 neon_frecpeq64(__n128) {}
-float  neon_frecpes32(float) {}
-double neon_frecpes64(double) {}
-__n64  neon_frecps32 (__n64, __n64) {}
-__n128 neon_frecpsq32(__n128, __n128) {}
-__n128 neon_frecpsq64(__n128, __n128) {}
-float  neon_frecpss32(float, float) {}
-double neon_frecpss64(double, double) {}
-__n64  neon_urecpe32 (__n64) {}
-__n128 neon_urecpeq32(__n128) {}
-float  neon_frecpx32(float) {}
-double neon_frecpx64(double) {}
+__n64  neon_frecpe32 (__n64);
+__n128 neon_frecpeq32(__n128);
+__n128 neon_frecpeq64(__n128);
+float  neon_frecpes32(float);
+double neon_frecpes64(double);
+__n64  neon_frecps32 (__n64, __n64);
+__n128 neon_frecpsq32(__n128, __n128);
+__n128 neon_frecpsq64(__n128, __n128);
+float  neon_frecpss32(float, float);
+double neon_frecpss64(double, double);
+__n64  neon_urecpe32 (__n64);
+__n128 neon_urecpeq32(__n128);
+float  neon_frecpx32(float);
+double neon_frecpx64(double);
 #define vrecpe_f32(src)         neon_frecpe32(src)
 #define vrecpe_u32(src)         neon_urecpe32(src)
 #define vrecpeq_f32(src)        neon_frecpeq32(src)
@@ -2698,69 +2698,69 @@ double neon_frecpx64(double) {}
 #define vrecpsq_f32(src1, src2) neon_frecpsq32(src1, src2)
 
 // ZIP1/ZIP2/UZP1/UZP2/TRN1/TRN2
-__n64 neon_zip1_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip1_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_zip1_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip1_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_zip1_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip1_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_zip1_q64(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_zip2_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip2_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_zip2_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip2_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_zip2_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_zip2_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_zip2_q64(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp1_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp1_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp1_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp1_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp1_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp1_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_uzp1_q64(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp2_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp2_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp2_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp2_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_uzp2_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_uzp2_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_uzp2_q64(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn1_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn1_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn1_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn1_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn1_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn1_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_trn1_q64(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn2_8(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn2_q8(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn2_16(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn2_q16(__n128 _Qd, __n128 _Qm) {}
-__n64 neon_trn2_32(__n64 _Dd, __n64 _Dm) {}
-__n128 neon_trn2_q32(__n128 _Qd, __n128 _Qm) {}
-__n128 neon_trn2_q64(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_zip_8(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_zip_q8(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_zip_16(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_zip_q16(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_zip_32(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_zip_q32(__n128 _Qd, __n128 _Qm) {}
-__n128x2 neon_zip_q64(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_uzp_8(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_uzp_q8(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_uzp_16(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_uzp_q16(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_uzp_32(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_uzp_q32(__n128 _Qd, __n128 _Qm) {}
-__n128x2 neon_uzp_q64(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_trn_8(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_trn_q8(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_trn_16(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_trn_q16(__n128 _Qd, __n128 _Qm) {}
-__n64x2 neon_trn_32(__n64 _Dd, __n64 _Dm) {}
-__n128x2 neon_trn_q32(__n128 _Qd, __n128 _Qm) {}
-__n128x2 neon_trn_q64(__n128 _Qd, __n128 _Qm) {}
+__n64 neon_zip1_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip1_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_zip1_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip1_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_zip1_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip1_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_zip1_q64(__n128 _Qd, __n128 _Qm);
+__n64 neon_zip2_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip2_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_zip2_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip2_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_zip2_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_zip2_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_zip2_q64(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp1_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp1_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp1_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp1_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp1_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp1_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_uzp1_q64(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp2_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp2_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp2_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp2_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_uzp2_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_uzp2_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_uzp2_q64(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn1_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn1_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn1_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn1_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn1_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn1_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_trn1_q64(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn2_8(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn2_q8(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn2_16(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn2_q16(__n128 _Qd, __n128 _Qm);
+__n64 neon_trn2_32(__n64 _Dd, __n64 _Dm);
+__n128 neon_trn2_q32(__n128 _Qd, __n128 _Qm);
+__n128 neon_trn2_q64(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_zip_8(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_zip_q8(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_zip_16(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_zip_q16(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_zip_32(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_zip_q32(__n128 _Qd, __n128 _Qm);
+__n128x2 neon_zip_q64(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_uzp_8(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_uzp_q8(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_uzp_16(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_uzp_q16(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_uzp_32(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_uzp_q32(__n128 _Qd, __n128 _Qm);
+__n128x2 neon_uzp_q64(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_trn_8(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_trn_q8(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_trn_16(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_trn_q16(__n128 _Qd, __n128 _Qm);
+__n64x2 neon_trn_32(__n64 _Dd, __n64 _Dm);
+__n128x2 neon_trn_q32(__n128 _Qd, __n128 _Qm);
+__n128x2 neon_trn_q64(__n128 _Qd, __n128 _Qm);
 #define vzip_s8(src1, src2) neon_zip_8(src1, src2)
 #define vzip_s16(src1, src2) neon_zip_16(src1, src2)
 #define vzip_s32(src1, src2) neon_zip_32(src1, src2)
@@ -2956,27 +2956,27 @@ __n128x2 neon_trn_q64(__n128 _Qd, __n128 _Qm) {}
 #define vtrn2q_p16(src1, src2) neon_trn2_q16(src1, src2)
 #define vtrn2q_p64(src1, src2) neon_trn2_q64(src1, src2)
 
-__n64 neon_frinta_32(__n64) {}
-__n128 neon_frinta_q32(__n128) {}
-__n128 neon_frinta_q64(__n128) {}
-__n64 neon_frinti_32(__n64) {}
-__n128 neon_frinti_q32(__n128) {}
-__n128 neon_frinti_q64(__n128) {}
-__n64 neon_frintm_32(__n64) {}
-__n128 neon_frintm_q32(__n128) {}
-__n128 neon_frintm_q64(__n128) {}
-__n64 neon_frintn_32(__n64) {}
-__n128 neon_frintn_q32(__n128) {}
-__n128 neon_frintn_q64(__n128) {}
-__n64 neon_frintp_32(__n64) {}
-__n128 neon_frintp_q32(__n128) {}
-__n128 neon_frintp_q64(__n128) {}
-__n64 neon_frintx_32(__n64) {}
-__n128 neon_frintx_q32(__n128) {}
-__n128 neon_frintx_q64(__n128) {}
-__n64 neon_frintz_32(__n64) {}
-__n128 neon_frintz_q32(__n128) {}
-__n128 neon_frintz_q64(__n128) {}
+__n64 neon_frinta_32(__n64);
+__n128 neon_frinta_q32(__n128);
+__n128 neon_frinta_q64(__n128);
+__n64 neon_frinti_32(__n64);
+__n128 neon_frinti_q32(__n128);
+__n128 neon_frinti_q64(__n128);
+__n64 neon_frintm_32(__n64);
+__n128 neon_frintm_q32(__n128);
+__n128 neon_frintm_q64(__n128);
+__n64 neon_frintn_32(__n64);
+__n128 neon_frintn_q32(__n128);
+__n128 neon_frintn_q64(__n128);
+__n64 neon_frintp_32(__n64);
+__n128 neon_frintp_q32(__n128);
+__n128 neon_frintp_q64(__n128);
+__n64 neon_frintx_32(__n64);
+__n128 neon_frintx_q32(__n128);
+__n128 neon_frintx_q64(__n128);
+__n64 neon_frintz_32(__n64);
+__n128 neon_frintz_q32(__n128);
+__n128 neon_frintz_q64(__n128);
 #define vrndi_f32(src) neon_frinti_32(src)
 #define vrnda_f32(src) neon_frinta_32(src)
 #define vrndm_f32(src) neon_frintm_32(src)
@@ -2994,20 +2994,20 @@ __n128 neon_frintz_q64(__n128) {}
 #define vrndq_f64(src) neon_frintz_q64(src)
 
 // SHA1C/SHA1M/SHA1P/SHA256H2/SHA256H/SHA1SU0/SHA256SU1/SHA1SU1/SHA256SU0/SHA1H/
-__n128 neon_sha1c(__n128, __n128, __n128) {}
-__n128 neon_sha1cui(__n128, uint32_t, __n128) {}
-__n128 neon_sha1m(__n128, __n128, __n128) {}
-__n128 neon_sha1mui(__n128, uint32_t, __n128) {}
-__n128 neon_sha1p(__n128, __n128, __n128) {}
-__n128 neon_sha1pui(__n128, uint32_t, __n128) {}
-__n128 neon_sha256h2(__n128, __n128, __n128) {}
-__n128 neon_sha256h(__n128, __n128, __n128) {}
-__n128 neon_sha1su0(__n128, __n128, __n128) {}
-__n128 neon_sha256su1(__n128, __n128, __n128) {}
-__n128 neon_sha1su1(__n128, __n128) {}
-__n128 neon_sha256su0(__n128, __n128) {}
-__n128 neon_sha1h(__n128) {}
-uint32_t  neon_sha1hui(uint32_t) {}
+__n128 neon_sha1c(__n128, __n128, __n128);
+__n128 neon_sha1cui(__n128, uint32_t, __n128);
+__n128 neon_sha1m(__n128, __n128, __n128);
+__n128 neon_sha1mui(__n128, uint32_t, __n128);
+__n128 neon_sha1p(__n128, __n128, __n128);
+__n128 neon_sha1pui(__n128, uint32_t, __n128);
+__n128 neon_sha256h2(__n128, __n128, __n128);
+__n128 neon_sha256h(__n128, __n128, __n128);
+__n128 neon_sha1su0(__n128, __n128, __n128);
+__n128 neon_sha256su1(__n128, __n128, __n128);
+__n128 neon_sha1su1(__n128, __n128);
+__n128 neon_sha256su0(__n128, __n128);
+__n128 neon_sha1h(__n128);
+uint32_t  neon_sha1hui(uint32_t);
 #define sha1c_f32(src1, src2, src3) neon_sha1c(src1, src2, src3)
 #define sha1c_s32(src1, src2, src3) neon_sha1c(src1, src2, src3)
 #define sha1c_u32(src1, src2, src3) neon_sha1c(src1, src2, src3)
@@ -3050,203 +3050,203 @@ uint32_t  neon_sha1hui(uint32_t) {}
 #define vsha1h_u32(src)  neon_sha1hui(src)
 
 // SRI/SRSHR/SSHR/SSRA/USHR/URSRA/USRA/URSHR/SRSRA/SHL/SLI/SQSHLU/SQSHL/UQSHL/SQRSHL/URSHL/SRSHL/USHL/UQRSHL/SSHL
-__n64  neon_srii8  (__n64,  __n64,  const int) {}
-__n128 neon_sriiq8 (__n128, __n128, const int) {}
-__n64  neon_srii16 (__n64,  __n64,  const int) {}
-__n128 neon_sriiq16(__n128, __n128, const int) {}
-__n64  neon_srii32 (__n64,  __n64,  const int) {}
-__n128 neon_sriiq32(__n128, __n128, const int) {}
-__n128 neon_sriiq64(__n128, __n128, const int) {}
-__n64  neon_sriis64(__n64,  __n64,  const int) {}
-__n64  neon_srshri8  (__n64,  const int) {}
-__n128 neon_srshriq8 (__n128, const int) {}
-__n64  neon_srshri16 (__n64,  const int) {}
-__n128 neon_srshriq16(__n128, const int) {}
-__n64  neon_srshri32 (__n64,  const int) {}
-__n128 neon_srshriq32(__n128, const int) {}
-__n128 neon_srshriq64(__n128, const int) {}
-__n64  neon_srshris64(__n64,  const int) {}
-__n64  neon_sshri8  (__n64,  const int) {}
-__n128 neon_sshriq8 (__n128, const int) {}
-__n64  neon_sshri16 (__n64,  const int) {}
-__n128 neon_sshriq16(__n128, const int) {}
-__n64  neon_sshri32 (__n64,  const int) {}
-__n128 neon_sshriq32(__n128, const int) {}
-__n128 neon_sshriq64(__n128, const int) {}
-__n64  neon_sshris64(__n64,  const int) {}
-__n64  neon_ssrai8  (__n64,  __n64,  const int) {}
-__n128 neon_ssraiq8 (__n128, __n128, const int) {}
-__n64  neon_ssrai16 (__n64,  __n64,  const int) {}
-__n128 neon_ssraiq16(__n128, __n128, const int) {}
-__n64  neon_ssrai32 (__n64,  __n64,  const int) {}
-__n128 neon_ssraiq32(__n128, __n128, const int) {}
-__n128 neon_ssraiq64(__n128, __n128, const int) {}
-__n64  neon_ssrais64(__n64,  __n64,  const int) {}
-__n64  neon_ushri8  (__n64,  const int) {}
-__n128 neon_ushriq8 (__n128, const int) {}
-__n64  neon_ushri16 (__n64,  const int) {}
-__n128 neon_ushriq16(__n128, const int) {}
-__n64  neon_ushri32 (__n64,  const int) {}
-__n128 neon_ushriq32(__n128, const int) {}
-__n128 neon_ushriq64(__n128, const int) {}
-__n64  neon_ushris64(__n64,  const int) {}
-__n64  neon_ursrai8  (__n64,  __n64,  const int) {}
-__n128 neon_ursraiq8 (__n128, __n128, const int) {}
-__n64  neon_ursrai16 (__n64,  __n64,  const int) {}
-__n128 neon_ursraiq16(__n128, __n128, const int) {}
-__n64  neon_ursrai32 (__n64,  __n64,  const int) {}
-__n128 neon_ursraiq32(__n128, __n128, const int) {}
-__n128 neon_ursraiq64(__n128, __n128, const int) {}
-__n64  neon_ursrais64(__n64,  __n64,  const int) {}
-__n64  neon_usrai8  (__n64,  __n64,  const int) {}
-__n128 neon_usraiq8 (__n128, __n128, const int) {}
-__n64  neon_usrai16 (__n64,  __n64,  const int) {}
-__n128 neon_usraiq16(__n128, __n128, const int) {}
-__n64  neon_usrai32 (__n64,  __n64,  const int) {}
-__n128 neon_usraiq32(__n128, __n128, const int) {}
-__n128 neon_usraiq64(__n128, __n128, const int) {}
-__n64  neon_usrais64(__n64,  __n64,  const int) {}
-__n64  neon_urshri8  (__n64,  const int) {}
-__n128 neon_urshriq8 (__n128, const int) {}
-__n64  neon_urshri16 (__n64,  const int) {}
-__n128 neon_urshriq16(__n128, const int) {}
-__n64  neon_urshri32 (__n64,  const int) {}
-__n128 neon_urshriq32(__n128, const int) {}
-__n128 neon_urshriq64(__n128, const int) {}
-__n64  neon_urshris64(__n64,  const int) {}
-__n64  neon_srsrai8  (__n64,  __n64,  const int) {}
-__n128 neon_srsraiq8 (__n128, __n128, const int) {}
-__n64  neon_srsrai16 (__n64,  __n64,  const int) {}
-__n128 neon_srsraiq16(__n128, __n128, const int) {}
-__n64  neon_srsrai32 (__n64,  __n64,  const int) {}
-__n128 neon_srsraiq32(__n128, __n128, const int) {}
-__n128 neon_srsraiq64(__n128, __n128, const int) {}
-__n64  neon_srsrais64(__n64,  __n64,  const int) {}
-__n64  neon_shli8  (__n64,  const int) {}
-__n128 neon_shliq8 (__n128, const int) {}
-__n64  neon_shli16 (__n64,  const int) {}
-__n128 neon_shliq16(__n128, const int) {}
-__n64  neon_shli32 (__n64,  const int) {}
-__n128 neon_shliq32(__n128, const int) {}
-__n128 neon_shliq64(__n128, const int) {}
-__n64  neon_shlis64(__n64,  const int) {}
-__n64  neon_slii8  (__n64,  __n64,  const int) {}
-__n128 neon_sliiq8 (__n128, __n128, const int) {}
-__n64  neon_slii16 (__n64,  __n64,  const int) {}
-__n128 neon_sliiq16(__n128, __n128, const int) {}
-__n64  neon_slii32 (__n64,  __n64,  const int) {}
-__n128 neon_sliiq32(__n128, __n128, const int) {}
-__n128 neon_sliiq64(__n128, __n128, const int) {}
-__n64  neon_sliis64(__n64,  __n64,  const int) {}
-__n64  neon_sqshlui8  (__n64,  const int) {}
-__n128 neon_sqshluiq8 (__n128, const int) {}
-__n64  neon_sqshlui16 (__n64,  const int) {}
-__n128 neon_sqshluiq16(__n128, const int) {}
-__n64  neon_sqshlui32 (__n64,  const int) {}
-__n128 neon_sqshluiq32(__n128, const int) {}
-__n128 neon_sqshluiq64(__n128, const int) {}
-__n8   neon_sqshluis8(__n8,  const int) {}
-__n16  neon_sqshluis16(__n16, const int) {}
-float  neon_sqshluis32(float, const int) {}
-__n64  neon_sqshluis64(__n64, const int) {}
-__n64  neon_sqshli8  (__n64,  const int) {}
-__n128 neon_sqshliq8 (__n128, const int) {}
-__n64  neon_sqshli16 (__n64,  const int) {}
-__n128 neon_sqshliq16(__n128, const int) {}
-__n64  neon_sqshli32 (__n64,  const int) {}
-__n128 neon_sqshliq32(__n128, const int) {}
-__n128 neon_sqshliq64(__n128, const int) {}
-__n64  neon_sqshl8  (__n64,  __n64) {}
-__n128 neon_sqshlq8 (__n128, __n128) {}
-__n64  neon_sqshl16 (__n64,  __n64) {}
-__n128 neon_sqshlq16(__n128, __n128) {}
-__n64  neon_sqshl32 (__n64,  __n64) {}
-__n128 neon_sqshlq32(__n128, __n128) {}
-__n128 neon_sqshlq64(__n128, __n128) {}
-__n8   neon_sqshlis8(__n8,  const int) {}
-__n16  neon_sqshlis16(__n16, const int) {}
-float  neon_sqshlis32(float, const int) {}
-__n64  neon_sqshlis64(__n64, const int) {}
-__n8   neon_sqshls8(__n8,  __n8) {}
-__n16  neon_sqshls16(__n16, __n16) {}
-float  neon_sqshls32(float, float) {}
-__n64  neon_sqshls64(__n64, __n64) {}
-__n64  neon_uqshli8  (__n64,  const int) {}
-__n128 neon_uqshliq8 (__n128, const int) {}
-__n64  neon_uqshli16 (__n64,  const int) {}
-__n128 neon_uqshliq16(__n128, const int) {}
-__n64  neon_uqshli32 (__n64,  const int) {}
-__n128 neon_uqshliq32(__n128, const int) {}
-__n128 neon_uqshliq64(__n128, const int) {}
-__n64  neon_uqshl8  (__n64,  __n64) {}
-__n128 neon_uqshlq8 (__n128, __n128) {}
-__n64  neon_uqshl16 (__n64,  __n64) {}
-__n128 neon_uqshlq16(__n128, __n128) {}
-__n64  neon_uqshl32 (__n64,  __n64) {}
-__n128 neon_uqshlq32(__n128, __n128) {}
-__n128 neon_uqshlq64(__n128, __n128) {}
-__n8   neon_uqshlis8(__n8,  const int) {}
-__n16  neon_uqshlis16(__n16, const int) {}
-float  neon_uqshlis32(float, const int) {}
-__n64  neon_uqshlis64(__n64, const int) {}
-__n8   neon_uqshls8(__n8,  __n8) {}
-__n16  neon_uqshls16(__n16, __n16) {}
-float  neon_uqshls32(float, float) {}
-__n64  neon_uqshls64(__n64, __n64) {}
-__n64  neon_sqrshl8  (__n64,  __n64) {}
-__n128 neon_sqrshlq8 (__n128, __n128) {}
-__n64  neon_sqrshl16 (__n64,  __n64) {}
-__n128 neon_sqrshlq16(__n128, __n128) {}
-__n64  neon_sqrshl32 (__n64,  __n64) {}
-__n128 neon_sqrshlq32(__n128, __n128) {}
-__n128 neon_sqrshlq64(__n128, __n128) {}
-__n8   neon_sqrshls8(__n8,  __n8) {}
-__n16  neon_sqrshls16(__n16, __n16) {}
-float  neon_sqrshls32(float, float) {}
-__n64  neon_sqrshls64(__n64, __n64) {}
-__n64  neon_urshl8  (__n64,  __n64) {}
-__n128 neon_urshlq8 (__n128, __n128) {}
-__n64  neon_urshl16 (__n64,  __n64) {}
-__n128 neon_urshlq16(__n128, __n128) {}
-__n64  neon_urshl32 (__n64,  __n64) {}
-__n128 neon_urshlq32(__n128, __n128) {}
-__n128 neon_urshlq64(__n128, __n128) {}
-__n64  neon_urshls64(__n64, __n64) {}
-__n64  neon_srshl8  (__n64,  __n64) {}
-__n128 neon_srshlq8 (__n128, __n128) {}
-__n64  neon_srshl16 (__n64,  __n64) {}
-__n128 neon_srshlq16(__n128, __n128) {}
-__n64  neon_srshl32 (__n64,  __n64) {}
-__n128 neon_srshlq32(__n128, __n128) {}
-__n128 neon_srshlq64(__n128, __n128) {}
-__n64  neon_srshls64(__n64, __n64) {}
-__n64  neon_ushl8  (__n64,  __n64) {}
-__n128 neon_ushlq8 (__n128, __n128) {}
-__n64  neon_ushl16 (__n64,  __n64) {}
-__n128 neon_ushlq16(__n128, __n128) {}
-__n64  neon_ushl32 (__n64,  __n64) {}
-__n128 neon_ushlq32(__n128, __n128) {}
-__n128 neon_ushlq64(__n128, __n128) {}
-__n64  neon_ushls64(__n64, __n64) {}
-__n64  neon_uqrshl8  (__n64,  __n64) {}
-__n128 neon_uqrshlq8 (__n128, __n128) {}
-__n64  neon_uqrshl16 (__n64,  __n64) {}
-__n128 neon_uqrshlq16(__n128, __n128) {}
-__n64  neon_uqrshl32 (__n64,  __n64) {}
-__n128 neon_uqrshlq32(__n128, __n128) {}
-__n128 neon_uqrshlq64(__n128, __n128) {}
-__n8   neon_uqrshls8(__n8, __n8) {}
-__n16  neon_uqrshls16(__n16, __n16) {}
-float  neon_uqrshls32(float, float) {}
-__n64  neon_uqrshls64(__n64, __n64) {}
-__n64  neon_sshl8  (__n64,  __n64) {}
-__n128 neon_sshlq8 (__n128, __n128) {}
-__n64  neon_sshl16 (__n64,  __n64) {}
-__n128 neon_sshlq16(__n128, __n128) {}
-__n64  neon_sshl32 (__n64,  __n64) {}
-__n128 neon_sshlq32(__n128, __n128) {}
-__n128 neon_sshlq64(__n128, __n128) {}
-__n64  neon_sshls64(__n64, __n64) {}
+__n64  neon_srii8  (__n64,  __n64,  const int);
+__n128 neon_sriiq8 (__n128, __n128, const int);
+__n64  neon_srii16 (__n64,  __n64,  const int);
+__n128 neon_sriiq16(__n128, __n128, const int);
+__n64  neon_srii32 (__n64,  __n64,  const int);
+__n128 neon_sriiq32(__n128, __n128, const int);
+__n128 neon_sriiq64(__n128, __n128, const int);
+__n64  neon_sriis64(__n64,  __n64,  const int);
+__n64  neon_srshri8  (__n64,  const int);
+__n128 neon_srshriq8 (__n128, const int);
+__n64  neon_srshri16 (__n64,  const int);
+__n128 neon_srshriq16(__n128, const int);
+__n64  neon_srshri32 (__n64,  const int);
+__n128 neon_srshriq32(__n128, const int);
+__n128 neon_srshriq64(__n128, const int);
+__n64  neon_srshris64(__n64,  const int);
+__n64  neon_sshri8  (__n64,  const int);
+__n128 neon_sshriq8 (__n128, const int);
+__n64  neon_sshri16 (__n64,  const int);
+__n128 neon_sshriq16(__n128, const int);
+__n64  neon_sshri32 (__n64,  const int);
+__n128 neon_sshriq32(__n128, const int);
+__n128 neon_sshriq64(__n128, const int);
+__n64  neon_sshris64(__n64,  const int);
+__n64  neon_ssrai8  (__n64,  __n64,  const int);
+__n128 neon_ssraiq8 (__n128, __n128, const int);
+__n64  neon_ssrai16 (__n64,  __n64,  const int);
+__n128 neon_ssraiq16(__n128, __n128, const int);
+__n64  neon_ssrai32 (__n64,  __n64,  const int);
+__n128 neon_ssraiq32(__n128, __n128, const int);
+__n128 neon_ssraiq64(__n128, __n128, const int);
+__n64  neon_ssrais64(__n64,  __n64,  const int);
+__n64  neon_ushri8  (__n64,  const int);
+__n128 neon_ushriq8 (__n128, const int);
+__n64  neon_ushri16 (__n64,  const int);
+__n128 neon_ushriq16(__n128, const int);
+__n64  neon_ushri32 (__n64,  const int);
+__n128 neon_ushriq32(__n128, const int);
+__n128 neon_ushriq64(__n128, const int);
+__n64  neon_ushris64(__n64,  const int);
+__n64  neon_ursrai8  (__n64,  __n64,  const int);
+__n128 neon_ursraiq8 (__n128, __n128, const int);
+__n64  neon_ursrai16 (__n64,  __n64,  const int);
+__n128 neon_ursraiq16(__n128, __n128, const int);
+__n64  neon_ursrai32 (__n64,  __n64,  const int);
+__n128 neon_ursraiq32(__n128, __n128, const int);
+__n128 neon_ursraiq64(__n128, __n128, const int);
+__n64  neon_ursrais64(__n64,  __n64,  const int);
+__n64  neon_usrai8  (__n64,  __n64,  const int);
+__n128 neon_usraiq8 (__n128, __n128, const int);
+__n64  neon_usrai16 (__n64,  __n64,  const int);
+__n128 neon_usraiq16(__n128, __n128, const int);
+__n64  neon_usrai32 (__n64,  __n64,  const int);
+__n128 neon_usraiq32(__n128, __n128, const int);
+__n128 neon_usraiq64(__n128, __n128, const int);
+__n64  neon_usrais64(__n64,  __n64,  const int);
+__n64  neon_urshri8  (__n64,  const int);
+__n128 neon_urshriq8 (__n128, const int);
+__n64  neon_urshri16 (__n64,  const int);
+__n128 neon_urshriq16(__n128, const int);
+__n64  neon_urshri32 (__n64,  const int);
+__n128 neon_urshriq32(__n128, const int);
+__n128 neon_urshriq64(__n128, const int);
+__n64  neon_urshris64(__n64,  const int);
+__n64  neon_srsrai8  (__n64,  __n64,  const int);
+__n128 neon_srsraiq8 (__n128, __n128, const int);
+__n64  neon_srsrai16 (__n64,  __n64,  const int);
+__n128 neon_srsraiq16(__n128, __n128, const int);
+__n64  neon_srsrai32 (__n64,  __n64,  const int);
+__n128 neon_srsraiq32(__n128, __n128, const int);
+__n128 neon_srsraiq64(__n128, __n128, const int);
+__n64  neon_srsrais64(__n64,  __n64,  const int);
+__n64  neon_shli8  (__n64,  const int);
+__n128 neon_shliq8 (__n128, const int);
+__n64  neon_shli16 (__n64,  const int);
+__n128 neon_shliq16(__n128, const int);
+__n64  neon_shli32 (__n64,  const int);
+__n128 neon_shliq32(__n128, const int);
+__n128 neon_shliq64(__n128, const int);
+__n64  neon_shlis64(__n64,  const int);
+__n64  neon_slii8  (__n64,  __n64,  const int);
+__n128 neon_sliiq8 (__n128, __n128, const int);
+__n64  neon_slii16 (__n64,  __n64,  const int);
+__n128 neon_sliiq16(__n128, __n128, const int);
+__n64  neon_slii32 (__n64,  __n64,  const int);
+__n128 neon_sliiq32(__n128, __n128, const int);
+__n128 neon_sliiq64(__n128, __n128, const int);
+__n64  neon_sliis64(__n64,  __n64,  const int);
+__n64  neon_sqshlui8  (__n64,  const int);
+__n128 neon_sqshluiq8 (__n128, const int);
+__n64  neon_sqshlui16 (__n64,  const int);
+__n128 neon_sqshluiq16(__n128, const int);
+__n64  neon_sqshlui32 (__n64,  const int);
+__n128 neon_sqshluiq32(__n128, const int);
+__n128 neon_sqshluiq64(__n128, const int);
+__n8   neon_sqshluis8(__n8,  const int);
+__n16  neon_sqshluis16(__n16, const int);
+float  neon_sqshluis32(float, const int);
+__n64  neon_sqshluis64(__n64, const int);
+__n64  neon_sqshli8  (__n64,  const int);
+__n128 neon_sqshliq8 (__n128, const int);
+__n64  neon_sqshli16 (__n64,  const int);
+__n128 neon_sqshliq16(__n128, const int);
+__n64  neon_sqshli32 (__n64,  const int);
+__n128 neon_sqshliq32(__n128, const int);
+__n128 neon_sqshliq64(__n128, const int);
+__n64  neon_sqshl8  (__n64,  __n64);
+__n128 neon_sqshlq8 (__n128, __n128);
+__n64  neon_sqshl16 (__n64,  __n64);
+__n128 neon_sqshlq16(__n128, __n128);
+__n64  neon_sqshl32 (__n64,  __n64);
+__n128 neon_sqshlq32(__n128, __n128);
+__n128 neon_sqshlq64(__n128, __n128);
+__n8   neon_sqshlis8(__n8,  const int);
+__n16  neon_sqshlis16(__n16, const int);
+float  neon_sqshlis32(float, const int);
+__n64  neon_sqshlis64(__n64, const int);
+__n8   neon_sqshls8(__n8,  __n8);
+__n16  neon_sqshls16(__n16, __n16);
+float  neon_sqshls32(float, float);
+__n64  neon_sqshls64(__n64, __n64);
+__n64  neon_uqshli8  (__n64,  const int);
+__n128 neon_uqshliq8 (__n128, const int);
+__n64  neon_uqshli16 (__n64,  const int);
+__n128 neon_uqshliq16(__n128, const int);
+__n64  neon_uqshli32 (__n64,  const int);
+__n128 neon_uqshliq32(__n128, const int);
+__n128 neon_uqshliq64(__n128, const int);
+__n64  neon_uqshl8  (__n64,  __n64);
+__n128 neon_uqshlq8 (__n128, __n128);
+__n64  neon_uqshl16 (__n64,  __n64);
+__n128 neon_uqshlq16(__n128, __n128);
+__n64  neon_uqshl32 (__n64,  __n64);
+__n128 neon_uqshlq32(__n128, __n128);
+__n128 neon_uqshlq64(__n128, __n128);
+__n8   neon_uqshlis8(__n8,  const int);
+__n16  neon_uqshlis16(__n16, const int);
+float  neon_uqshlis32(float, const int);
+__n64  neon_uqshlis64(__n64, const int);
+__n8   neon_uqshls8(__n8,  __n8);
+__n16  neon_uqshls16(__n16, __n16);
+float  neon_uqshls32(float, float);
+__n64  neon_uqshls64(__n64, __n64);
+__n64  neon_sqrshl8  (__n64,  __n64);
+__n128 neon_sqrshlq8 (__n128, __n128);
+__n64  neon_sqrshl16 (__n64,  __n64);
+__n128 neon_sqrshlq16(__n128, __n128);
+__n64  neon_sqrshl32 (__n64,  __n64);
+__n128 neon_sqrshlq32(__n128, __n128);
+__n128 neon_sqrshlq64(__n128, __n128);
+__n8   neon_sqrshls8(__n8,  __n8);
+__n16  neon_sqrshls16(__n16, __n16);
+float  neon_sqrshls32(float, float);
+__n64  neon_sqrshls64(__n64, __n64);
+__n64  neon_urshl8  (__n64,  __n64);
+__n128 neon_urshlq8 (__n128, __n128);
+__n64  neon_urshl16 (__n64,  __n64);
+__n128 neon_urshlq16(__n128, __n128);
+__n64  neon_urshl32 (__n64,  __n64);
+__n128 neon_urshlq32(__n128, __n128);
+__n128 neon_urshlq64(__n128, __n128);
+__n64  neon_urshls64(__n64, __n64);
+__n64  neon_srshl8  (__n64,  __n64);
+__n128 neon_srshlq8 (__n128, __n128);
+__n64  neon_srshl16 (__n64,  __n64);
+__n128 neon_srshlq16(__n128, __n128);
+__n64  neon_srshl32 (__n64,  __n64);
+__n128 neon_srshlq32(__n128, __n128);
+__n128 neon_srshlq64(__n128, __n128);
+__n64  neon_srshls64(__n64, __n64);
+__n64  neon_ushl8  (__n64,  __n64);
+__n128 neon_ushlq8 (__n128, __n128);
+__n64  neon_ushl16 (__n64,  __n64);
+__n128 neon_ushlq16(__n128, __n128);
+__n64  neon_ushl32 (__n64,  __n64);
+__n128 neon_ushlq32(__n128, __n128);
+__n128 neon_ushlq64(__n128, __n128);
+__n64  neon_ushls64(__n64, __n64);
+__n64  neon_uqrshl8  (__n64,  __n64);
+__n128 neon_uqrshlq8 (__n128, __n128);
+__n64  neon_uqrshl16 (__n64,  __n64);
+__n128 neon_uqrshlq16(__n128, __n128);
+__n64  neon_uqrshl32 (__n64,  __n64);
+__n128 neon_uqrshlq32(__n128, __n128);
+__n128 neon_uqrshlq64(__n128, __n128);
+__n8   neon_uqrshls8(__n8, __n8);
+__n16  neon_uqrshls16(__n16, __n16);
+float  neon_uqrshls32(float, float);
+__n64  neon_uqrshls64(__n64, __n64);
+__n64  neon_sshl8  (__n64,  __n64);
+__n128 neon_sshlq8 (__n128, __n128);
+__n64  neon_sshl16 (__n64,  __n64);
+__n128 neon_sshlq16(__n128, __n128);
+__n64  neon_sshl32 (__n64,  __n64);
+__n128 neon_sshlq32(__n128, __n128);
+__n128 neon_sshlq64(__n128, __n128);
+__n64  neon_sshls64(__n64, __n64);
 #define vsri_n_p16(src1, src2, src3) neon_srii16(src1, src2, src3)
 #define vsri_n_p8(src1, src2, src3) neon_srii8(src1, src2, src3)
 #define vsri_n_s16(src1, src2, src3) neon_srii16(src1, src2, src3)
@@ -3438,23 +3438,23 @@ __n64  neon_sshls64(__n64, __n64) {}
 #define vsliq_n_u8(src1, src2, src3) neon_sliiq8(src1, src2, src3)
 
 // TBL/TBX
-__n64  neon_tbx4_q8(__n64 src1, __n128x4 reglist, __n64 src2) {}
-__n128 neon_tbx4_qq8(__n128 src1, __n128x4 reglist, __n128 src2) {}
-__n64  neon_tbx3_q8(__n64 src1, __n128x3 reglist, __n64 src2) {}
-__n128 neon_tbx3_qq8(__n128 src1, __n128x3 reglist, __n128 src2) {}
-__n64  neon_tbx2_q8(__n64 src1, __n128x2 reglist, __n64 src2) {}
-__n128 neon_tbx2_qq8(__n128 src1, __n128x2 reglist, __n128 src2) {}
-__n64  neon_tbx1_q8(__n64 src1, __n128 reglist, __n64 src2) {}
-__n128 neon_tbx1_qq8(__n128 src1, __n128 reglist, __n128 src2) {}
-__n64  neon_tbl4_q8(__n128x4 reglist, __n64 src2) {}
-__n128 neon_tbl4_qq8(__n128x4 reglist, __n128 src2) {}
-__n64  neon_tbl3_q8(__n128x3 reglist, __n64 src2) {}
-__n128 neon_tbl3_qq8(__n128x3 reglist, __n128 src2) {}
-__n64  neon_tbl2_q8(__n128x2 reglist, __n64 src2) {}
-__n128 neon_tbl2_qq8(__n128x2 reglist, __n128 src2) {}
-__n64  neon_tbl1_q8(__n128 reglist, __n64 src2) {}
-__n64  neon_tbl1_q8_2(__n64 src1, __n64 src2) {}
-__n128 neon_tbl1_qq8(__n128 reglist, __n128 src2) {}
+__n64  neon_tbx4_q8(__n64 src1, __n128x4 reglist, __n64 src2);
+__n128 neon_tbx4_qq8(__n128 src1, __n128x4 reglist, __n128 src2);
+__n64  neon_tbx3_q8(__n64 src1, __n128x3 reglist, __n64 src2);
+__n128 neon_tbx3_qq8(__n128 src1, __n128x3 reglist, __n128 src2);
+__n64  neon_tbx2_q8(__n64 src1, __n128x2 reglist, __n64 src2);
+__n128 neon_tbx2_qq8(__n128 src1, __n128x2 reglist, __n128 src2);
+__n64  neon_tbx1_q8(__n64 src1, __n128 reglist, __n64 src2);
+__n128 neon_tbx1_qq8(__n128 src1, __n128 reglist, __n128 src2);
+__n64  neon_tbl4_q8(__n128x4 reglist, __n64 src2);
+__n128 neon_tbl4_qq8(__n128x4 reglist, __n128 src2);
+__n64  neon_tbl3_q8(__n128x3 reglist, __n64 src2);
+__n128 neon_tbl3_qq8(__n128x3 reglist, __n128 src2);
+__n64  neon_tbl2_q8(__n128x2 reglist, __n64 src2);
+__n128 neon_tbl2_qq8(__n128x2 reglist, __n128 src2);
+__n64  neon_tbl1_q8(__n128 reglist, __n64 src2);
+__n64  neon_tbl1_q8_2(__n64 src1, __n64 src2);
+__n128 neon_tbl1_qq8(__n128 reglist, __n128 src2);
 #define neon_tbx4_8(src1, src2, src3) neon_tbx2_q8(src1, {vget_lane_s64(src2.val[0], 0), vget_lane_s64(src2.val[1], 0), vget_lane_s64(src2.val[2], 0), vget_lane_s64(src2.val[3], 0)}, src3)
 #define neon_tbx3_8(src1, src2, src3) neon_tbx2_q8(src1, {vget_lane_s64(src2.val[0], 0), vget_lane_s64(src2.val[1], 0), vget_lane_s64(src2.val[2], 0), 0}, src3)
 #define neon_tbx2_8(src1, src2, src3) neon_tbx1_q8(src1, {vget_lane_s64(src2.val[0], 0), vget_lane_s64(src2.val[1], 0)}, src3)
@@ -3537,123 +3537,123 @@ __n128 neon_tbl1_qq8(__n128 reglist, __n128 src2) {}
 #define vqtbx4q_p8(src1, src2, src3) neon_tbx4_qq8(src1, src2, src3)
 
 // LD4R/LD4/LD3R/LD3/LD2R/LD2
-__n64x4 neon_ld4r_8(const int8_t * ptr) {}
-__n128x4 neon_ld4r_q8(const int8_t * ptr) {}
-__n64x4 neon_ld4r_16(const int16_t * ptr) {}
-__n128x4 neon_ld4r_q16(const int16_t * ptr) {}
-__n64x4 neon_ld4r_32(const int32_t * ptr) {}
-__n128x4 neon_ld4r_q32(const int32_t * ptr) {}
-__n64x4 neon_ld4r_64(const int64_t * ptr) {}
-__n128x4 neon_ld4r_q64(const int64_t * ptr) {}
-__n64x4 neon_ld4m_8(const int8_t * ptr) {}
-__n128x4 neon_ld4m_q8(const int8_t * ptr) {}
-__n64x4 neon_ld4m_16(const int16_t * ptr) {}
-__n128x4 neon_ld4m_q16(const int16_t * ptr) {}
-__n64x4 neon_ld4m_32(const int32_t * ptr) {}
-__n128x4 neon_ld4m_q32(const int32_t * ptr) {}
-__n128x4 neon_ld4m_q64(const int64_t * ptr) {}
-__n64x4 neon_ld4s_8(const int8_t * ptr, __n64x4 src, const int lane) {}
-__n128x4 neon_ld4s_q8(const int8_t * ptr, __n128x4 src, const int lane) {}
-__n64x4 neon_ld4s_16(const int16_t * ptr, __n64x4 src, const int lane) {}
-__n128x4 neon_ld4s_q16(const int16_t * ptr, __n128x4 src, const int lane) {}
-__n64x4 neon_ld4s_32(const int32_t * ptr, __n64x4 src, const int lane) {}
-__n128x4 neon_ld4s_q32(const int32_t * ptr, __n128x4 src, const int lane) {}
-__n64x4 neon_ld4s_64(const int64_t * ptr, __n64x4 src, const int lane) {}
-__n128x4 neon_ld4s_q64(const int64_t * ptr, __n128x4 src, const int lane) {}
-__n64x3 neon_ld3r_8(const int8_t * ptr) {}
-__n128x3 neon_ld3r_q8(const int8_t * ptr) {}
-__n64x3 neon_ld3r_16(const int16_t * ptr) {}
-__n128x3 neon_ld3r_q16(const int16_t * ptr) {}
-__n64x3 neon_ld3r_32(const int32_t * ptr) {}
-__n128x3 neon_ld3r_q32(const int32_t * ptr) {}
-__n64x3 neon_ld3r_64(const int64_t * ptr) {}
-__n128x3 neon_ld3r_q64(const int64_t * ptr) {}
-__n64x3 neon_ld3m_8(const int8_t * ptr) {}
-__n128x3 neon_ld3m_q8(const int8_t * ptr) {}
-__n64x3 neon_ld3m_16(const int16_t * ptr) {}
-__n128x3 neon_ld3m_q16(const int16_t * ptr) {}
-__n64x3 neon_ld3m_32(const int32_t * ptr) {}
-__n128x3 neon_ld3m_q32(const int32_t * ptr) {}
-__n128x3 neon_ld3m_q64(const int64_t * ptr) {}
-__n64x3 neon_ld3s_8(const int8_t * ptr, __n64x3 src, const int lane) {}
-__n128x3 neon_ld3s_q8(const int8_t * ptr, __n128x3 src, const int lane) {}
-__n64x3 neon_ld3s_16(const int16_t * ptr, __n64x3 src, const int lane) {}
-__n128x3 neon_ld3s_q16(const int16_t * ptr, __n128x3 src, const int lane) {}
-__n64x3 neon_ld3s_32(const int32_t * ptr, __n64x3 src, const int lane) {}
-__n128x3 neon_ld3s_q32(const int32_t * ptr, __n128x3 src, const int lane) {}
-__n64x3 neon_ld3s_64(const int64_t * ptr, __n64x3 src, const int lane) {}
-__n128x3 neon_ld3s_q64(const int64_t * ptr, __n128x3 src, const int lane) {}
-__n64x2 neon_ld2r_8(const int8_t * ptr) {}
-__n128x2 neon_ld2r_q8(const int8_t * ptr) {}
-__n64x2 neon_ld2r_16(const int16_t * ptr) {}
-__n128x2 neon_ld2r_q16(const int16_t * ptr) {}
-__n64x2 neon_ld2r_32(const int32_t * ptr) {}
-__n128x2 neon_ld2r_q32(const int32_t * ptr) {}
-__n64x2 neon_ld2r_64(const int64_t * ptr) {}
-__n128x2 neon_ld2r_q64(const int64_t * ptr) {}
-__n64x2 neon_ld2m_8(const int8_t * ptr) {}
-__n128x2 neon_ld2m_q8(const int8_t * ptr) {}
-__n64x2 neon_ld2m_16(const int16_t * ptr) {}
-__n128x2 neon_ld2m_q16(const int16_t * ptr) {}
-__n64x2 neon_ld2m_32(const int32_t * ptr) {}
-__n128x2 neon_ld2m_q32(const int32_t * ptr) {}
-__n128x2 neon_ld2m_q64(const int64_t * ptr) {}
-__n64x2 neon_ld2s_8(const int8_t * ptr, __n64x2 src, const int lane) {}
-__n128x2 neon_ld2s_q8(const int8_t * ptr, __n128x2 src, const int lane) {}
-__n64x2 neon_ld2s_16(const int16_t * ptr, __n64x2 src, const int lane) {}
-__n128x2 neon_ld2s_q16(const int16_t * ptr, __n128x2 src, const int lane) {}
-__n64x2 neon_ld2s_32(const int32_t * ptr, __n64x2 src, const int lane) {}
-__n128x2 neon_ld2s_q32(const int32_t * ptr, __n128x2 src, const int lane) {}
-__n64x2 neon_ld2s_64(const int64_t * ptr, __n64x2 src, const int lane) {}
-__n128x2 neon_ld2s_q64(const int64_t * ptr, __n128x2 src, const int lane) {}
-__n64 neon_ld1r_8(const int8_t * ptr) {}
-__n128 neon_ld1r_q8(const int8_t * ptr) {}
-__n64 neon_ld1r_16(const int16_t * ptr) {}
-__n128 neon_ld1r_q16(const int16_t * ptr) {}
-__n64 neon_ld1r_32(const int32_t * ptr) {}
-__n128 neon_ld1r_q32(const int32_t * ptr) {}
-__n64 neon_ld1r_64(const int64_t * ptr) {}
-__n128 neon_ld1r_q64(const int64_t * ptr) {}
-__n64 neon_ld1m_8(const int8_t * ptr) {}
-__n128 neon_ld1m_q8(const int8_t * ptr) {}
-__n64 neon_ld1m_16(const int16_t * ptr) {}
-__n128 neon_ld1m_q16(const int16_t * ptr) {}
-__n64 neon_ld1m_32(const int32_t * ptr) {}
-__n128 neon_ld1m_q32(const int32_t * ptr) {}
-__n64 neon_ld1m_64(const int64_t * ptr) {}
-__n128 neon_ld1m_q64(const int64_t * ptr) {}
-__n64x2 neon_ld1m2_8(const int8_t * ptr) {}
-__n128x2 neon_ld1m2_q8(const int8_t * ptr) {}
-__n64x2 neon_ld1m2_16(const int16_t * ptr) {}
-__n128x2 neon_ld1m2_q16(const int16_t * ptr) {}
-__n64x2 neon_ld1m2_32(const int32_t * ptr) {}
-__n128x2 neon_ld1m2_q32(const int32_t * ptr) {}
-__n64x2 neon_ld1m2_64(const int64_t * ptr) {}
-__n128x2 neon_ld1m2_q64(const int64_t * ptr) {}
-__n64x3 neon_ld1m3_8(const int8_t * ptr) {}
-__n128x3 neon_ld1m3_q8(const int8_t * ptr) {}
-__n64x3 neon_ld1m3_16(const int16_t * ptr) {}
-__n128x3 neon_ld1m3_q16(const int16_t * ptr) {}
-__n64x3 neon_ld1m3_32(const int32_t * ptr) {}
-__n128x3 neon_ld1m3_q32(const int32_t * ptr) {}
-__n64x3 neon_ld1m3_64(const int64_t * ptr) {}
-__n128x3 neon_ld1m3_q64(const int64_t * ptr) {}
-__n64x4 neon_ld1m4_8(const int8_t * ptr) {}
-__n128x4 neon_ld1m4_q8(const int8_t * ptr) {}
-__n64x4 neon_ld1m4_16(const int16_t * ptr) {}
-__n128x4 neon_ld1m4_q16(const int16_t * ptr) {}
-__n64x4 neon_ld1m4_32(const int32_t * ptr) {}
-__n128x4 neon_ld1m4_q32(const int32_t * ptr) {}
-__n64x4 neon_ld1m4_64(const int64_t * ptr) {}
-__n128x4 neon_ld1m4_q64(const int64_t * ptr) {}
-__n64 neon_ld1s_8(const int8_t * ptr, __n64 src, const int lane) {}
-__n128 neon_ld1s_q8(const int8_t * ptr, __n128 src, const int lane) {}
-__n64 neon_ld1s_16(const int16_t * ptr, __n64 src, const int lane) {}
-__n128 neon_ld1s_q16(const int16_t * ptr, __n128 src, const int lane) {}
-__n64 neon_ld1s_32(const int32_t * ptr, __n64 src, const int lane) {}
-__n128 neon_ld1s_q32(const int32_t * ptr, __n128 src, const int lane) {}
-__n64 neon_ld1s_64(const int64_t * ptr, __n64 src, const int lane) {}
-__n128 neon_ld1s_q64(const int64_t * ptr, __n128 src, const int lane) {}
+__n64x4 neon_ld4r_8(const int8_t * ptr);
+__n128x4 neon_ld4r_q8(const int8_t * ptr);
+__n64x4 neon_ld4r_16(const int16_t * ptr);
+__n128x4 neon_ld4r_q16(const int16_t * ptr);
+__n64x4 neon_ld4r_32(const int32_t * ptr);
+__n128x4 neon_ld4r_q32(const int32_t * ptr);
+__n64x4 neon_ld4r_64(const int64_t * ptr);
+__n128x4 neon_ld4r_q64(const int64_t * ptr);
+__n64x4 neon_ld4m_8(const int8_t * ptr);
+__n128x4 neon_ld4m_q8(const int8_t * ptr);
+__n64x4 neon_ld4m_16(const int16_t * ptr);
+__n128x4 neon_ld4m_q16(const int16_t * ptr);
+__n64x4 neon_ld4m_32(const int32_t * ptr);
+__n128x4 neon_ld4m_q32(const int32_t * ptr);
+__n128x4 neon_ld4m_q64(const int64_t * ptr);
+__n64x4 neon_ld4s_8(const int8_t * ptr, __n64x4 src, const int lane);
+__n128x4 neon_ld4s_q8(const int8_t * ptr, __n128x4 src, const int lane);
+__n64x4 neon_ld4s_16(const int16_t * ptr, __n64x4 src, const int lane);
+__n128x4 neon_ld4s_q16(const int16_t * ptr, __n128x4 src, const int lane);
+__n64x4 neon_ld4s_32(const int32_t * ptr, __n64x4 src, const int lane);
+__n128x4 neon_ld4s_q32(const int32_t * ptr, __n128x4 src, const int lane);
+__n64x4 neon_ld4s_64(const int64_t * ptr, __n64x4 src, const int lane);
+__n128x4 neon_ld4s_q64(const int64_t * ptr, __n128x4 src, const int lane);
+__n64x3 neon_ld3r_8(const int8_t * ptr);
+__n128x3 neon_ld3r_q8(const int8_t * ptr);
+__n64x3 neon_ld3r_16(const int16_t * ptr);
+__n128x3 neon_ld3r_q16(const int16_t * ptr);
+__n64x3 neon_ld3r_32(const int32_t * ptr);
+__n128x3 neon_ld3r_q32(const int32_t * ptr);
+__n64x3 neon_ld3r_64(const int64_t * ptr);
+__n128x3 neon_ld3r_q64(const int64_t * ptr);
+__n64x3 neon_ld3m_8(const int8_t * ptr);
+__n128x3 neon_ld3m_q8(const int8_t * ptr);
+__n64x3 neon_ld3m_16(const int16_t * ptr);
+__n128x3 neon_ld3m_q16(const int16_t * ptr);
+__n64x3 neon_ld3m_32(const int32_t * ptr);
+__n128x3 neon_ld3m_q32(const int32_t * ptr);
+__n128x3 neon_ld3m_q64(const int64_t * ptr);
+__n64x3 neon_ld3s_8(const int8_t * ptr, __n64x3 src, const int lane);
+__n128x3 neon_ld3s_q8(const int8_t * ptr, __n128x3 src, const int lane);
+__n64x3 neon_ld3s_16(const int16_t * ptr, __n64x3 src, const int lane);
+__n128x3 neon_ld3s_q16(const int16_t * ptr, __n128x3 src, const int lane);
+__n64x3 neon_ld3s_32(const int32_t * ptr, __n64x3 src, const int lane);
+__n128x3 neon_ld3s_q32(const int32_t * ptr, __n128x3 src, const int lane);
+__n64x3 neon_ld3s_64(const int64_t * ptr, __n64x3 src, const int lane);
+__n128x3 neon_ld3s_q64(const int64_t * ptr, __n128x3 src, const int lane);
+__n64x2 neon_ld2r_8(const int8_t * ptr);
+__n128x2 neon_ld2r_q8(const int8_t * ptr);
+__n64x2 neon_ld2r_16(const int16_t * ptr);
+__n128x2 neon_ld2r_q16(const int16_t * ptr);
+__n64x2 neon_ld2r_32(const int32_t * ptr);
+__n128x2 neon_ld2r_q32(const int32_t * ptr);
+__n64x2 neon_ld2r_64(const int64_t * ptr);
+__n128x2 neon_ld2r_q64(const int64_t * ptr);
+__n64x2 neon_ld2m_8(const int8_t * ptr);
+__n128x2 neon_ld2m_q8(const int8_t * ptr);
+__n64x2 neon_ld2m_16(const int16_t * ptr);
+__n128x2 neon_ld2m_q16(const int16_t * ptr);
+__n64x2 neon_ld2m_32(const int32_t * ptr);
+__n128x2 neon_ld2m_q32(const int32_t * ptr);
+__n128x2 neon_ld2m_q64(const int64_t * ptr);
+__n64x2 neon_ld2s_8(const int8_t * ptr, __n64x2 src, const int lane);
+__n128x2 neon_ld2s_q8(const int8_t * ptr, __n128x2 src, const int lane);
+__n64x2 neon_ld2s_16(const int16_t * ptr, __n64x2 src, const int lane);
+__n128x2 neon_ld2s_q16(const int16_t * ptr, __n128x2 src, const int lane);
+__n64x2 neon_ld2s_32(const int32_t * ptr, __n64x2 src, const int lane);
+__n128x2 neon_ld2s_q32(const int32_t * ptr, __n128x2 src, const int lane);
+__n64x2 neon_ld2s_64(const int64_t * ptr, __n64x2 src, const int lane);
+__n128x2 neon_ld2s_q64(const int64_t * ptr, __n128x2 src, const int lane);
+__n64 neon_ld1r_8(const int8_t * ptr);
+__n128 neon_ld1r_q8(const int8_t * ptr);
+__n64 neon_ld1r_16(const int16_t * ptr);
+__n128 neon_ld1r_q16(const int16_t * ptr);
+__n64 neon_ld1r_32(const int32_t * ptr);
+__n128 neon_ld1r_q32(const int32_t * ptr);
+__n64 neon_ld1r_64(const int64_t * ptr);
+__n128 neon_ld1r_q64(const int64_t * ptr);
+__n64 neon_ld1m_8(const int8_t * ptr);
+__n128 neon_ld1m_q8(const int8_t * ptr);
+__n64 neon_ld1m_16(const int16_t * ptr);
+__n128 neon_ld1m_q16(const int16_t * ptr);
+__n64 neon_ld1m_32(const int32_t * ptr);
+__n128 neon_ld1m_q32(const int32_t * ptr);
+__n64 neon_ld1m_64(const int64_t * ptr);
+__n128 neon_ld1m_q64(const int64_t * ptr);
+__n64x2 neon_ld1m2_8(const int8_t * ptr);
+__n128x2 neon_ld1m2_q8(const int8_t * ptr);
+__n64x2 neon_ld1m2_16(const int16_t * ptr);
+__n128x2 neon_ld1m2_q16(const int16_t * ptr);
+__n64x2 neon_ld1m2_32(const int32_t * ptr);
+__n128x2 neon_ld1m2_q32(const int32_t * ptr);
+__n64x2 neon_ld1m2_64(const int64_t * ptr);
+__n128x2 neon_ld1m2_q64(const int64_t * ptr);
+__n64x3 neon_ld1m3_8(const int8_t * ptr);
+__n128x3 neon_ld1m3_q8(const int8_t * ptr);
+__n64x3 neon_ld1m3_16(const int16_t * ptr);
+__n128x3 neon_ld1m3_q16(const int16_t * ptr);
+__n64x3 neon_ld1m3_32(const int32_t * ptr);
+__n128x3 neon_ld1m3_q32(const int32_t * ptr);
+__n64x3 neon_ld1m3_64(const int64_t * ptr);
+__n128x3 neon_ld1m3_q64(const int64_t * ptr);
+__n64x4 neon_ld1m4_8(const int8_t * ptr);
+__n128x4 neon_ld1m4_q8(const int8_t * ptr);
+__n64x4 neon_ld1m4_16(const int16_t * ptr);
+__n128x4 neon_ld1m4_q16(const int16_t * ptr);
+__n64x4 neon_ld1m4_32(const int32_t * ptr);
+__n128x4 neon_ld1m4_q32(const int32_t * ptr);
+__n64x4 neon_ld1m4_64(const int64_t * ptr);
+__n128x4 neon_ld1m4_q64(const int64_t * ptr);
+__n64 neon_ld1s_8(const int8_t * ptr, __n64 src, const int lane);
+__n128 neon_ld1s_q8(const int8_t * ptr, __n128 src, const int lane);
+__n64 neon_ld1s_16(const int16_t * ptr, __n64 src, const int lane);
+__n128 neon_ld1s_q16(const int16_t * ptr, __n128 src, const int lane);
+__n64 neon_ld1s_32(const int32_t * ptr, __n64 src, const int lane);
+__n128 neon_ld1s_q32(const int32_t * ptr, __n128 src, const int lane);
+__n64 neon_ld1s_64(const int64_t * ptr, __n64 src, const int lane);
+__n128 neon_ld1s_q64(const int64_t * ptr, __n128 src, const int lane);
 #define vld4_dup_f32(src) neon_ld4r_32((int32_t*)src)
 #define vld4_dup_p16(src) neon_ld4r_16((int16_t*)src)
 #define vld4_dup_p8(src) neon_ld4r_8((int8_t*)src)
@@ -4299,91 +4299,91 @@ __n128 neon_ld1s_q64(const int64_t * ptr, __n128 src, const int lane) {}
 #define vld1q_lane_u32_ex(src1, src2, src3) neon_ld1s_q32((int32_t*)src1, src2, src3)
 
 // ST1/ST2/ST3/ST4
-void neon_st4m_8(int8_t * ptr, __n64x4 src) {}
-void neon_st4m_q8(int8_t * ptr, __n128x4 src) {}
-void neon_st4m_16(int16_t * ptr, __n64x4 src) {}
-void neon_st4m_q16(int16_t * ptr, __n128x4 src) {}
-void neon_st4m_32(int32_t * ptr, __n64x4 src) {}
-void neon_st4m_q32(int32_t * ptr, __n128x4 src) {}
-void neon_st4m_q64(int64_t * ptr, __n128x4 src) {}
-void neon_st4s_8(int8_t * ptr, __n64x4 src, const int lane) {}
-void neon_st4s_q8(int8_t * ptr, __n128x4 src, const int lane) {}
-void neon_st4s_16(int16_t * ptr, __n64x4 src, const int lane) {}
-void neon_st4s_q16(int16_t * ptr, __n128x4 src, const int lane) {}
-void neon_st4s_32(int32_t * ptr, __n64x4 src, const int lane) {}
-void neon_st4s_q32(int32_t * ptr, __n128x4 src, const int lane) {}
-void neon_st4s_64(int64_t * ptr, __n64x4 src, const int lane) {}
-void neon_st4s_q64(int64_t * ptr, __n128x4 src, const int lane) {}
-void neon_st3m_8(int8_t * ptr, __n64x3 src) {}
-void neon_st3m_q8(int8_t * ptr, __n128x3 src) {}
-void neon_st3m_16(int16_t * ptr, __n64x3 src) {}
-void neon_st3m_q16(int16_t * ptr, __n128x3 src) {}
-void neon_st3m_32(int32_t * ptr, __n64x3 src) {}
-void neon_st3m_q32(int32_t * ptr, __n128x3 src) {}
-void neon_st3m_q64(int64_t * ptr, __n128x3 src) {}
-void neon_st3s_8(int8_t * ptr, __n64x3 src, const int lane) {}
-void neon_st3s_q8(int8_t * ptr, __n128x3 src, const int lane) {}
-void neon_st3s_16(int16_t * ptr, __n64x3 src, const int lane) {}
-void neon_st3s_q16(int16_t * ptr, __n128x3 src, const int lane) {}
-void neon_st3s_32(int32_t * ptr, __n64x3 src, const int lane) {}
-void neon_st3s_q32(int32_t * ptr, __n128x3 src, const int lane) {}
-void neon_st3s_64(int64_t * ptr, __n64x3 src, const int lane) {}
-void neon_st3s_q64(int64_t * ptr, __n128x3 src, const int lane) {}
-void neon_st2m_8(int8_t * ptr, __n64x2 src) {}
-void neon_st2m_q8(int8_t * ptr, __n128x2 src) {}
-void neon_st2m_16(int16_t * ptr, __n64x2 src) {}
-void neon_st2m_q16(int16_t * ptr, __n128x2 src) {}
-void neon_st2m_32(int32_t * ptr, __n64x2 src) {}
-void neon_st2m_q32(int32_t * ptr, __n128x2 src) {}
-void neon_st2m_q64(int64_t * ptr, __n128x2 src) {}
-void neon_st2s_8(int8_t * ptr, __n64x2 src, const int lane) {}
-void neon_st2s_q8(int8_t * ptr, __n128x2 src, const int lane) {}
-void neon_st2s_16(int16_t * ptr, __n64x2 src, const int lane) {}
-void neon_st2s_q16(int16_t * ptr, __n128x2 src, const int lane) {}
-void neon_st2s_32(int32_t * ptr, __n64x2 src, const int lane) {}
-void neon_st2s_q32(int32_t * ptr, __n128x2 src, const int lane) {}
-void neon_st2s_64(int64_t * ptr, __n64x2 src, const int lane) {}
-void neon_st2s_q64(int64_t * ptr, __n128x2 src, const int lane) {}
-void neon_st1m_8(int8_t * ptr, __n64 src) {}
-void neon_st1m_q8(int8_t * ptr, __n128 src) {}
-void neon_st1m_16(int16_t * ptr, __n64 src) {}
-void neon_st1m_q16(int16_t * ptr, __n128 src) {}
-void neon_st1m_32(int32_t * ptr, __n64 src) {}
-void neon_st1m_q32(int32_t * ptr, __n128 src) {}
-void neon_st1m_64(int64_t * ptr, __n64 src) {}
-void neon_st1m_q64(int64_t * ptr, __n128 src) {}
-void neon_st1m2_8(int8_t * ptr, __n64x2 src) {}
-void neon_st1m2_q8(int8_t * ptr, __n128x2 src) {}
-void neon_st1m2_16(int16_t * ptr, __n64x2 src) {}
-void neon_st1m2_q16(int16_t * ptr, __n128x2 src) {}
-void neon_st1m2_32(int32_t * ptr, __n64x2 src) {}
-void neon_st1m2_q32(int32_t * ptr, __n128x2 src) {}
-void neon_st1m2_64(int64_t * ptr, __n64x2 src) {}
-void neon_st1m2_q64(int64_t * ptr, __n128x2 src) {}
-void neon_st1m3_8(int8_t * ptr, __n64x3 src) {}
-void neon_st1m3_q8(int8_t * ptr, __n128x3 src) {}
-void neon_st1m3_16(int16_t * ptr, __n64x3 src) {}
-void neon_st1m3_q16(int16_t * ptr, __n128x3 src) {}
-void neon_st1m3_32(int32_t * ptr, __n64x3 src) {}
-void neon_st1m3_q32(int32_t * ptr, __n128x3 src) {}
-void neon_st1m3_64(int64_t * ptr, __n64x3 src) {}
-void neon_st1m3_q64(int64_t * ptr, __n128x3 src) {}
-void neon_st1m4_8(int8_t * ptr, __n64x4 src) {}
-void neon_st1m4_q8(int8_t * ptr, __n128x4 src) {}
-void neon_st1m4_16(int16_t * ptr, __n64x4 src) {}
-void neon_st1m4_q16(int16_t * ptr, __n128x4 src) {}
-void neon_st1m4_32(int32_t * ptr, __n64x4 src) {}
-void neon_st1m4_q32(int32_t * ptr, __n128x4 src) {}
-void neon_st1m4_64(int64_t * ptr, __n64x4 src) {}
-void neon_st1m4_q64(int64_t * ptr, __n128x4 src) {}
-void neon_st1s_8(int8_t * ptr, __n64 src, const int lane) {}
-void neon_st1s_q8(int8_t * ptr, __n128 src, const int lane) {}
-void neon_st1s_16(int16_t * ptr, __n64 src, const int lane) {}
-void neon_st1s_q16(int16_t * ptr, __n128 src, const int lane) {}
-void neon_st1s_32(int32_t * ptr, __n64 src, const int lane) {}
-void neon_st1s_q32(int32_t * ptr, __n128 src, const int lane) {}
-void neon_st1s_64(int64_t * ptr, __n64 src, const int lane) {}
-void neon_st1s_q64(int64_t * ptr, __n128 src, const int lane) {}
+void neon_st4m_8(int8_t * ptr, __n64x4 src);
+void neon_st4m_q8(int8_t * ptr, __n128x4 src);
+void neon_st4m_16(int16_t * ptr, __n64x4 src);
+void neon_st4m_q16(int16_t * ptr, __n128x4 src);
+void neon_st4m_32(int32_t * ptr, __n64x4 src);
+void neon_st4m_q32(int32_t * ptr, __n128x4 src);
+void neon_st4m_q64(int64_t * ptr, __n128x4 src);
+void neon_st4s_8(int8_t * ptr, __n64x4 src, const int lane);
+void neon_st4s_q8(int8_t * ptr, __n128x4 src, const int lane);
+void neon_st4s_16(int16_t * ptr, __n64x4 src, const int lane);
+void neon_st4s_q16(int16_t * ptr, __n128x4 src, const int lane);
+void neon_st4s_32(int32_t * ptr, __n64x4 src, const int lane);
+void neon_st4s_q32(int32_t * ptr, __n128x4 src, const int lane);
+void neon_st4s_64(int64_t * ptr, __n64x4 src, const int lane);
+void neon_st4s_q64(int64_t * ptr, __n128x4 src, const int lane);
+void neon_st3m_8(int8_t * ptr, __n64x3 src);
+void neon_st3m_q8(int8_t * ptr, __n128x3 src);
+void neon_st3m_16(int16_t * ptr, __n64x3 src);
+void neon_st3m_q16(int16_t * ptr, __n128x3 src);
+void neon_st3m_32(int32_t * ptr, __n64x3 src);
+void neon_st3m_q32(int32_t * ptr, __n128x3 src);
+void neon_st3m_q64(int64_t * ptr, __n128x3 src);
+void neon_st3s_8(int8_t * ptr, __n64x3 src, const int lane);
+void neon_st3s_q8(int8_t * ptr, __n128x3 src, const int lane);
+void neon_st3s_16(int16_t * ptr, __n64x3 src, const int lane);
+void neon_st3s_q16(int16_t * ptr, __n128x3 src, const int lane);
+void neon_st3s_32(int32_t * ptr, __n64x3 src, const int lane);
+void neon_st3s_q32(int32_t * ptr, __n128x3 src, const int lane);
+void neon_st3s_64(int64_t * ptr, __n64x3 src, const int lane);
+void neon_st3s_q64(int64_t * ptr, __n128x3 src, const int lane);
+void neon_st2m_8(int8_t * ptr, __n64x2 src);
+void neon_st2m_q8(int8_t * ptr, __n128x2 src);
+void neon_st2m_16(int16_t * ptr, __n64x2 src);
+void neon_st2m_q16(int16_t * ptr, __n128x2 src);
+void neon_st2m_32(int32_t * ptr, __n64x2 src);
+void neon_st2m_q32(int32_t * ptr, __n128x2 src);
+void neon_st2m_q64(int64_t * ptr, __n128x2 src);
+void neon_st2s_8(int8_t * ptr, __n64x2 src, const int lane);
+void neon_st2s_q8(int8_t * ptr, __n128x2 src, const int lane);
+void neon_st2s_16(int16_t * ptr, __n64x2 src, const int lane);
+void neon_st2s_q16(int16_t * ptr, __n128x2 src, const int lane);
+void neon_st2s_32(int32_t * ptr, __n64x2 src, const int lane);
+void neon_st2s_q32(int32_t * ptr, __n128x2 src, const int lane);
+void neon_st2s_64(int64_t * ptr, __n64x2 src, const int lane);
+void neon_st2s_q64(int64_t * ptr, __n128x2 src, const int lane);
+void neon_st1m_8(int8_t * ptr, __n64 src);
+void neon_st1m_q8(int8_t * ptr, __n128 src);
+void neon_st1m_16(int16_t * ptr, __n64 src);
+void neon_st1m_q16(int16_t * ptr, __n128 src);
+void neon_st1m_32(int32_t * ptr, __n64 src);
+void neon_st1m_q32(int32_t * ptr, __n128 src);
+void neon_st1m_64(int64_t * ptr, __n64 src);
+void neon_st1m_q64(int64_t * ptr, __n128 src);
+void neon_st1m2_8(int8_t * ptr, __n64x2 src);
+void neon_st1m2_q8(int8_t * ptr, __n128x2 src);
+void neon_st1m2_16(int16_t * ptr, __n64x2 src);
+void neon_st1m2_q16(int16_t * ptr, __n128x2 src);
+void neon_st1m2_32(int32_t * ptr, __n64x2 src);
+void neon_st1m2_q32(int32_t * ptr, __n128x2 src);
+void neon_st1m2_64(int64_t * ptr, __n64x2 src);
+void neon_st1m2_q64(int64_t * ptr, __n128x2 src);
+void neon_st1m3_8(int8_t * ptr, __n64x3 src);
+void neon_st1m3_q8(int8_t * ptr, __n128x3 src);
+void neon_st1m3_16(int16_t * ptr, __n64x3 src);
+void neon_st1m3_q16(int16_t * ptr, __n128x3 src);
+void neon_st1m3_32(int32_t * ptr, __n64x3 src);
+void neon_st1m3_q32(int32_t * ptr, __n128x3 src);
+void neon_st1m3_64(int64_t * ptr, __n64x3 src);
+void neon_st1m3_q64(int64_t * ptr, __n128x3 src);
+void neon_st1m4_8(int8_t * ptr, __n64x4 src);
+void neon_st1m4_q8(int8_t * ptr, __n128x4 src);
+void neon_st1m4_16(int16_t * ptr, __n64x4 src);
+void neon_st1m4_q16(int16_t * ptr, __n128x4 src);
+void neon_st1m4_32(int32_t * ptr, __n64x4 src);
+void neon_st1m4_q32(int32_t * ptr, __n128x4 src);
+void neon_st1m4_64(int64_t * ptr, __n64x4 src);
+void neon_st1m4_q64(int64_t * ptr, __n128x4 src);
+void neon_st1s_8(int8_t * ptr, __n64 src, const int lane);
+void neon_st1s_q8(int8_t * ptr, __n128 src, const int lane);
+void neon_st1s_16(int16_t * ptr, __n64 src, const int lane);
+void neon_st1s_q16(int16_t * ptr, __n128 src, const int lane);
+void neon_st1s_32(int32_t * ptr, __n64 src, const int lane);
+void neon_st1s_q32(int32_t * ptr, __n128 src, const int lane);
+void neon_st1s_64(int64_t * ptr, __n64 src, const int lane);
+void neon_st1s_q64(int64_t * ptr, __n128 src, const int lane);
 #define vst4_f32(src1, src2) neon_st4m_32((int32_t*)src1, src2)
 #define vst4_p16(src1, src2) neon_st4m_16((int16_t*)src1, src2)
 #define vst4_p8(src1, src2) neon_st4m_8((int8_t*)src1, src2)
@@ -4847,17 +4847,17 @@ void neon_st1s_q64(int64_t * ptr, __n128 src, const int lane) {}
 #define vst1q_lane_u32_ex(src1, src2, src3, align) neon_st1s_q32((int32_t*)src1, src2, src3)
 
 // FCVTL/FCVTL2/FCVTN/FCVTN2/FCVTXN/FCVTXN2
-__n128 neon_fcvtl_32(__n64) {}
-__n128 neon_fcvtl2_32(__n128) {}
-__n128 neon_fcvtl_64(__n64) {}
-__n128 neon_fcvtl2_64(__n128) {}
-__n64  neon_fcvtn_32(__n128) {}
-__n128 neon_fcvtn2_32(__n64, __n128) {}
-__n64  neon_fcvtn_64(__n128) {}
-__n128 neon_fcvtn2_64(__n64, __n128) {}
-__n64  neon_fcvtxn_64(__n128) {}
-__n128 neon_fcvtxn2_64(__n64, __n128) {}
-float  neon_fcvtxns_64(double) {}
+__n128 neon_fcvtl_32(__n64);
+__n128 neon_fcvtl2_32(__n128);
+__n128 neon_fcvtl_64(__n64);
+__n128 neon_fcvtl2_64(__n128);
+__n64  neon_fcvtn_32(__n128);
+__n128 neon_fcvtn2_32(__n64, __n128);
+__n64  neon_fcvtn_64(__n128);
+__n128 neon_fcvtn2_64(__n64, __n128);
+__n64  neon_fcvtxn_64(__n128);
+__n128 neon_fcvtxn2_64(__n64, __n128);
+float  neon_fcvtxns_64(double);
 #define vcvt_f32_f16(src) neon_fcvtl_32(src)
 #define vcvt_high_f32_f16(src) neon_fcvtl2_32(src)
 #define vcvt_f64_f32(src) neon_fcvtl_64(src)
@@ -4871,39 +4871,39 @@ float  neon_fcvtxns_64(double) {}
 #define vcvtxd_f32_f64(src) neon_fcvtxns_64(src)
 
 // SQXTN/SQXTUN/UQXTN/XTN
-__n64 neon_sqxtn_16(__n128) {}
-__n64 neon_sqxtn_32(__n128) {}
-__n64 neon_sqxtn_64(__n128) {}
-__n128 neon_sqxtn2_16(__n64, __n128) {}
-__n128 neon_sqxtn2_32(__n64, __n128) {}
-__n128 neon_sqxtn2_64(__n64, __n128) {}
-__n8  neon_sqxtns_16(__n16) {}
-__n16 neon_sqxtns_32(float) {}
-float neon_sqxtns_64(__n64) {}
-__n64 neon_sqxtun_16(__n128) {}
-__n64 neon_sqxtun_32(__n128) {}
-__n64 neon_sqxtun_64(__n128) {}
-__n128 neon_sqxtun2_16(__n64, __n128) {}
-__n128 neon_sqxtun2_32(__n64, __n128) {}
-__n128 neon_sqxtun2_64(__n64, __n128) {}
-__n8  neon_sqxtuns_16(__n16) {}
-__n16 neon_sqxtuns_32(float) {}
-float neon_sqxtuns_64(__n64) {}
-__n64 neon_uqxtn_16(__n128) {}
-__n64 neon_uqxtn_32(__n128) {}
-__n64 neon_uqxtn_64(__n128) {}
-__n128 neon_uqxtn2_16(__n64, __n128) {}
-__n128 neon_uqxtn2_32(__n64, __n128) {}
-__n128 neon_uqxtn2_64(__n64, __n128) {}
-__n8  neon_uqxtns_16(__n16) {}
-__n16 neon_uqxtns_32(float) {}
-float neon_uqxtns_64(__n64) {}
-__n64 neon_xtn_16(__n128) {}
-__n64 neon_xtn_32(__n128) {}
-__n64 neon_xtn_64(__n128) {}
-__n128 neon_xtn2_16(__n64, __n128) {}
-__n128 neon_xtn2_32(__n64, __n128) {}
-__n128 neon_xtn2_64(__n64, __n128) {}
+__n64 neon_sqxtn_16(__n128);
+__n64 neon_sqxtn_32(__n128);
+__n64 neon_sqxtn_64(__n128);
+__n128 neon_sqxtn2_16(__n64, __n128);
+__n128 neon_sqxtn2_32(__n64, __n128);
+__n128 neon_sqxtn2_64(__n64, __n128);
+__n8  neon_sqxtns_16(__n16);
+__n16 neon_sqxtns_32(float);
+float neon_sqxtns_64(__n64);
+__n64 neon_sqxtun_16(__n128);
+__n64 neon_sqxtun_32(__n128);
+__n64 neon_sqxtun_64(__n128);
+__n128 neon_sqxtun2_16(__n64, __n128);
+__n128 neon_sqxtun2_32(__n64, __n128);
+__n128 neon_sqxtun2_64(__n64, __n128);
+__n8  neon_sqxtuns_16(__n16);
+__n16 neon_sqxtuns_32(float);
+float neon_sqxtuns_64(__n64);
+__n64 neon_uqxtn_16(__n128);
+__n64 neon_uqxtn_32(__n128);
+__n64 neon_uqxtn_64(__n128);
+__n128 neon_uqxtn2_16(__n64, __n128);
+__n128 neon_uqxtn2_32(__n64, __n128);
+__n128 neon_uqxtn2_64(__n64, __n128);
+__n8  neon_uqxtns_16(__n16);
+__n16 neon_uqxtns_32(float);
+float neon_uqxtns_64(__n64);
+__n64 neon_xtn_16(__n128);
+__n64 neon_xtn_32(__n128);
+__n64 neon_xtn_64(__n128);
+__n128 neon_xtn2_16(__n64, __n128);
+__n128 neon_xtn2_32(__n64, __n128);
+__n128 neon_xtn2_64(__n64, __n128);
 #define vqmovn_s16(src) neon_sqxtn_16(src)
 #define vqmovn_s32(src) neon_sqxtn_32(src)
 #define vqmovn_s64(src) neon_sqxtn_64(src)
@@ -4939,18 +4939,18 @@ __n128 neon_xtn2_64(__n64, __n128) {}
 #define vmovn_u64(src) neon_xtn_64(src)
 
 // SHLL/SSHLL/USHLL
-__n128 neon_sshll_8  (__n64, const int) {}
-__n128 neon_sshll2_8 (__n128, const int) {}
-__n128 neon_sshll_16 (__n64, const int) {}
-__n128 neon_sshll2_16(__n128, const int) {}
-__n128 neon_sshll_32 (__n64, const int) {}
-__n128 neon_sshll2_32(__n128, const int) {}
-__n128 neon_ushll_8  (__n64, const int) {}
-__n128 neon_ushll2_8 (__n128, const int) {}
-__n128 neon_ushll_16 (__n64, const int) {}
-__n128 neon_ushll2_16(__n128, const int) {}
-__n128 neon_ushll_32 (__n64, const int) {}
-__n128 neon_ushll2_32(__n128, const int) {}
+__n128 neon_sshll_8  (__n64, const int);
+__n128 neon_sshll2_8 (__n128, const int);
+__n128 neon_sshll_16 (__n64, const int);
+__n128 neon_sshll2_16(__n128, const int);
+__n128 neon_sshll_32 (__n64, const int);
+__n128 neon_sshll2_32(__n128, const int);
+__n128 neon_ushll_8  (__n64, const int);
+__n128 neon_ushll2_8 (__n128, const int);
+__n128 neon_ushll_16 (__n64, const int);
+__n128 neon_ushll2_16(__n128, const int);
+__n128 neon_ushll_32 (__n64, const int);
+__n128 neon_ushll2_32(__n128, const int);
 #define vshll_n_s8(src1, src2) neon_sshll_8(src1, src2)
 #define vshll_n_s16(src1, src2) neon_sshll_16(src1, src2)
 #define vshll_n_s32(src1, src2) neon_sshll_32(src1, src2)
@@ -4977,72 +4977,72 @@ __n128 neon_ushll2_32(__n128, const int) {}
 #define vmovl_high_u32(src1) neon_ushll2_32(src1, 0)
 
 // SHRN/RSHRN/SQSHRN/SQRSHRN/UQSHRN/UQRSHRN/SQSHRUN/SQRSHRUN
-__n64  neon_shrn_16     (__n128, const int) {}
-__n128 neon_shrn2_16    (__n64, __n128, const int) {}
-__n64  neon_shrn_32     (__n128, const int) {}
-__n128 neon_shrn2_32    (__n64, __n128, const int) {}
-__n64  neon_shrn_64     (__n128, const int) {}
-__n128 neon_shrn2_64    (__n64, __n128, const int) {}
-__n64  neon_rshrn_16    (__n128, const int) {}
-__n128 neon_rshrn2_16   (__n64, __n128, const int) {}
-__n64  neon_rshrn_32    (__n128, const int) {}
-__n128 neon_rshrn2_32   (__n64, __n128, const int) {}
-__n64  neon_rshrn_64    (__n128, const int) {}
-__n128 neon_rshrn2_64   (__n64, __n128, const int) {}
-__n64  neon_sqshrn_16   (__n128, const int) {}
-__n128 neon_sqshrn2_16  (__n64, __n128, const int) {}
-__n64  neon_sqshrn_32   (__n128, const int) {}
-__n128 neon_sqshrn2_32  (__n64, __n128, const int) {}
-__n64  neon_sqshrn_64   (__n128, const int) {}
-__n128 neon_sqshrn2_64  (__n64, __n128, const int) {}
-__n64  neon_sqrshrn_16  (__n128, const int) {}
-__n128 neon_sqrshrn2_16 (__n64, __n128, const int) {}
-__n64  neon_sqrshrn_32  (__n128, const int) {}
-__n128 neon_sqrshrn2_32 (__n64, __n128, const int) {}
-__n64  neon_sqrshrn_64  (__n128, const int) {}
-__n128 neon_sqrshrn2_64 (__n64, __n128, const int) {}
-__n64  neon_uqshrn_16   (__n128, const int) {}
-__n128 neon_uqshrn2_16  (__n64, __n128, const int) {}
-__n64  neon_uqshrn_32   (__n128, const int) {}
-__n128 neon_uqshrn2_32  (__n64, __n128, const int) {}
-__n64  neon_uqshrn_64   (__n128, const int) {}
-__n128 neon_uqshrn2_64  (__n64, __n128, const int) {}
-__n64  neon_uqrshrn_16  (__n128, const int) {}
-__n128 neon_uqrshrn2_16 (__n64, __n128, const int) {}
-__n64  neon_uqrshrn_32  (__n128, const int) {}
-__n128 neon_uqrshrn2_32 (__n64, __n128, const int) {}
-__n64  neon_uqrshrn_64  (__n128, const int) {}
-__n128 neon_uqrshrn2_64 (__n64, __n128, const int) {}
-__n64  neon_sqshrun_16  (__n128, const int) {}
-__n128 neon_sqshrun2_16 (__n64, __n128, const int) {}
-__n64  neon_sqshrun_32  (__n128, const int) {}
-__n128 neon_sqshrun2_32 (__n64, __n128, const int) {}
-__n64  neon_sqshrun_64  (__n128, const int) {}
-__n128 neon_sqshrun2_64 (__n64, __n128, const int) {}
-__n64  neon_sqrshrun_16 (__n128, const int) {}
-__n128 neon_sqrshrun2_16(__n64, __n128, const int) {}
-__n64  neon_sqrshrun_32 (__n128, const int) {}
-__n128 neon_sqrshrun2_32(__n64, __n128, const int) {}
-__n64  neon_sqrshrun_64 (__n128, const int) {}
-__n128 neon_sqrshrun2_64(__n64, __n128, const int) {}
-__n8   neon_sqshrn_s16  (__n16, const int) {}
-__n16  neon_sqshrn_s32  (float, const int) {}
-float  neon_sqshrn_s64  (__n64, const int) {}
-__n8   neon_sqrshrn_s16 (__n16, const int) {}
-__n16  neon_sqrshrn_s32 (float, const int) {}
-float  neon_sqrshrn_s64 (__n64, const int) {}
-__n8   neon_uqshrn_s16  (__n16, const int) {}
-__n16  neon_uqshrn_s32  (float, const int) {}
-float  neon_uqshrn_s64  (__n64, const int) {}
-__n8   neon_uqrshrn_s16 (__n16, const int) {}
-__n16  neon_uqrshrn_s32 (float, const int) {}
-float  neon_uqrshrn_s64 (__n64, const int) {}
-__n8   neon_sqshrun_s16 (__n16, const int) {}
-__n16  neon_sqshrun_s32 (float, const int) {}
-float  neon_sqshrun_s64 (__n64, const int) {}
-__n8   neon_sqrshrun_s16(__n16, const int) {}
-__n16  neon_sqrshrun_s32(float, const int) {}
-float  neon_sqrshrun_s64(__n64, const int) {}
+__n64  neon_shrn_16     (__n128, const int);
+__n128 neon_shrn2_16    (__n64, __n128, const int);
+__n64  neon_shrn_32     (__n128, const int);
+__n128 neon_shrn2_32    (__n64, __n128, const int);
+__n64  neon_shrn_64     (__n128, const int);
+__n128 neon_shrn2_64    (__n64, __n128, const int);
+__n64  neon_rshrn_16    (__n128, const int);
+__n128 neon_rshrn2_16   (__n64, __n128, const int);
+__n64  neon_rshrn_32    (__n128, const int);
+__n128 neon_rshrn2_32   (__n64, __n128, const int);
+__n64  neon_rshrn_64    (__n128, const int);
+__n128 neon_rshrn2_64   (__n64, __n128, const int);
+__n64  neon_sqshrn_16   (__n128, const int);
+__n128 neon_sqshrn2_16  (__n64, __n128, const int);
+__n64  neon_sqshrn_32   (__n128, const int);
+__n128 neon_sqshrn2_32  (__n64, __n128, const int);
+__n64  neon_sqshrn_64   (__n128, const int);
+__n128 neon_sqshrn2_64  (__n64, __n128, const int);
+__n64  neon_sqrshrn_16  (__n128, const int);
+__n128 neon_sqrshrn2_16 (__n64, __n128, const int);
+__n64  neon_sqrshrn_32  (__n128, const int);
+__n128 neon_sqrshrn2_32 (__n64, __n128, const int);
+__n64  neon_sqrshrn_64  (__n128, const int);
+__n128 neon_sqrshrn2_64 (__n64, __n128, const int);
+__n64  neon_uqshrn_16   (__n128, const int);
+__n128 neon_uqshrn2_16  (__n64, __n128, const int);
+__n64  neon_uqshrn_32   (__n128, const int);
+__n128 neon_uqshrn2_32  (__n64, __n128, const int);
+__n64  neon_uqshrn_64   (__n128, const int);
+__n128 neon_uqshrn2_64  (__n64, __n128, const int);
+__n64  neon_uqrshrn_16  (__n128, const int);
+__n128 neon_uqrshrn2_16 (__n64, __n128, const int);
+__n64  neon_uqrshrn_32  (__n128, const int);
+__n128 neon_uqrshrn2_32 (__n64, __n128, const int);
+__n64  neon_uqrshrn_64  (__n128, const int);
+__n128 neon_uqrshrn2_64 (__n64, __n128, const int);
+__n64  neon_sqshrun_16  (__n128, const int);
+__n128 neon_sqshrun2_16 (__n64, __n128, const int);
+__n64  neon_sqshrun_32  (__n128, const int);
+__n128 neon_sqshrun2_32 (__n64, __n128, const int);
+__n64  neon_sqshrun_64  (__n128, const int);
+__n128 neon_sqshrun2_64 (__n64, __n128, const int);
+__n64  neon_sqrshrun_16 (__n128, const int);
+__n128 neon_sqrshrun2_16(__n64, __n128, const int);
+__n64  neon_sqrshrun_32 (__n128, const int);
+__n128 neon_sqrshrun2_32(__n64, __n128, const int);
+__n64  neon_sqrshrun_64 (__n128, const int);
+__n128 neon_sqrshrun2_64(__n64, __n128, const int);
+__n8   neon_sqshrn_s16  (__n16, const int);
+__n16  neon_sqshrn_s32  (float, const int);
+float  neon_sqshrn_s64  (__n64, const int);
+__n8   neon_sqrshrn_s16 (__n16, const int);
+__n16  neon_sqrshrn_s32 (float, const int);
+float  neon_sqrshrn_s64 (__n64, const int);
+__n8   neon_uqshrn_s16  (__n16, const int);
+__n16  neon_uqshrn_s32  (float, const int);
+float  neon_uqshrn_s64  (__n64, const int);
+__n8   neon_uqrshrn_s16 (__n16, const int);
+__n16  neon_uqrshrn_s32 (float, const int);
+float  neon_uqrshrn_s64 (__n64, const int);
+__n8   neon_sqshrun_s16 (__n16, const int);
+__n16  neon_sqshrun_s32 (float, const int);
+float  neon_sqshrun_s64 (__n64, const int);
+__n8   neon_sqrshrun_s16(__n16, const int);
+__n16  neon_sqrshrun_s32(float, const int);
+float  neon_sqrshrun_s64(__n64, const int);
 #define vshrn_n_s16(src1, src2) neon_shrn_16(src1, src2)
 #define vshrn_n_s32(src1, src2) neon_shrn_32(src1, src2)
 #define vshrn_n_s64(src1, src2) neon_shrn_64(src1, src2)
@@ -5117,42 +5117,42 @@ float  neon_sqrshrun_s64(__n64, const int) {}
 #define vqrshrunh_n_s64(src1, src2) neon_sqrshrun_s64(src1, src2)
 
 // ADDHN/RADDHN/SADDW/UADDW/SADDL/UADDL
-__n64  neon_addhn_16   (__n128, __n128) {}
-__n128 neon_addhn2_16  (__n64, __n128, __n128) {}
-__n64  neon_addhn_32   (__n128, __n128) {}
-__n128 neon_addhn2_32  (__n64, __n128, __n128) {}
-__n64  neon_addhn_64   (__n128, __n128) {}
-__n128 neon_addhn2_64  (__n64, __n128, __n128) {}
-__n64  neon_raddhn_16  (__n128, __n128) {}
-__n128 neon_raddhn2_16 (__n64, __n128, __n128) {}
-__n64  neon_raddhn_32  (__n128, __n128) {}
-__n128 neon_raddhn2_32 (__n64, __n128, __n128) {}
-__n64  neon_raddhn_64  (__n128, __n128) {}
-__n128 neon_raddhn2_64 (__n64, __n128, __n128) {}
-__n128 neon_saddw_8    (__n128, __n64) {}
-__n128 neon_saddw2_8   (__n128, __n128) {}
-__n128 neon_saddw_16   (__n128, __n64) {}
-__n128 neon_saddw2_16  (__n128, __n128) {}
-__n128 neon_saddw_32   (__n128, __n64) {}
-__n128 neon_saddw2_32  (__n128, __n128) {}
-__n128 neon_uaddw_8    (__n128, __n64) {}
-__n128 neon_uaddw2_8   (__n128, __n128) {}
-__n128 neon_uaddw_16   (__n128, __n64) {}
-__n128 neon_uaddw2_16  (__n128, __n128) {}
-__n128 neon_uaddw_32   (__n128, __n64) {}
-__n128 neon_uaddw2_32  (__n128, __n128) {}
-__n128 neon_saddl_8    (__n64, __n64) {}
-__n128 neon_saddl2_8   (__n128, __n128) {}
-__n128 neon_saddl_16   (__n64, __n64) {}
-__n128 neon_saddl2_16  (__n128, __n128) {}
-__n128 neon_saddl_32   (__n64, __n64) {}
-__n128 neon_saddl2_32  (__n128, __n128) {}
-__n128 neon_uaddl_8    (__n64, __n64) {}
-__n128 neon_uaddl2_8   (__n128, __n128) {}
-__n128 neon_uaddl_16   (__n64, __n64) {}
-__n128 neon_uaddl2_16  (__n128, __n128) {}
-__n128 neon_uaddl_32   (__n64, __n64) {}
-__n128 neon_uaddl2_32  (__n128, __n128) {}
+__n64  neon_addhn_16   (__n128, __n128);
+__n128 neon_addhn2_16  (__n64, __n128, __n128);
+__n64  neon_addhn_32   (__n128, __n128);
+__n128 neon_addhn2_32  (__n64, __n128, __n128);
+__n64  neon_addhn_64   (__n128, __n128);
+__n128 neon_addhn2_64  (__n64, __n128, __n128);
+__n64  neon_raddhn_16  (__n128, __n128);
+__n128 neon_raddhn2_16 (__n64, __n128, __n128);
+__n64  neon_raddhn_32  (__n128, __n128);
+__n128 neon_raddhn2_32 (__n64, __n128, __n128);
+__n64  neon_raddhn_64  (__n128, __n128);
+__n128 neon_raddhn2_64 (__n64, __n128, __n128);
+__n128 neon_saddw_8    (__n128, __n64);
+__n128 neon_saddw2_8   (__n128, __n128);
+__n128 neon_saddw_16   (__n128, __n64);
+__n128 neon_saddw2_16  (__n128, __n128);
+__n128 neon_saddw_32   (__n128, __n64);
+__n128 neon_saddw2_32  (__n128, __n128);
+__n128 neon_uaddw_8    (__n128, __n64);
+__n128 neon_uaddw2_8   (__n128, __n128);
+__n128 neon_uaddw_16   (__n128, __n64);
+__n128 neon_uaddw2_16  (__n128, __n128);
+__n128 neon_uaddw_32   (__n128, __n64);
+__n128 neon_uaddw2_32  (__n128, __n128);
+__n128 neon_saddl_8    (__n64, __n64);
+__n128 neon_saddl2_8   (__n128, __n128);
+__n128 neon_saddl_16   (__n64, __n64);
+__n128 neon_saddl2_16  (__n128, __n128);
+__n128 neon_saddl_32   (__n64, __n64);
+__n128 neon_saddl2_32  (__n128, __n128);
+__n128 neon_uaddl_8    (__n64, __n64);
+__n128 neon_uaddl2_8   (__n128, __n128);
+__n128 neon_uaddl_16   (__n64, __n64);
+__n128 neon_uaddl2_16  (__n128, __n128);
+__n128 neon_uaddl_32   (__n64, __n64);
+__n128 neon_uaddl2_32  (__n128, __n128);
 #define vaddhn_s16(src1, src2) neon_addhn_16(src1, src2)
 #define vaddhn_s32(src1, src2) neon_addhn_32(src1, src2)
 #define vaddhn_s64(src1, src2) neon_addhn_64(src1, src2)
@@ -5203,42 +5203,42 @@ __n128 neon_uaddl2_32  (__n128, __n128) {}
 #define vaddl_high_u32(src1, src2) neon_uaddl2_32(src1, src2)
 
 // SUBHN/RSUBHN/SSUBW/USUBW/SSUBL/USUBL
-__n64  neon_subhn_16(__n128, __n128) {}
-__n128 neon_subhn2_16(__n64, __n128, __n128) {}
-__n64  neon_subhn_32(__n128, __n128) {}
-__n128 neon_subhn2_32(__n64, __n128, __n128) {}
-__n64  neon_subhn_64(__n128, __n128) {}
-__n128 neon_subhn2_64(__n64, __n128, __n128) {}
-__n64  neon_rsubhn_16(__n128, __n128) {}
-__n128 neon_rsubhn2_16(__n64, __n128, __n128) {}
-__n64  neon_rsubhn_32(__n128, __n128) {}
-__n128 neon_rsubhn2_32(__n64, __n128, __n128) {}
-__n64  neon_rsubhn_64(__n128, __n128) {}
-__n128 neon_rsubhn2_64(__n64, __n128, __n128) {}
-__n128 neon_ssubw_8(__n128, __n64) {}
-__n128 neon_ssubw2_8(__n128, __n128) {}
-__n128 neon_ssubw_16(__n128, __n64) {}
-__n128 neon_ssubw2_16(__n128, __n128) {}
-__n128 neon_ssubw_32(__n128, __n64) {}
-__n128 neon_ssubw2_32(__n128, __n128) {}
-__n128 neon_usubw_8(__n128, __n64) {}
-__n128 neon_usubw2_8(__n128, __n128) {}
-__n128 neon_usubw_16(__n128, __n64) {}
-__n128 neon_usubw2_16(__n128, __n128) {}
-__n128 neon_usubw_32(__n128, __n64) {}
-__n128 neon_usubw2_32(__n128, __n128) {}
-__n128 neon_ssubl_8(__n64, __n64) {}
-__n128 neon_ssubl2_8(__n128, __n128) {}
-__n128 neon_ssubl_16(__n64, __n64) {}
-__n128 neon_ssubl2_16(__n128, __n128) {}
-__n128 neon_ssubl_32(__n64, __n64) {}
-__n128 neon_ssubl2_32(__n128, __n128) {}
-__n128 neon_usubl_8(__n64, __n64) {}
-__n128 neon_usubl2_8(__n128, __n128) {}
-__n128 neon_usubl_16(__n64, __n64) {}
-__n128 neon_usubl2_16(__n128, __n128) {}
-__n128 neon_usubl_32(__n64, __n64) {}
-__n128 neon_usubl2_32(__n128, __n128) {}
+__n64  neon_subhn_16(__n128, __n128);
+__n128 neon_subhn2_16(__n64, __n128, __n128);
+__n64  neon_subhn_32(__n128, __n128);
+__n128 neon_subhn2_32(__n64, __n128, __n128);
+__n64  neon_subhn_64(__n128, __n128);
+__n128 neon_subhn2_64(__n64, __n128, __n128);
+__n64  neon_rsubhn_16(__n128, __n128);
+__n128 neon_rsubhn2_16(__n64, __n128, __n128);
+__n64  neon_rsubhn_32(__n128, __n128);
+__n128 neon_rsubhn2_32(__n64, __n128, __n128);
+__n64  neon_rsubhn_64(__n128, __n128);
+__n128 neon_rsubhn2_64(__n64, __n128, __n128);
+__n128 neon_ssubw_8(__n128, __n64);
+__n128 neon_ssubw2_8(__n128, __n128);
+__n128 neon_ssubw_16(__n128, __n64);
+__n128 neon_ssubw2_16(__n128, __n128);
+__n128 neon_ssubw_32(__n128, __n64);
+__n128 neon_ssubw2_32(__n128, __n128);
+__n128 neon_usubw_8(__n128, __n64);
+__n128 neon_usubw2_8(__n128, __n128);
+__n128 neon_usubw_16(__n128, __n64);
+__n128 neon_usubw2_16(__n128, __n128);
+__n128 neon_usubw_32(__n128, __n64);
+__n128 neon_usubw2_32(__n128, __n128);
+__n128 neon_ssubl_8(__n64, __n64);
+__n128 neon_ssubl2_8(__n128, __n128);
+__n128 neon_ssubl_16(__n64, __n64);
+__n128 neon_ssubl2_16(__n128, __n128);
+__n128 neon_ssubl_32(__n64, __n64);
+__n128 neon_ssubl2_32(__n128, __n128);
+__n128 neon_usubl_8(__n64, __n64);
+__n128 neon_usubl2_8(__n128, __n128);
+__n128 neon_usubl_16(__n64, __n64);
+__n128 neon_usubl2_16(__n128, __n128);
+__n128 neon_usubl_32(__n64, __n64);
+__n128 neon_usubl2_32(__n128, __n128);
 #define vsubhn_s16(src1, src2) neon_subhn_16(src1, src2)
 #define vsubhn_s32(src1, src2) neon_subhn_32(src1, src2)
 #define vsubhn_s64(src1, src2) neon_subhn_64(src1, src2)
@@ -5289,30 +5289,30 @@ __n128 neon_usubl2_32(__n128, __n128) {}
 #define vsubl_high_u32(src1, src2) neon_usubl2_32(src1, src2)
 
 // SABAL/UABAL/SABDL/UABDL
-__n128 neon_sabal_8  (__n128, __n64, __n64) {}
-__n128 neon_sabal2_8 (__n128, __n128, __n128) {}
-__n128 neon_sabal_16 (__n128, __n64, __n64) {}
-__n128 neon_sabal2_16(__n128, __n128, __n128) {}
-__n128 neon_sabal_32 (__n128, __n64, __n64) {}
-__n128 neon_sabal2_32(__n128, __n128, __n128) {}
-__n128 neon_uabal_8  (__n128, __n64, __n64) {}
-__n128 neon_uabal2_8 (__n128, __n128, __n128) {}
-__n128 neon_uabal_16 (__n128, __n64, __n64) {}
-__n128 neon_uabal2_16(__n128, __n128, __n128) {}
-__n128 neon_uabal_32 (__n128, __n64, __n64) {}
-__n128 neon_uabal2_32(__n128, __n128, __n128) {}
-__n128 neon_sabdl_8  (__n64, __n64) {}
-__n128 neon_sabdl2_8 (__n128, __n128) {}
-__n128 neon_sabdl_16 (__n64, __n64) {}
-__n128 neon_sabdl2_16(__n128, __n128) {}
-__n128 neon_sabdl_32 (__n64, __n64) {}
-__n128 neon_sabdl2_32(__n128, __n128) {}
-__n128 neon_uabdl_8  (__n64, __n64) {}
-__n128 neon_uabdl2_8 (__n128, __n128) {}
-__n128 neon_uabdl_16 (__n64, __n64) {}
-__n128 neon_uabdl2_16(__n128, __n128) {}
-__n128 neon_uabdl_32 (__n64, __n64) {}
-__n128 neon_uabdl2_32(__n128, __n128) {}
+__n128 neon_sabal_8  (__n128, __n64, __n64);
+__n128 neon_sabal2_8 (__n128, __n128, __n128);
+__n128 neon_sabal_16 (__n128, __n64, __n64);
+__n128 neon_sabal2_16(__n128, __n128, __n128);
+__n128 neon_sabal_32 (__n128, __n64, __n64);
+__n128 neon_sabal2_32(__n128, __n128, __n128);
+__n128 neon_uabal_8  (__n128, __n64, __n64);
+__n128 neon_uabal2_8 (__n128, __n128, __n128);
+__n128 neon_uabal_16 (__n128, __n64, __n64);
+__n128 neon_uabal2_16(__n128, __n128, __n128);
+__n128 neon_uabal_32 (__n128, __n64, __n64);
+__n128 neon_uabal2_32(__n128, __n128, __n128);
+__n128 neon_sabdl_8  (__n64, __n64);
+__n128 neon_sabdl2_8 (__n128, __n128);
+__n128 neon_sabdl_16 (__n64, __n64);
+__n128 neon_sabdl2_16(__n128, __n128);
+__n128 neon_sabdl_32 (__n64, __n64);
+__n128 neon_sabdl2_32(__n128, __n128);
+__n128 neon_uabdl_8  (__n64, __n64);
+__n128 neon_uabdl2_8 (__n128, __n128);
+__n128 neon_uabdl_16 (__n64, __n64);
+__n128 neon_uabdl2_16(__n128, __n128);
+__n128 neon_uabdl_32 (__n64, __n64);
+__n128 neon_uabdl2_32(__n128, __n128);
 #define vabal_s8(src1, src2, src3) neon_sabal_8(src1, src2, src3)
 #define vabal_s16(src1, src2, src3) neon_sabal_16(src1, src2, src3)
 #define vabal_s32(src1, src2, src3) neon_sabal_32(src1, src2, src3)
@@ -5383,7 +5383,7 @@ __n128 neon_uabdl2_32(__n128, __n128) {}
 #define vcombine_f64(low, high) neon_insqr64(neon_dupqr64(vget_lane_u64(low, 0)), 1, vget_lane_u64(high, 0))
 
 // VCREATE
-__n64 vcreate(uint64_t src) {}
+__n64 vcreate(uint64_t src);
 #define vcreate_s8(src) vcreate(src)
 #define vcreate_s16(src) vcreate(src)
 #define vcreate_s32(src) vcreate(src)
